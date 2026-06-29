@@ -70,10 +70,31 @@
       <radialGradient id="vign" cx="0.5" cy="0.42" r="0.75">
         <stop offset="0.6" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.16"/>
       </radialGradient>
+      <radialGradient id="wallLight" cx="0.5" cy="0.05" r="0.95">
+        <stop offset="0" stop-color="#fdf6e6" stop-opacity="0.65"/><stop offset="1" stop-color="#fdf6e6" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="shelfShade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#000000" stop-opacity="0.34"/>
+        <stop offset="0.16" stop-color="#000000" stop-opacity="0.05"/>
+        <stop offset="0.58" stop-color="#000000" stop-opacity="0"/>
+        <stop offset="1" stop-color="#000000" stop-opacity="0.32"/>
+      </linearGradient>
+      <linearGradient id="spine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#000000" stop-opacity="0.30"/>
+        <stop offset="0.16" stop-color="#000000" stop-opacity="0"/>
+        <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.16"/>
+        <stop offset="0.84" stop-color="#000000" stop-opacity="0"/>
+        <stop offset="1" stop-color="#000000" stop-opacity="0.32"/>
+      </linearGradient>
+      <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0.36"/>
+        <stop offset="0.42" stop-color="#ffffff" stop-opacity="0.05"/>
+        <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
 
       <filter id="grain" x="-5%" y="-5%" width="110%" height="110%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.018 0.7" numOctaves="3" seed="9" result="t"/>
-        <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.18  0 0 0 0 0.10  0 0 0 0 0.04  0 0 0 0.22 0"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.013 0.45" numOctaves="4" seed="9" result="t"/>
+        <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.16  0 0 0 0 0.09  0 0 0 0 0.03  0 0 0 0.34 0"/>
       </filter>
       <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
         <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#2e2012" flood-opacity="0.30"/>
@@ -85,6 +106,7 @@
 
     <!-- wall -->
     <rect x="0" y="0" width="1000" height="1020" fill="url(#wall)"/>
+    <rect x="0" y="0" width="1000" height="1020" fill="url(#wallLight)" pointer-events="none"/>
 
     <!-- ===================== TOP OF THE BOOKCASE: objects ===================== -->
     <!-- Letters / Email (left) -->
@@ -125,9 +147,12 @@
       <title>Zelia Lerch</title>
       <g class="art" filter="url(#soft)">
         <rect x="496" y="118" width="150" height="184" rx="6" fill="url(#frame)" stroke="#6f521f" stroke-width="2"/>
+        <rect x="500" y="122" width="142" height="176" rx="4" fill="none" stroke="#f0d49a" stroke-opacity="0.7" stroke-width="1.5"/>
         <rect x="510" y="132" width="122" height="156" rx="2" fill="#efe7d6"/>
         <clipPath id="photoClip"><rect x="510" y="132" width="122" height="156" rx="2"/></clipPath>
         <image href="photo.jpg" xlink:href="photo.jpg" x="510" y="132" width="122" height="156" preserveAspectRatio="xMidYMid slice" clip-path="url(#photoClip)"/>
+        <rect x="510" y="132" width="122" height="156" rx="2" fill="none" stroke="#000000" stroke-opacity="0.28" stroke-width="2"/>
+        <polygon points="510,132 566,132 510,266" fill="url(#glass)" clip-path="url(#photoClip)" pointer-events="none"/>
       </g>
     </g>
 
@@ -141,6 +166,8 @@
         <path d="M704 196 h36 v18 a18 18 0 0 1 -36 0 Z" fill="url(#gold)" stroke="#8f6a22"/>
         <path d="M704 200 c-16 0 -16 26 6 30" fill="none" stroke="#caa040" stroke-width="5"/>
         <path d="M740 200 c16 0 16 26 -6 30" fill="none" stroke="#caa040" stroke-width="5"/>
+        <path d="M710 200 q-5 13 1 25" fill="none" stroke="#fff6dc" stroke-opacity="0.65" stroke-width="3" stroke-linecap="round"/>
+        <rect x="718" y="238" width="3" height="34" fill="#fff6dc" opacity="0.4"/>
         <text x="722" y="214" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="13" fill="#7a5a18">in</text>
       </g>
       <text class="lbl" x="722" y="178">LinkedIn</text>
@@ -168,7 +195,9 @@
     <!-- ===================== THE BOOKCASE ===================== -->
     <!-- top slab the objects rest on -->
     <rect x="70" y="302" width="860" height="22" rx="3" fill="url(#woodTop)"/>
+    <rect x="70" y="302" width="860" height="3" rx="2" fill="#edc78f" opacity="0.65"/>
     <rect x="70" y="322" width="860" height="20" fill="url(#woodFront)"/>
+    <rect x="70" y="322" width="860" height="2" fill="#3a2410" opacity="0.5"/>
     <!-- brass nameplate on the slab front -->
     <rect x="430" y="324" width="160" height="16" rx="2" fill="url(#gold)" stroke="#8f6a22"/>
     <text x="510" y="336" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing="2" fill="#5e4715">ZELIA LERCH</text>
@@ -176,9 +205,18 @@
     <!-- carcass: sides + back -->
     <rect x="70" y="342" width="860" height="678" fill="url(#woodSide)"/>
     <rect x="96" y="342" width="808" height="660" fill="url(#back)"/>
+    <!-- back-panel plank seams -->
+    <g stroke="#2c1c0d" stroke-opacity="0.4" stroke-width="2">
+      <line x1="300" y1="342" x2="300" y2="1002"/>
+      <line x1="500" y1="342" x2="500" y2="1002"/>
+      <line x1="700" y1="342" x2="700" y2="1002"/>
+    </g>
     <!-- grain overlay -->
-    <rect x="70" y="302" width="860" height="718" fill="#000" opacity="0.5" filter="url(#grain)"/>
+    <rect x="70" y="302" width="860" height="718" opacity="0.9" filter="url(#grain)"/>
     <rect x="96" y="342" width="808" height="660" fill="url(#vign)"/>
+    <!-- inner edge shadow where the sides meet the back -->
+    <rect x="96" y="342" width="14" height="660" fill="#000" opacity="0.22"/>
+    <rect x="890" y="342" width="14" height="660" fill="#000" opacity="0.22"/>
 
     <!-- ===== SHELF 1 : the four sections ===== -->
     <!-- decorative thin books (left) -->
@@ -193,7 +231,8 @@
       <title>Writing — short stories &amp; essays</title>
       <g class="art" filter="url(#softbook)">
         <rect x="184" y="356" width="50" height="204" rx="3" fill="#c25b73"/>
-        <rect x="190" y="364" width="2" height="188" fill="#ffffff" opacity="0.18"/>
+        <rect x="184" y="356" width="50" height="204" rx="3" fill="url(#spine)"/>
+        <rect x="184" y="356" width="50" height="4" rx="2" fill="#ffffff" opacity="0.28"/>
         <text x="209" y="372" transform="rotate(90 209 372)" font-family="var(--display)" font-weight="600" font-size="22" fill="#fff">Writing</text>
       </g>
     </a>
@@ -202,7 +241,8 @@
       <title>Knitting — what's on the needles</title>
       <g class="art" filter="url(#softbook)">
         <rect x="238" y="372" width="48" height="188" rx="3" fill="#c0922f"/>
-        <rect x="244" y="380" width="2" height="172" fill="#ffffff" opacity="0.18"/>
+        <rect x="238" y="372" width="48" height="188" rx="3" fill="url(#spine)"/>
+        <rect x="238" y="372" width="48" height="4" rx="2" fill="#ffffff" opacity="0.28"/>
         <text x="262" y="388" transform="rotate(90 262 388)" font-family="var(--display)" font-weight="600" font-size="21" fill="#fff">Knitting</text>
       </g>
     </a>
@@ -211,7 +251,8 @@
       <title>Reading — books she's in right now</title>
       <g class="art" filter="url(#softbook)">
         <rect x="290" y="350" width="54" height="210" rx="3" fill="#5f9072"/>
-        <rect x="297" y="358" width="2" height="194" fill="#ffffff" opacity="0.18"/>
+        <rect x="290" y="350" width="54" height="210" rx="3" fill="url(#spine)"/>
+        <rect x="290" y="350" width="54" height="4" rx="2" fill="#ffffff" opacity="0.28"/>
         <text x="317" y="366" transform="rotate(90 317 366)" font-family="var(--display)" font-weight="600" font-size="23" fill="#fff">Reading</text>
       </g>
     </a>
@@ -220,7 +261,8 @@
       <title>Things I saw — pictures, nothing fancy</title>
       <g class="art" filter="url(#softbook)">
         <rect x="348" y="366" width="50" height="194" rx="3" fill="#5f72a6"/>
-        <rect x="354" y="374" width="2" height="178" fill="#ffffff" opacity="0.18"/>
+        <rect x="348" y="366" width="50" height="194" rx="3" fill="url(#spine)"/>
+        <rect x="348" y="366" width="50" height="4" rx="2" fill="#ffffff" opacity="0.28"/>
         <text x="372" y="382" transform="rotate(90 372 382)" font-family="var(--display)" font-weight="600" font-size="19" fill="#fff">Things I saw</text>
       </g>
     </a>
@@ -248,8 +290,10 @@
       <path d="M840 516 q30 -44 46 -6 q-28 -8 -46 6" fill="#6f9a6f"/>
       <path d="M840 516 q2 -46 14 -52 q-2 30 -14 52" fill="#79a779"/>
     </g>
-    <!-- shelf 1 ledge -->
+    <!-- shelf 1 shading + ledge -->
+    <rect x="96" y="342" width="808" height="218" fill="url(#shelfShade)" pointer-events="none"/>
     <rect x="78" y="560" width="844" height="16" rx="3" fill="url(#ledge)"/>
+    <rect x="78" y="560" width="844" height="2.5" fill="#edc78f" opacity="0.7"/>
     <rect x="78" y="576" width="844" height="6" fill="#000" opacity="0.18"/>
 
     <!-- ===== SHELF 2 : a peek to show it keeps scrolling ===== -->
@@ -275,7 +319,9 @@
       <rect x="784" y="664" width="44" height="172" rx="3" fill="#9a4a3a"/>
       <rect x="828" y="690" width="56" height="146" rx="3" fill="#5f9072" transform="rotate(-9 856 763)"/>
     </g>
+    <rect x="96" y="582" width="808" height="254" fill="url(#shelfShade)" pointer-events="none"/>
     <rect x="78" y="836" width="844" height="16" rx="3" fill="url(#ledge)"/>
+    <rect x="78" y="836" width="844" height="2.5" fill="#edc78f" opacity="0.7"/>
     <rect x="78" y="852" width="844" height="6" fill="#000" opacity="0.18"/>
 
     <!-- a third shelf, fading, to imply scrolling continues -->
@@ -288,6 +334,7 @@
       <rect x="640" y="906" width="24" height="98" rx="2" fill="#2f3a44"/>
       <rect x="784" y="912" width="44" height="92" rx="3" fill="#9a4a3a"/>
     </g>
+    <rect x="96" y="858" width="808" height="150" fill="url(#shelfShade)" pointer-events="none"/>
     <rect x="0" y="940" width="1000" height="80" fill="url(#wall)" opacity="0.85"/>
     <text x="500" y="1000" text-anchor="middle" font-family="var(--body)" font-style="italic" font-size="16" fill="#8a7c62">↓ keep scrolling — more shelves below</text>
   </svg>
