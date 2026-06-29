@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview A2 — Option 1 at maximum detail</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#e6dcc6;font-family:'Newsreader',Georgia,serif;color:#2c2316;}
+  .head{max-width:820px;margin:0 auto;padding:22px 24px 6px;}
+  .head h1{font-family:'Fraunces',serif;font-size:22px;margin:0 0 2px;}
+  .head p{margin:0;color:#7a6c52;font-style:italic;font-size:14px;}
+  .stage{max-width:820px;margin:0 auto;padding:8px 16px 48px;}
+  svg{width:100%;height:auto;display:block;}
+</style>
+</head>
+<body>
+  <div class="head">
+    <h1>Option 1 — pushed to maximum detail</h1>
+    <p>Recessed shelf depth, lit wood grain, cloth/leather/paperback spines, raised bands, gold-foil titles, page edges, shadows between books.</p>
+  </div>
+  <div class="stage">
+  <svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe6d2"/><stop offset="1" stop-color="#ddd0b6"/></linearGradient>
+      <linearGradient id="frameW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b07c43"/><stop offset="1" stop-color="#7a4f25"/></linearGradient>
+      <linearGradient id="floorW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a5a30"/><stop offset="1" stop-color="#a8723e"/></linearGradient>
+      <linearGradient id="ceilW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d2814"/><stop offset="1" stop-color="#523620"/></linearGradient>
+      <linearGradient id="backW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3c20"/><stop offset="1" stop-color="#6b4828"/></linearGradient>
+      <linearGradient id="sideL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a2613"/><stop offset="1" stop-color="#5a3c20"/></linearGradient>
+      <linearGradient id="sideR" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5a3c20"/><stop offset="1" stop-color="#34220f"/></linearGradient>
+      <!-- cylindrical spine shading -->
+      <linearGradient id="round" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#000" stop-opacity="0.42"/>
+        <stop offset="0.10" stop-color="#000" stop-opacity="0.12"/>
+        <stop offset="0.34" stop-color="#fff" stop-opacity="0.10"/>
+        <stop offset="0.5" stop-color="#fff" stop-opacity="0.22"/>
+        <stop offset="0.66" stop-color="#fff" stop-opacity="0.08"/>
+        <stop offset="0.9" stop-color="#000" stop-opacity="0.18"/>
+        <stop offset="1" stop-color="#000" stop-opacity="0.46"/>
+      </linearGradient>
+      <linearGradient id="foil" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fbe7ad"/><stop offset="0.5" stop-color="#e6c46a"/><stop offset="1" stop-color="#b9923c"/>
+      </linearGradient>
+      <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbe7a6"/><stop offset="0.5" stop-color="#d7ab48"/><stop offset="1" stop-color="#9c7327"/></linearGradient>
+
+      <filter id="cloth" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.85 0.9" numOctaves="2" seed="5" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.07 0"/><feComposite in2="SourceGraphic" operator="over"/></filter>
+      <filter id="leather" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="4" seed="8" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.14 0"/><feComposite in2="SourceGraphic" operator="over"/></filter>
+      <filter id="paper" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.55 0.04" numOctaves="2" seed="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0"/><feComposite in2="SourceGraphic" operator="over"/></filter>
+      <filter id="wgrainD" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.05" numOctaves="6" seed="11" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.16 0"/></filter>
+      <filter id="wgrainL" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.05" numOctaves="6" seed="17" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 0.85  0 0 0 0 0.6  0 0 0 0.10 0"/></filter>
+      <filter id="blur2"><feGaussianBlur stdDeviation="3"/></filter>
+      <filter id="blur5"><feGaussianBlur stdDeviation="6"/></filter>
+      <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#241a0e" flood-opacity="0.4"/></filter>
+    </defs>
+
+    <rect x="0" y="0" width="760" height="430" fill="url(#wall)"/>
+
+    <!-- outer wood frame -->
+    <rect x="52" y="52" width="656" height="336" rx="6" fill="url(#frameW)"/>
+    <rect x="52" y="52" width="656" height="336" rx="6" fill="#000" filter="url(#wgrainD)" opacity="0.9"/>
+    <rect x="52" y="52" width="656" height="336" rx="6" filter="url(#wgrainL)" opacity="0.7"/>
+    <rect x="52" y="52" width="656" height="4" rx="3" fill="#e7c08a" opacity="0.55"/>
+
+    <!-- ===== recessed box (2.5D depth) ===== -->
+    <!-- ceiling (underside of top board) -->
+    <polygon points="80,80 680,80 638,104 122,104" fill="url(#ceilW)"/>
+    <!-- left inner wall -->
+    <polygon points="80,80 122,104 122,334 80,360" fill="url(#sideL)"/>
+    <!-- right inner wall -->
+    <polygon points="680,80 638,104 638,334 680,360" fill="url(#sideR)"/>
+    <!-- back panel -->
+    <rect x="122" y="104" width="516" height="230" fill="url(#backW)"/>
+    <rect x="122" y="104" width="516" height="230" fill="#000" filter="url(#wgrainD)" opacity="0.8"/>
+    <line x1="290" y1="104" x2="290" y2="334" stroke="#2c1c0d" stroke-opacity="0.4" stroke-width="2"/>
+    <line x1="470" y1="104" x2="470" y2="334" stroke="#2c1c0d" stroke-opacity="0.4" stroke-width="2"/>
+    <!-- floor (shelf surface) -->
+    <polygon points="80,360 680,360 638,334 122,334" fill="url(#floorW)"/>
+    <polygon points="80,360 680,360 638,334 122,334" fill="#000" filter="url(#wgrainD)" opacity="0.7"/>
+    <!-- ambient occlusion: darken back corners -->
+    <polygon points="122,104 638,104 638,140 122,140" fill="#000" opacity="0.28" filter="url(#blur5)"/>
+    <polygon points="122,104 158,104 158,334 122,334" fill="#000" opacity="0.3" filter="url(#blur5)"/>
+    <polygon points="602,104 638,104 638,334 602,334" fill="#000" opacity="0.24" filter="url(#blur5)"/>
+
+    <!-- ===================== BOOKS (baseline y≈352) ===================== -->
+    <!-- decorative leather, small -->
+    <g transform="translate(150,352)">
+      <ellipse cx="13" cy="3" rx="20" ry="6" fill="#000" opacity="0.34" filter="url(#blur2)"/>
+      <rect x="0" y="-178" width="26" height="178" rx="3" fill="#6b6f4a" filter="url(#leather)"/>
+      <rect x="0" y="-178" width="26" height="178" rx="3" fill="url(#round)"/>
+      <rect x="0" y="-178" width="26" height="4" fill="#e9dfc4" opacity="0.8"/>
+      <rect x="0" y="-150" width="26" height="3" fill="#000" opacity="0.22"/><rect x="0" y="-147" width="26" height="1.5" fill="#fff" opacity="0.25"/>
+      <rect x="0" y="-44" width="26" height="3" fill="#000" opacity="0.22"/><rect x="0" y="-41" width="26" height="1.5" fill="#fff" opacity="0.2"/>
+      <rect x="24" y="-178" width="2" height="178" fill="#000" opacity="0.25"/>
+    </g>
+    <!-- cloth thin -->
+    <g transform="translate(176,352)">
+      <ellipse cx="11" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/>
+      <rect x="0" y="-166" width="22" height="166" rx="2" fill="#7d4a3b" filter="url(#cloth)"/>
+      <rect x="0" y="-166" width="22" height="166" rx="2" fill="url(#round)"/>
+      <rect x="0" y="-166" width="22" height="3" fill="#1c120a" opacity="0.4"/>
+      <rect x="20" y="-166" width="2" height="166" fill="#000" opacity="0.24"/>
+    </g>
+    <!-- Writing: paperback w/ foil -->
+    <g transform="translate(198,352)">
+      <ellipse cx="23" cy="4" rx="30" ry="7" fill="#000" opacity="0.36" filter="url(#blur2)"/>
+      <rect x="0" y="-208" width="46" height="208" rx="3" fill="#c25b73" filter="url(#paper)"/>
+      <rect x="0" y="-208" width="46" height="208" rx="3" fill="url(#round)"/>
+      <rect x="0" y="-208" width="46" height="5" fill="#efe6d2" opacity="0.85"/>
+      <rect x="5" y="-150" width="36" height="2" fill="url(#foil)"/><rect x="5" y="-60" width="36" height="2" fill="url(#foil)"/>
+      <text x="23" y="-196" transform="rotate(90 23 -196)" font-family="Fraunces,serif" font-weight="700" font-size="20" fill="url(#foil)">Writing</text>
+      <rect x="0" y="-208" width="2" height="208" fill="#fff" opacity="0.16"/><rect x="44" y="-208" width="2" height="208" fill="#000" opacity="0.26"/>
+    </g>
+    <!-- Knitting: cloth w/ foil -->
+    <g transform="translate(244,352)">
+      <ellipse cx="21" cy="4" rx="28" ry="7" fill="#000" opacity="0.36" filter="url(#blur2)"/>
+      <rect x="0" y="-192" width="42" height="192" rx="3" fill="#c0922f" filter="url(#cloth)"/>
+      <rect x="0" y="-192" width="42" height="192" rx="3" fill="url(#round)"/>
+      <rect x="0" y="-192" width="42" height="5" fill="#e9dfc4" opacity="0.8"/>
+      <rect x="4" y="-138" width="34" height="2" fill="url(#foil)"/><rect x="4" y="-58" width="34" height="2" fill="url(#foil)"/>
+      <text x="21" y="-180" transform="rotate(90 21 -180)" font-family="Fraunces,serif" font-weight="700" font-size="19" fill="url(#foil)">Knitting</text>
+      <rect x="0" y="-192" width="2" height="192" fill="#fff" opacity="0.14"/><rect x="40" y="-192" width="2" height="192" fill="#000" opacity="0.26"/>
+    </g>
+    <!-- Reading: leather hardcover w/ raised bands + foil -->
+    <g transform="translate(286,352)">
+      <ellipse cx="25" cy="4" rx="32" ry="7" fill="#000" opacity="0.38" filter="url(#blur2)"/>
+      <rect x="0" y="-216" width="50" height="216" rx="3" fill="#5f9072" filter="url(#leather)"/>
+      <rect x="0" y="-216" width="50" height="216" rx="3" fill="url(#round)"/>
+      <rect x="0" y="-216" width="50" height="6" fill="#efe6d2" opacity="0.85"/>
+      <!-- raised bands -->
+      <rect x="0" y="-168" width="50" height="6" fill="#4c755b"/><rect x="0" y="-169" width="50" height="1.5" fill="#fff" opacity="0.28"/><rect x="0" y="-162" width="50" height="1.5" fill="#000" opacity="0.3"/>
+      <rect x="0" y="-58" width="50" height="6" fill="#4c755b"/><rect x="0" y="-59" width="50" height="1.5" fill="#fff" opacity="0.28"/><rect x="0" y="-52" width="50" height="1.5" fill="#000" opacity="0.3"/>
+      <text x="25" y="-202" transform="rotate(90 25 -202)" font-family="Fraunces,serif" font-weight="700" font-size="21" fill="url(#foil)">Reading</text>
+      <rect x="0" y="-216" width="2" height="216" fill="#fff" opacity="0.16"/><rect x="48" y="-216" width="2" height="216" fill="#000" opacity="0.28"/>
+    </g>
+    <!-- Things I saw: paperback w/ foil -->
+    <g transform="translate(336,352)">
+      <ellipse cx="22" cy="4" rx="29" ry="7" fill="#000" opacity="0.36" filter="url(#blur2)"/>
+      <rect x="0" y="-198" width="44" height="198" rx="3" fill="#5f72a6" filter="url(#paper)"/>
+      <rect x="0" y="-198" width="44" height="198" rx="3" fill="url(#round)"/>
+      <rect x="0" y="-198" width="44" height="5" fill="#efe6d2" opacity="0.82"/>
+      <rect x="5" y="-144" width="34" height="2" fill="url(#foil)"/><rect x="5" y="-56" width="34" height="2" fill="url(#foil)"/>
+      <text x="22" y="-186" transform="rotate(90 22 -186)" font-family="Fraunces,serif" font-weight="600" font-size="15" fill="url(#foil)">Things I saw</text>
+      <rect x="0" y="-198" width="2" height="198" fill="#fff" opacity="0.14"/><rect x="42" y="-198" width="2" height="198" fill="#000" opacity="0.26"/>
+    </g>
+    <!-- cloth -->
+    <g transform="translate(380,352)">
+      <ellipse cx="11" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/>
+      <rect x="0" y="-172" width="22" height="172" rx="2" fill="#4a5a7a" filter="url(#cloth)"/>
+      <rect x="0" y="-172" width="22" height="172" rx="2" fill="url(#round)"/>
+      <rect x="0" y="-172" width="22" height="4" fill="#e9dfc4" opacity="0.7"/>
+      <rect x="20" y="-172" width="2" height="172" fill="#000" opacity="0.24"/>
+    </g>
+    <!-- leather w/ bands -->
+    <g transform="translate(402,352)">
+      <ellipse cx="15" cy="4" rx="22" ry="6" fill="#000" opacity="0.34" filter="url(#blur2)"/>
+      <rect x="0" y="-186" width="30" height="186" rx="3" fill="#8a4858" filter="url(#leather)"/>
+      <rect x="0" y="-186" width="30" height="186" rx="3" fill="url(#round)"/>
+      <rect x="0" y="-186" width="30" height="4" fill="#e9dfc4" opacity="0.75"/>
+      <rect x="0" y="-150" width="30" height="3" fill="#000" opacity="0.22"/><rect x="0" y="-50" width="30" height="3" fill="#000" opacity="0.22"/>
+      <rect x="28" y="-186" width="2" height="186" fill="#000" opacity="0.26"/>
+    </g>
+    <!-- paperback -->
+    <g transform="translate(432,352)">
+      <ellipse cx="12" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/>
+      <rect x="0" y="-176" width="24" height="176" rx="2" fill="#2f3a44" filter="url(#paper)"/>
+      <rect x="0" y="-176" width="24" height="176" rx="2" fill="url(#round)"/>
+      <rect x="0" y="-176" width="24" height="3" fill="#1c120a" opacity="0.4"/>
+      <rect x="22" y="-176" width="2" height="176" fill="#000" opacity="0.24"/>
+    </g>
+    <!-- leaning book showing top pages -->
+    <g transform="translate(470,352) rotate(9)">
+      <ellipse cx="20" cy="4" rx="30" ry="7" fill="#000" opacity="0.34" filter="url(#blur2)"/>
+      <rect x="0" y="-196" width="40" height="196" rx="3" fill="#b5824a" filter="url(#leather)"/>
+      <rect x="0" y="-196" width="40" height="196" rx="3" fill="url(#round)"/>
+      <!-- page block visible on top -->
+      <rect x="2" y="-200" width="36" height="6" rx="1" fill="#efe6d2"/>
+      <rect x="2" y="-200" width="36" height="6" fill="#000" filter="url(#paper)" opacity="0.5"/>
+      <rect x="0" y="-150" width="40" height="3" fill="#000" opacity="0.2"/>
+      <rect x="38" y="-196" width="2" height="196" fill="#000" opacity="0.24"/>
+    </g>
+    <!-- a few more standing to fill -->
+    <g transform="translate(520,352)">
+      <ellipse cx="10" cy="3" rx="16" ry="5" fill="#000" opacity="0.3" filter="url(#blur2)"/>
+      <rect x="0" y="-170" width="20" height="170" rx="2" fill="#3f5e58" filter="url(#cloth)"/>
+      <rect x="0" y="-170" width="20" height="170" rx="2" fill="url(#round)"/>
+      <rect x="0" y="-170" width="20" height="4" fill="#e9dfc4" opacity="0.7"/>
+      <rect x="18" y="-170" width="2" height="170" fill="#000" opacity="0.22"/>
+    </g>
+    <g transform="translate(540,352)">
+      <ellipse cx="14" cy="4" rx="20" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/>
+      <rect x="0" y="-184" width="28" height="184" rx="3" fill="#9a4a3a" filter="url(#leather)"/>
+      <rect x="0" y="-184" width="28" height="184" rx="3" fill="url(#round)"/>
+      <rect x="0" y="-184" width="28" height="4" fill="#e9dfc4" opacity="0.75"/>
+      <rect x="0" y="-150" width="28" height="3" fill="#000" opacity="0.2"/>
+      <rect x="26" y="-184" width="2" height="184" fill="#000" opacity="0.24"/>
+    </g>
+    <g transform="translate(568,352)">
+      <ellipse cx="18" cy="4" rx="24" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/>
+      <rect x="0" y="-178" width="36" height="178" rx="3" fill="#cdbf9f" filter="url(#cloth)"/>
+      <rect x="0" y="-178" width="36" height="178" rx="3" fill="url(#round)"/>
+      <rect x="0" y="-178" width="36" height="4" fill="#fff" opacity="0.5"/>
+      <text x="18" y="-166" transform="rotate(90 18 -166)" font-family="Fraunces,serif" font-style="italic" font-size="12" fill="#5a4a30">Essays</text>
+      <rect x="34" y="-178" width="2" height="178" fill="#000" opacity="0.2"/>
+    </g>
+
+    <!-- soft global light from top-left over the whole opening -->
+    <polygon points="80,80 360,80 230,360 80,360" fill="#fff" opacity="0.05"/>
+  </svg>
+  </div>
+</body>
+</html>
