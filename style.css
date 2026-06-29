@@ -1,0 +1,114 @@
+/* ============================================================
+   Zelia Lerch — shared styles
+   One color per section. To retune a section, change its --c
+   in the .sec-* blocks below (and the matching nav dot color,
+   which is set inline on each nav link).
+     Writing  #c25b73   Knitting #c0922f
+     Reading  #5f9072   Things I saw #5f72a6
+   Fonts are close stand-ins (Fraunces + Newsreader) until we
+   swap in the exact faces from elliotgross.com.
+   ============================================================ */
+:root{
+  --bg:#f7f3ea;
+  --ink:#221f1a;
+  --muted:#6f695d;
+  --faint:#9a9182;
+  --rule:#e2dbcd;
+  --display:'Fraunces', Georgia, serif;
+  --body:'Newsreader', Georgia, serif;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px; margin:0 auto; padding:0 40px;}
+a{color:inherit; text-decoration:none;}
+:focus-visible{outline:2px solid var(--c,#5f72a6); outline-offset:3px; border-radius:2px;}
+
+/* section accents */
+.sec-home{--c:#5f72a6;}
+.sec-writing{--c:#c25b73;}
+.sec-knitting{--c:#c0922f;}
+.sec-reading{--c:#5f9072;}
+.sec-saw{--c:#5f72a6;}
+
+/* ---------- header / nav ---------- */
+.site-header{padding:30px 0 0;}
+.headrow{display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap; border-bottom:1px solid var(--ink); padding-bottom:14px;}
+.brand{font-family:var(--display); font-weight:600; font-size:21px; letter-spacing:0.005em;}
+.nav{display:flex; gap:22px; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:#4a443a;}
+.navlink{position:relative; display:inline-flex; align-items:center; gap:7px; padding-bottom:11px; white-space:nowrap;}
+.navlink .dot{width:7px; height:7px; border-radius:50%; background:var(--c); display:inline-block;}
+.navlink.current{color:var(--ink);}
+
+/* the hover/active squiggle */
+.squig{position:absolute; left:0; right:0; bottom:2px; width:100%; height:9px; color:var(--c); opacity:0; transition:opacity .14s ease; pointer-events:none;}
+.squig path{stroke-dasharray:300; stroke-dashoffset:300;}
+.navlink:hover .squig{opacity:1;}
+.navlink:hover .squig path{animation:draw .5s ease forwards;}
+.navlink.current .squig{opacity:1;}
+.navlink.current .squig path{stroke-dashoffset:0;}
+@keyframes draw{to{stroke-dashoffset:0;}}
+
+/* ---------- labels ---------- */
+.eyebrow{font-size:13px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); margin:0 0 14px;}
+
+/* ---------- home: about ---------- */
+.intro{margin-top:36px; display:grid; grid-template-columns:1fr 220px; gap:40px; align-items:start;}
+.statement{font-family:var(--display); font-size:30px; line-height:1.32; font-weight:400; margin:0;}
+.portrait{position:relative; aspect-ratio:3/4; border-radius:8px; overflow:hidden; background:#ece5d6; display:flex; align-items:center; justify-content:center;}
+.portrait img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.portrait .ph{color:#a99f87; font-size:13px; font-style:italic;}
+
+/* ---------- home: table of contents ---------- */
+.toc{margin-top:46px;}
+.toc-row{display:flex; align-items:baseline; gap:14px; padding:14px 0; border-top:1px solid var(--rule);}
+.toc-row:last-of-type{border-bottom:1px solid var(--rule);}
+.toc-row .num{font-family:var(--display); font-size:15px; color:var(--c); width:26px; flex-shrink:0;}
+.toc-row .titlewrap{position:relative; padding-bottom:10px;}
+.toc-row .title{font-family:var(--display); font-size:22px;}
+.toc-row .leader{flex:1; border-bottom:1px dotted #cdc6b6; transform:translateY(-4px);}
+.toc-row .desc{font-style:italic; color:var(--muted); font-size:15px; white-space:nowrap;}
+.toc-row:hover .squig{opacity:1;}
+.toc-row:hover .squig path{animation:draw .5s ease forwards;}
+
+.scroll{display:flex; justify-content:center; margin-top:30px;}
+.scroll a{width:38px; height:38px; border-radius:50%; border:1px solid #d4ccbb; display:flex; align-items:center; justify-content:center; color:#8a8475; transition:border-color .2s ease, color .2s ease;}
+.scroll a:hover{border-color:var(--c); color:var(--c);}
+
+/* ---------- section pages ---------- */
+.page-title{font-family:var(--display); font-weight:600; font-size:clamp(38px,7vw,54px); line-height:1; margin:34px 0 0;}
+.title-rule{height:2px; background:var(--c); margin-top:16px;}
+.entry{padding:22px 0 20px; border-bottom:1px solid var(--rule);}
+.entry-top{display:flex; justify-content:space-between; align-items:baseline; gap:16px;}
+.entry .e-title{font-family:var(--display); font-weight:600; font-size:clamp(22px,4vw,27px);}
+.entry .e-meta{font-style:italic; color:var(--muted); font-size:15px; white-space:nowrap;}
+.entry .e-desc{color:var(--muted); font-size:16px; margin:6px 0 0;}
+
+/* ---------- things i saw: photo grid ---------- */
+.photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:30px;}
+.shot .frame{position:relative; aspect-ratio:1/1; border-radius:6px; overflow:hidden; background:#ece5d6; display:flex; align-items:center; justify-content:center;}
+.shot .frame img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.shot .frame .ph{color:#a99f87; font-size:12px; font-style:italic; padding:0 8px; text-align:center;}
+.shot .cap{display:block; margin-top:10px; font-style:italic; color:var(--muted); font-size:15px;}
+
+/* ---------- footer ---------- */
+.site-footer{margin-top:64px; border-top:1px solid var(--rule); padding:26px 0 56px; display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px;}
+.site-footer .links{display:flex; gap:20px;}
+.site-footer a{transition:color .18s ease;}
+.site-footer a:hover{color:var(--ink);}
+
+/* ---------- responsive ---------- */
+@media (max-width:640px){
+  .wrap{padding:0 22px;}
+  .headrow{flex-direction:column; align-items:flex-start; gap:14px;}
+  .nav{flex-wrap:wrap; gap:14px 18px;}
+  .intro{grid-template-columns:1fr; gap:26px;}
+  .portrait{max-width:200px; order:-1;}
+  .statement{font-size:26px;}
+  .toc-row .desc{display:none;}
+  .photo-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (prefers-reduced-motion: reduce){
+  .squig path{animation:none !important;}
+  .navlink:hover .squig path,.toc-row:hover .squig path,.navlink.current .squig path{stroke-dashoffset:0 !important;}
+}
