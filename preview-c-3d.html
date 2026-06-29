@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview C — 3D bookcase</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#e9dfca;font-family:'Newsreader',Georgia,serif;color:#2c2316;}
+  .head{max-width:760px;margin:0 auto;padding:22px 24px 6px;}
+  .head h1{font-family:'Fraunces',serif;font-size:22px;margin:0 0 2px;}
+  .head p{margin:0;color:#7a6c52;font-style:italic;font-size:14px;}
+  .stage{max-width:760px;margin:0 auto;padding:8px 16px 40px;}
+  #c{width:100%;height:520px;display:block;border-radius:6px;cursor:grab;}
+  #c:active{cursor:grabbing;}
+</style>
+</head>
+<body>
+  <div class="head">
+    <h1>Option 3 — Real 3D bookcase</h1>
+    <p>Genuine depth and lighting (drag to orbit). Most premium &amp; dynamic — but heaviest to load and build.</p>
+  </div>
+  <div class="stage"><canvas id="c"></canvas></div>
+
+  <script type="importmap">
+  { "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  } }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const canvas = document.getElementById('c');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true });
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#e9dfca');
+
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    camera.position.set(2.6, 1.7, 6.2);
+
+    const controls = new OrbitControls(camera, canvas);
+    controls.enablePan = false;
+    controls.minDistance = 4.5; controls.maxDistance = 9;
+    controls.maxPolarAngle = Math.PI/2.05;
+    controls.autoRotate = true; controls.autoRotateSpeed = 0.6;
+    controls.target.set(0, 0.7, 0);
+
+    // lights
+    scene.add(new THREE.AmbientLight('#fff4e0', 0.65));
+    const key = new THREE.DirectionalLight('#fff1d6', 1.5);
+    key.position.set(4, 7, 5); key.castShadow = true;
+    key.shadow.mapSize.set(1024,1024);
+    key.shadow.camera.near = 1; key.shadow.camera.far = 25;
+    key.shadow.camera.left=-6; key.shadow.camera.right=6; key.shadow.camera.top=6; key.shadow.camera.bottom=-6;
+    scene.add(key);
+    scene.add(new THREE.DirectionalLight('#ffe9c4', 0.35).translateX(-5).translateY(3).translateZ(4));
+
+    // floor
+    const floor = new THREE.Mesh(
+      new THREE.PlaneGeometry(40,40),
+      new THREE.MeshStandardMaterial({ color:'#d8cbb0', roughness:1 }));
+    floor.rotation.x = -Math.PI/2; floor.position.y = -1.6; floor.receiveShadow = true;
+    scene.add(floor);
+
+    const wood = new THREE.MeshStandardMaterial({ color:'#8a5a30', roughness:0.7, metalness:0.05 });
+    const woodBack = new THREE.MeshStandardMaterial({ color:'#4a3019', roughness:0.85 });
+    function box(w,h,d,mat,x,y,z){
+      const m = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), mat);
+      m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; scene.add(m); return m;
+    }
+
+    const W=5, H=3.2, D=1.1;
+    box(W, 0.18, D, wood, 0, H/2, 0);           // top
+    box(W, 0.18, D, wood, 0, -H/2, 0);          // bottom
+    box(0.18, H, D, wood, -W/2, 0, 0);          // left
+    box(0.18, H, D, wood, W/2, 0, 0);           // right
+    box(W, H, 0.12, woodBack, 0, 0, -D/2+0.06); // back
+    box(W, 0.14, D, wood, 0, 0.05, 0);          // middle shelf
+
+    // books
+    function spineTexture(title, bg){
+      const c=document.createElement('canvas'); c.width=128; c.height=512;
+      const x=c.getContext('2d'); x.fillStyle=bg; x.fillRect(0,0,128,512);
+      const g=x.createLinearGradient(0,0,128,0);
+      g.addColorStop(0,'rgba(0,0,0,.34)'); g.addColorStop(.18,'rgba(0,0,0,0)');
+      g.addColorStop(.5,'rgba(255,255,255,.18)'); g.addColorStop(.82,'rgba(0,0,0,0)'); g.addColorStop(1,'rgba(0,0,0,.36)');
+      x.fillStyle=g; x.fillRect(0,0,128,512);
+      x.save(); x.translate(64,256); x.rotate(-Math.PI/2);
+      x.fillStyle='#fff'; x.font='600 56px Fraunces, Georgia, serif';
+      x.textAlign='center'; x.textBaseline='middle'; x.fillText(title,0,0); x.restore();
+      const t=new THREE.CanvasTexture(c); t.anisotropy=8; return t;
+    }
+    function bookMat(color,title){
+      const side=new THREE.MeshStandardMaterial({color, roughness:0.6});
+      const front = title
+        ? new THREE.MeshStandardMaterial({ map:spineTexture(title,color), roughness:0.55 })
+        : new THREE.MeshStandardMaterial({ color, roughness:0.6 });
+      return [side,side,side,side,front,side];
+    }
+    function shelfBook(w,h,x,color,title,tilt=0){
+      const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,0.85), bookMat(color,title));
+      m.position.set(x, 0.12+h/2+0.07, 0.02); m.rotation.z=tilt; m.castShadow=true; m.receiveShadow=true; scene.add(m);
+    }
+    shelfBook(0.30,1.7,-2.05,'#6b6f4a');
+    shelfBook(0.26,1.85,-1.78,'#7d4a3b');
+    shelfBook(0.40,1.9,-1.45,'#c25b73','Writing');
+    shelfBook(0.38,1.72,-1.05,'#c0922f','Knitting');
+    shelfBook(0.42,1.95,-0.62,'#5f9072','Reading');
+    shelfBook(0.40,1.78,-0.18,'#5f72a6','Things I saw');
+    shelfBook(0.24,1.6,0.18,'#4a5a7a');
+    shelfBook(0.30,1.84,0.48,'#8a4858');
+    shelfBook(0.46,1.5,0.95,'#2f3a44','',0.12);
+
+    // framed photo standing on the top
+    const tex = new THREE.TextureLoader().load('photo.jpg');
+    tex.colorSpace = THREE.SRGBColorSpace;
+    const frame = box(1.15,1.45,0.08, new THREE.MeshStandardMaterial({color:'#c39a52',roughness:0.5,metalness:0.3}), -1.0, H/2+0.83, 0.1);
+    const pic = new THREE.Mesh(new THREE.PlaneGeometry(0.92,1.22), new THREE.MeshBasicMaterial({map:tex}));
+    pic.position.set(-1.0, H/2+0.83, 0.15); scene.add(pic);
+
+    // trophy
+    const goldMat=new THREE.MeshStandardMaterial({color:'#d7ab48',roughness:0.25,metalness:0.85});
+    const cup=new THREE.Mesh(new THREE.CylinderGeometry(0.34,0.2,0.5,24),goldMat);
+    cup.position.set(1.1,H/2+0.55,0.1); cup.castShadow=true; scene.add(cup);
+    const stem=new THREE.Mesh(new THREE.CylinderGeometry(0.07,0.07,0.22,16),goldMat);
+    stem.position.set(1.1,H/2+0.25,0.1); scene.add(stem);
+    const base=new THREE.Mesh(new THREE.CylinderGeometry(0.22,0.26,0.12,20),goldMat);
+    base.position.set(1.1,H/2+0.1,0.1); base.castShadow=true; scene.add(base);
+
+    function resize(){
+      const w=canvas.clientWidth, h=canvas.clientHeight;
+      if(canvas.width!==w||canvas.height!==h){ renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+    }
+    function tick(){ resize(); controls.update(); renderer.render(scene,camera); requestAnimationFrame(tick); }
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+    tick();
+  </script>
+</body>
+</html>
