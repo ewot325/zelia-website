@@ -6,266 +6,75 @@
 <title>Zelia Lerch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-<style>
-  :root{ --display:'Fraunces',Georgia,serif; --body:'Newsreader',Georgia,serif; }
-  *{box-sizing:border-box;}
-  body{margin:0;background:#e6dcc6;color:#2c2316;font-family:var(--body);}
-  .topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;
-    max-width:1000px;margin:0 auto;padding:16px 24px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b5d45;}
-  .topbar .brand{font-family:var(--display);font-size:18px;letter-spacing:.01em;text-transform:none;color:#2c2316;}
-  .topbar nav a{color:#7a6c52;text-decoration:none;margin-left:16px;}
-  .topbar nav a:hover{color:#2c2316;}
-  .stage{max-width:1000px;margin:0 auto;padding:6px 12px 50px;}
-  .scene{width:100%;height:auto;display:block;}
-  .obj{cursor:pointer;}
-  .obj .art{transition:transform .2s ease;transform-box:fill-box;transform-origin:center bottom;}
-  .obj:hover .art{transform:translateY(-12px);}
-  .lbl{opacity:0;transition:opacity .18s ease;font-family:var(--body);font-style:italic;font-size:16px;fill:#3a2f22;text-anchor:middle;}
-  .obj:hover .lbl{opacity:1;}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 </head>
-<body>
-  <div class="topbar">
-    <a class="brand" href="index.html">Zelia Lerch</a>
-    <nav>
-      <a href="writing.html">Writing</a>
-      <a href="knitting.html">Knitting</a>
-      <a href="reading.html">Reading</a>
-      <a href="things-i-saw.html">Things I saw</a>
-    </nav>
-  </div>
+<body class="sec-home">
+<div class="wrap">
 
-  <div class="stage">
-  <svg class="scene" viewBox="0 60 1000 1140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="An illustrated wooden bookcase. On top sit a framed photo of Zelia, a trophy linking to LinkedIn, a stack of letters for email, and polaroids for Instagram. The shelves below hold a book for each section: Writing, Knitting, Reading, and Things I saw.">
-    <defs>
-      <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe6d2"/><stop offset="1" stop-color="#ddd0b6"/></linearGradient>
-      <radialGradient id="wallLight" cx="0.5" cy="0.04" r="0.9"><stop offset="0" stop-color="#fdf6e6" stop-opacity="0.6"/><stop offset="1" stop-color="#fdf6e6" stop-opacity="0"/></radialGradient>
-      <linearGradient id="frameW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b07c43"/><stop offset="1" stop-color="#744a22"/></linearGradient>
-      <linearGradient id="woodTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bd8650"/><stop offset="1" stop-color="#9a6536"/></linearGradient>
-      <linearGradient id="boardW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8723e"/><stop offset="1" stop-color="#7c5028"/></linearGradient>
-      <linearGradient id="ceilW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#36230f"/><stop offset="1" stop-color="#4a3018"/></linearGradient>
-      <linearGradient id="backW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3c20"/><stop offset="1" stop-color="#43290f"/></linearGradient>
-      <linearGradient id="sideL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#33210f"/><stop offset="1" stop-color="#5a3c20"/></linearGradient>
-      <linearGradient id="sideR" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5a3c20"/><stop offset="1" stop-color="#2f1f0d"/></linearGradient>
-      <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbe7a6"/><stop offset="0.5" stop-color="#d7ab48"/><stop offset="1" stop-color="#9c7327"/></linearGradient>
-      <linearGradient id="foil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbe7ad"/><stop offset="0.5" stop-color="#e6c46a"/><stop offset="1" stop-color="#b9923c"/></linearGradient>
-      <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.36"/><stop offset="0.42" stop-color="#fff" stop-opacity="0.05"/><stop offset="0.55" stop-color="#fff" stop-opacity="0"/></linearGradient>
-      <linearGradient id="round" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#000" stop-opacity="0.42"/><stop offset="0.10" stop-color="#000" stop-opacity="0.12"/>
-        <stop offset="0.34" stop-color="#fff" stop-opacity="0.10"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.22"/>
-        <stop offset="0.66" stop-color="#fff" stop-opacity="0.08"/><stop offset="0.9" stop-color="#000" stop-opacity="0.18"/>
-        <stop offset="1" stop-color="#000" stop-opacity="0.46"/>
-      </linearGradient>
-      <filter id="cloth"><feTurbulence type="fractalNoise" baseFrequency="0.85 0.9" numOctaves="2" seed="5" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/><feComposite in2="SourceGraphic" operator="over"/></filter>
-      <filter id="leather"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="4" seed="8" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0"/><feComposite in2="SourceGraphic" operator="over"/></filter>
-      <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.55 0.04" numOctaves="2" seed="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"/><feComposite in2="SourceGraphic" operator="over"/></filter>
-      <filter id="wgrainD" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.05" numOctaves="6" seed="11" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/></filter>
-      <filter id="wgrainL" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.05" numOctaves="6" seed="17" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 1 0 0 0 0 0.85 0 0 0 0 0.6 0 0 0 0.10 0"/></filter>
-      <filter id="blur2"><feGaussianBlur stdDeviation="3"/></filter>
-      <filter id="blur5"><feGaussianBlur stdDeviation="7"/></filter>
-      <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#241a0e" flood-opacity="0.34"/></filter>
-      <filter id="softbk" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#160d04" flood-opacity="0.4"/></filter>
-    </defs>
+  <header class="site-header">
+    <div class="headrow">
+      <!-- EDIT: name -->
+      <a class="brand" href="index.html">Zelia Lerch</a>
+      <nav class="nav">
+        <a class="navlink" style="--c:#c25b73" href="writing.html"><span class="dot"></span>Writing<svg class="squig" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none"><path d="M2 8 Q14 2 26 8 T50 8 T74 8 T98 8 T122 8 T146 8 T170 8 T196 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></a>
+        <a class="navlink" style="--c:#c0922f" href="knitting.html"><span class="dot"></span>Knitting<svg class="squig" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none"><path d="M2 8 Q14 2 26 8 T50 8 T74 8 T98 8 T122 8 T146 8 T170 8 T196 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></a>
+        <a class="navlink" style="--c:#5f9072" href="reading.html"><span class="dot"></span>Reading<svg class="squig" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none"><path d="M2 8 Q14 2 26 8 T50 8 T74 8 T98 8 T122 8 T146 8 T170 8 T196 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></a>
+        <a class="navlink" style="--c:#5f72a6" href="things-i-saw.html"><span class="dot"></span>Things I saw<svg class="squig" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none"><path d="M2 8 Q14 2 26 8 T50 8 T74 8 T98 8 T122 8 T146 8 T170 8 T196 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></a>
+      </nav>
+    </div>
+  </header>
 
-    <rect x="0" y="0" width="1000" height="1200" fill="url(#wall)"/>
-    <rect x="0" y="0" width="1000" height="1200" fill="url(#wallLight)" pointer-events="none"/>
+  <!-- EDIT: about statement + photo. Drop a file named photo.jpg next to this page. -->
+  <section class="intro">
+    <div>
+      <p class="eyebrow">About</p>
+      <p class="statement">A writer and knitter, equal parts New Orleans and Berlin, with a long list of books and an open notebook.</p>
+    </div>
+    <div class="portrait">
+      <img src="photo.jpg" alt="Zelia Lerch" onerror="this.style.display='none'">
+      <span class="ph">Add photo.jpg</span>
+    </div>
+  </section>
 
-    <!-- ============ OBJECTS ON TOP (baseline y≈300) ============ -->
-    <!-- Letters / Email -->
-    <a class="obj" xlink:href="mailto:xcl2112@barnard.edu" href="mailto:xcl2112@barnard.edu">
-      <title>Email Zelia</title>
-      <g class="art" filter="url(#soft)">
-        <rect x="120" y="260" width="150" height="40" rx="4" transform="rotate(-5 195 280)" fill="#f3ecdc" stroke="#d8c8a6"/>
-        <rect x="128" y="256" width="150" height="40" rx="4" transform="rotate(3 203 276)" fill="#fbf6ea" stroke="#e0d2b2"/>
-        <g transform="rotate(-2 205 268)"><rect x="135" y="242" width="150" height="46" rx="4" fill="#fffaf0" stroke="#e3d6b8"/><path d="M135 246 L210 276 L285 246" fill="none" stroke="#c7b487" stroke-width="2"/></g>
-      </g>
-      <text class="lbl" x="205" y="224">Email</text>
+  <section class="toc">
+    <p class="eyebrow">Table of Contents</p>
+
+    <a class="toc-row" style="--c:#c25b73" href="writing.html">
+      <span class="num">01</span>
+      <span class="titlewrap"><span class="title">Writing</span><svg class="squig" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none"><path d="M2 8 Q14 2 26 8 T50 8 T74 8 T98 8 T122 8 T146 8 T170 8 T196 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
+      <span class="leader"></span>
+      <span class="desc">short stories &amp; essays</span>
     </a>
-    <!-- About notebook -->
-    <g class="obj">
-      <title>About Zelia</title>
-      <g class="art" filter="url(#soft)">
-        <path d="M300 298 L388 284 L388 230 L300 244 Z" fill="#fbf6ea" stroke="#e0d2b2"/>
-        <path d="M388 230 L476 244 L476 298 L388 284 Z" fill="#f6efdf" stroke="#e0d2b2"/>
-        <path d="M388 284 L388 230" stroke="#d8c8a6" stroke-width="2"/>
-        <g fill="#9a8f76" font-family="var(--body)" font-style="italic" font-size="9">
-          <text x="312" y="256">A writer &amp; knitter,</text><text x="312" y="270">equal parts New</text><text x="312" y="284">Orleans and Berlin —</text>
-          <text x="398" y="258">a long list of books</text><text x="398" y="272">and an open</text><text x="398" y="286">notebook.</text>
-        </g>
-      </g>
-      <text class="lbl" x="388" y="214">About</text>
-    </g>
-    <!-- Framed photo -->
-    <g class="obj">
-      <title>Zelia Lerch</title>
-      <g class="art" filter="url(#soft)">
-        <rect x="496" y="116" width="150" height="184" rx="6" fill="url(#frameW)" stroke="#6f521f" stroke-width="2"/>
-        <rect x="500" y="120" width="142" height="176" rx="4" fill="none" stroke="#f0d49a" stroke-opacity="0.7" stroke-width="1.5"/>
-        <clipPath id="pc"><rect x="510" y="130" width="122" height="156" rx="2"/></clipPath>
-        <rect x="510" y="130" width="122" height="156" rx="2" fill="#efe7d6"/>
-        <image href="photo.jpg" xlink:href="photo.jpg" x="510" y="130" width="122" height="156" preserveAspectRatio="xMidYMid slice" clip-path="url(#pc)"/>
-        <rect x="510" y="130" width="122" height="156" rx="2" fill="none" stroke="#000" stroke-opacity="0.28" stroke-width="2"/>
-        <polygon points="510,130 566,130 510,264" fill="url(#glass)" clip-path="url(#pc)" pointer-events="none"/>
-      </g>
-    </g>
-    <!-- Trophy / LinkedIn -->
-    <a class="obj" xlink:href="https://www.linkedin.com/in/zelialerch/" href="https://www.linkedin.com/in/zelialerch/" target="_blank" rel="noopener">
-      <title>Zelia on LinkedIn</title>
-      <g class="art" filter="url(#soft)">
-        <rect x="690" y="286" width="64" height="14" rx="3" fill="url(#gold)" stroke="#8f6a22"/>
-        <rect x="704" y="268" width="36" height="20" rx="2" fill="url(#gold)" stroke="#8f6a22"/>
-        <rect x="716" y="234" width="12" height="38" fill="url(#gold)"/>
-        <path d="M704 194 h36 v18 a18 18 0 0 1 -36 0 Z" fill="url(#gold)" stroke="#8f6a22"/>
-        <path d="M704 198 c-16 0 -16 26 6 30" fill="none" stroke="#caa040" stroke-width="5"/>
-        <path d="M740 198 c16 0 16 26 -6 30" fill="none" stroke="#caa040" stroke-width="5"/>
-        <path d="M710 198 q-5 13 1 25" fill="none" stroke="#fff6dc" stroke-opacity="0.65" stroke-width="3" stroke-linecap="round"/>
-        <text x="722" y="212" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="13" fill="#7a5a18">in</text>
-      </g>
-      <text class="lbl" x="722" y="176">LinkedIn</text>
+    <a class="toc-row" style="--c:#c0922f" href="knitting.html">
+      <span class="num">02</span>
+      <span class="titlewrap"><span class="title">Knitting</span><svg class="squig" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none"><path d="M2 8 Q14 2 26 8 T50 8 T74 8 T98 8 T122 8 T146 8 T170 8 T196 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
+      <span class="leader"></span>
+      <span class="desc">what's on the needles</span>
     </a>
-    <!-- Polaroids / Instagram -->
-    <a class="obj" xlink:href="https://instagram.com/zelialerch" href="https://instagram.com/zelialerch" target="_blank" rel="noopener">
-      <title>Zelia on Instagram</title>
-      <g class="art" filter="url(#soft)">
-        <g transform="rotate(7 838 232)"><rect x="788" y="178" width="100" height="106" rx="3" fill="#fffdf7" stroke="#e3d6b8"/><rect x="796" y="186" width="84" height="74" fill="#9bb0a0"/><rect x="796" y="186" width="84" height="74" fill="#5f72a6" opacity="0.45"/></g>
-        <g transform="rotate(-6 836 234)"><rect x="786" y="192" width="100" height="108" rx="3" fill="#fffdf7" stroke="#e3d6b8"/><rect x="794" y="200" width="84" height="76" fill="#c2a37a"/><rect x="794" y="200" width="84" height="76" fill="#c25b73" opacity="0.4"/><text x="836" y="290" text-anchor="middle" font-family="var(--body)" font-style="italic" font-size="11" fill="#8a7e66">@zelialerch</text></g>
-      </g>
-      <text class="lbl" x="836" y="162">Instagram</text>
+    <a class="toc-row" style="--c:#5f9072" href="reading.html">
+      <span class="num">03</span>
+      <span class="titlewrap"><span class="title">Reading</span><svg class="squig" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none"><path d="M2 8 Q14 2 26 8 T50 8 T74 8 T98 8 T122 8 T146 8 T170 8 T196 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
+      <span class="leader"></span>
+      <span class="desc">books I'm in right now</span>
     </a>
+    <a class="toc-row" style="--c:#5f72a6" href="things-i-saw.html">
+      <span class="num">04</span>
+      <span class="titlewrap"><span class="title">Things I saw</span><svg class="squig" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none"><path d="M2 8 Q14 2 26 8 T50 8 T74 8 T98 8 T122 8 T146 8 T170 8 T196 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
+      <span class="leader"></span>
+      <span class="desc">pictures, nothing fancy</span>
+    </a>
+  </section>
 
-    <!-- ============ TOP BOARD ============ -->
-    <rect x="60" y="300" width="880" height="24" rx="3" fill="url(#woodTop)"/>
-    <rect x="60" y="300" width="880" height="3" fill="#edc78f" opacity="0.6"/>
-    <rect x="60" y="300" width="880" height="24" rx="3" fill="#000" filter="url(#wgrainD)" opacity="0.7"/>
-    <rect x="60" y="324" width="880" height="20" fill="#5f3c1b"/>
-    <rect x="60" y="324" width="880" height="2" fill="#3a2410" opacity="0.5"/>
-    <rect x="430" y="326" width="160" height="15" rx="2" fill="url(#gold)" stroke="#8f6a22"/>
-    <text x="510" y="337" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="10" letter-spacing="2" fill="#5e4715">ZELIA LERCH</text>
+  <footer class="site-footer">
+    <span>© 2026 Zelia Lerch</span>
+    <span class="links">
+      <a href="mailto:xcl2112@barnard.edu">Email</a>
+      <a href="https://instagram.com/zelialerch" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/zelialerch/" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </footer>
 
-    <!-- ============ CARCASS + RECESSED INTERIOR ============ -->
-    <rect x="60" y="344" width="880" height="856" fill="url(#frameW)"/>
-    <rect x="60" y="344" width="880" height="856" fill="#000" filter="url(#wgrainD)" opacity="0.8"/>
-    <rect x="60" y="344" width="880" height="856" filter="url(#wgrainL)" opacity="0.6"/>
-    <!-- recess: front opening 88..912 / back inset 138..862 -->
-    <polygon points="88,360 912,360 862,388 138,388" fill="url(#ceilW)"/>
-    <polygon points="88,360 138,388 138,1180 88,1200" fill="url(#sideL)"/>
-    <polygon points="912,360 862,388 862,1180 912,1200" fill="url(#sideR)"/>
-    <rect x="138" y="388" width="724" height="812" fill="url(#backW)"/>
-    <rect x="138" y="388" width="724" height="812" fill="#000" filter="url(#wgrainD)" opacity="0.65"/>
-    <g stroke="#2c1c0d" stroke-opacity="0.4" stroke-width="2"><line x1="380" y1="388" x2="380" y2="1200"/><line x1="620" y1="388" x2="620" y2="1200"/></g>
-    <!-- corner ambient occlusion -->
-    <polygon points="138,388 862,388 862,430 138,430" fill="#000" opacity="0.26" filter="url(#blur5)"/>
-    <polygon points="138,388 176,388 176,1180 138,1180" fill="#000" opacity="0.28" filter="url(#blur5)"/>
-    <polygon points="824,388 862,388 862,1180 824,1180" fill="#000" opacity="0.22" filter="url(#blur5)"/>
-
-    <!-- ============ SHELF 1 (top) — the four sections, baseline y≈598 ============ -->
-    <!-- decorative left -->
-    <g filter="url(#softbk)">
-      <g transform="translate(196,598)"><ellipse cx="13" cy="3" rx="20" ry="6" fill="#000" opacity="0.34" filter="url(#blur2)"/><rect x="0" y="-176" width="26" height="176" rx="3" fill="#6b6f4a" filter="url(#leather)"/><rect x="0" y="-176" width="26" height="176" rx="3" fill="url(#round)"/><rect x="0" y="-176" width="26" height="4" fill="#e9dfc4" opacity="0.8"/><rect x="0" y="-148" width="26" height="3" fill="#000" opacity="0.22"/><rect x="24" y="-176" width="2" height="176" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(222,598)"><ellipse cx="11" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-164" width="22" height="164" rx="2" fill="#7d4a3b" filter="url(#cloth)"/><rect x="0" y="-164" width="22" height="164" rx="2" fill="url(#round)"/><rect x="0" y="-164" width="22" height="3" fill="#1c120a" opacity="0.4"/><rect x="20" y="-164" width="2" height="164" fill="#000" opacity="0.24"/></g>
-    </g>
-    <!-- Writing -->
-    <a class="obj" xlink:href="writing.html" href="writing.html"><title>Writing — short stories &amp; essays</title>
-      <g class="art"><g filter="url(#softbk)" transform="translate(244,598)">
-        <ellipse cx="23" cy="4" rx="30" ry="7" fill="#000" opacity="0.36" filter="url(#blur2)"/>
-        <rect x="0" y="-208" width="46" height="208" rx="3" fill="#c25b73" filter="url(#paper)"/><rect x="0" y="-208" width="46" height="208" rx="3" fill="url(#round)"/>
-        <rect x="0" y="-208" width="46" height="5" fill="#efe6d2" opacity="0.85"/>
-        <rect x="5" y="-150" width="36" height="2" fill="url(#foil)"/><rect x="5" y="-60" width="36" height="2" fill="url(#foil)"/>
-        <text x="23" y="-196" transform="rotate(90 23 -196)" font-family="var(--display)" font-weight="700" font-size="20" fill="url(#foil)">Writing</text>
-        <rect x="44" y="-208" width="2" height="208" fill="#000" opacity="0.26"/>
-      </g></g>
-    </a>
-    <!-- Knitting -->
-    <a class="obj" xlink:href="knitting.html" href="knitting.html"><title>Knitting — what's on the needles</title>
-      <g class="art"><g filter="url(#softbk)" transform="translate(290,598)">
-        <ellipse cx="21" cy="4" rx="28" ry="7" fill="#000" opacity="0.36" filter="url(#blur2)"/>
-        <rect x="0" y="-192" width="42" height="192" rx="3" fill="#c0922f" filter="url(#cloth)"/><rect x="0" y="-192" width="42" height="192" rx="3" fill="url(#round)"/>
-        <rect x="0" y="-192" width="42" height="5" fill="#e9dfc4" opacity="0.8"/>
-        <rect x="4" y="-138" width="34" height="2" fill="url(#foil)"/><rect x="4" y="-58" width="34" height="2" fill="url(#foil)"/>
-        <text x="21" y="-180" transform="rotate(90 21 -180)" font-family="var(--display)" font-weight="700" font-size="19" fill="url(#foil)">Knitting</text>
-        <rect x="40" y="-192" width="2" height="192" fill="#000" opacity="0.26"/>
-      </g></g>
-    </a>
-    <!-- Reading (leather hardcover, raised bands) -->
-    <a class="obj" xlink:href="reading.html" href="reading.html"><title>Reading — books she's in right now</title>
-      <g class="art"><g filter="url(#softbk)" transform="translate(332,598)">
-        <ellipse cx="25" cy="4" rx="32" ry="7" fill="#000" opacity="0.38" filter="url(#blur2)"/>
-        <rect x="0" y="-216" width="50" height="216" rx="3" fill="#5f9072" filter="url(#leather)"/><rect x="0" y="-216" width="50" height="216" rx="3" fill="url(#round)"/>
-        <rect x="0" y="-216" width="50" height="6" fill="#efe6d2" opacity="0.85"/>
-        <rect x="0" y="-168" width="50" height="6" fill="#4c755b"/><rect x="0" y="-169" width="50" height="1.5" fill="#fff" opacity="0.28"/><rect x="0" y="-162" width="50" height="1.5" fill="#000" opacity="0.3"/>
-        <rect x="0" y="-58" width="50" height="6" fill="#4c755b"/><rect x="0" y="-59" width="50" height="1.5" fill="#fff" opacity="0.28"/><rect x="0" y="-52" width="50" height="1.5" fill="#000" opacity="0.3"/>
-        <text x="25" y="-202" transform="rotate(90 25 -202)" font-family="var(--display)" font-weight="700" font-size="21" fill="url(#foil)">Reading</text>
-        <rect x="48" y="-216" width="2" height="216" fill="#000" opacity="0.28"/>
-      </g></g>
-    </a>
-    <!-- Things I saw -->
-    <a class="obj" xlink:href="things-i-saw.html" href="things-i-saw.html"><title>Things I saw — pictures, nothing fancy</title>
-      <g class="art"><g filter="url(#softbk)" transform="translate(382,598)">
-        <ellipse cx="22" cy="4" rx="29" ry="7" fill="#000" opacity="0.36" filter="url(#blur2)"/>
-        <rect x="0" y="-198" width="44" height="198" rx="3" fill="#5f72a6" filter="url(#paper)"/><rect x="0" y="-198" width="44" height="198" rx="3" fill="url(#round)"/>
-        <rect x="0" y="-198" width="44" height="5" fill="#efe6d2" opacity="0.82"/>
-        <rect x="5" y="-144" width="34" height="2" fill="url(#foil)"/><rect x="5" y="-56" width="34" height="2" fill="url(#foil)"/>
-        <text x="22" y="-186" transform="rotate(90 22 -186)" font-family="var(--display)" font-weight="600" font-size="15" fill="url(#foil)">Things I saw</text>
-        <rect x="42" y="-198" width="2" height="198" fill="#000" opacity="0.26"/>
-      </g></g>
-    </a>
-    <!-- ball of yarn + needles -->
-    <g filter="url(#softbk)" transform="translate(452,560)">
-      <ellipse cx="0" cy="40" rx="32" ry="8" fill="#000" opacity="0.3" filter="url(#blur2)"/>
-      <circle cx="0" cy="8" r="30" fill="#b5824a" filter="url(#leather)"/>
-      <path d="M-22 0 q22 -14 44 0 M-24 12 q24 -12 48 2 M-20 22 q20 -8 40 0" stroke="#9a6a36" stroke-width="2" fill="none"/>
-      <line x1="18" y1="-20" x2="46" y2="-52" stroke="#caa46e" stroke-width="3"/><line x1="26" y1="-16" x2="54" y2="-48" stroke="#caa46e" stroke-width="3"/>
-    </g>
-    <!-- decorative right -->
-    <g filter="url(#softbk)">
-      <g transform="translate(540,598)"><ellipse cx="11" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-170" width="22" height="170" rx="2" fill="#4a5a7a" filter="url(#cloth)"/><rect x="0" y="-170" width="22" height="170" rx="2" fill="url(#round)"/><rect x="0" y="-170" width="22" height="4" fill="#e9dfc4" opacity="0.7"/><rect x="20" y="-170" width="2" height="170" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(562,598)"><ellipse cx="15" cy="4" rx="22" ry="6" fill="#000" opacity="0.34" filter="url(#blur2)"/><rect x="0" y="-186" width="30" height="186" rx="3" fill="#8a4858" filter="url(#leather)"/><rect x="0" y="-186" width="30" height="186" rx="3" fill="url(#round)"/><rect x="0" y="-186" width="30" height="4" fill="#e9dfc4" opacity="0.75"/><rect x="0" y="-150" width="30" height="3" fill="#000" opacity="0.22"/><rect x="28" y="-186" width="2" height="186" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(592,598) rotate(9)"><ellipse cx="20" cy="4" rx="30" ry="7" fill="#000" opacity="0.34" filter="url(#blur2)"/><rect x="0" y="-196" width="40" height="196" rx="3" fill="#9a4a3a" filter="url(#leather)"/><rect x="0" y="-196" width="40" height="196" rx="3" fill="url(#round)"/><rect x="2" y="-200" width="36" height="6" rx="1" fill="#efe6d2"/><rect x="38" y="-196" width="2" height="196" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(648,598)"><ellipse cx="12" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-174" width="24" height="174" rx="2" fill="#2f3a44" filter="url(#paper)"/><rect x="0" y="-174" width="24" height="174" rx="2" fill="url(#round)"/><rect x="0" y="-174" width="24" height="3" fill="#1c120a" opacity="0.4"/><rect x="22" y="-174" width="2" height="174" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(672,598)"><ellipse cx="18" cy="4" rx="24" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-180" width="36" height="180" rx="3" fill="#cdbf9f" filter="url(#cloth)"/><rect x="0" y="-180" width="36" height="180" rx="3" fill="url(#round)"/><rect x="0" y="-180" width="36" height="4" fill="#fff" opacity="0.5"/><text x="18" y="-168" transform="rotate(90 18 -168)" font-family="var(--display)" font-style="italic" font-size="12" fill="#5a4a30">Essays</text><rect x="34" y="-180" width="2" height="180" fill="#000" opacity="0.2"/></g>
-      <g transform="translate(710,598)"><ellipse cx="14" cy="4" rx="20" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-188" width="28" height="188" rx="3" fill="#3f5e58" filter="url(#leather)"/><rect x="0" y="-188" width="28" height="188" rx="3" fill="url(#round)"/><rect x="0" y="-188" width="28" height="4" fill="#e9dfc4" opacity="0.7"/><rect x="26" y="-188" width="2" height="188" fill="#000" opacity="0.24"/></g>
-    </g>
-    <!-- shelf board 1 (2.5D) -->
-    <polygon points="138,598 862,598 826,576 174,576" fill="url(#boardW)"/>
-    <polygon points="138,598 862,598 862,612 138,612" fill="url(#boardW)"/>
-    <rect x="138" y="598" width="724" height="2.5" fill="#edc78f" opacity="0.6"/>
-    <rect x="138" y="612" width="724" height="5" fill="#000" opacity="0.18"/>
-
-    <!-- ============ SHELF 2 (middle) — decorative, baseline y≈872 ============ -->
-    <g filter="url(#softbk)">
-      <g transform="translate(186,872)"><ellipse cx="13" cy="3" rx="20" ry="6" fill="#000" opacity="0.34" filter="url(#blur2)"/><rect x="0" y="-184" width="26" height="184" rx="3" fill="#7d4a3b" filter="url(#leather)"/><rect x="0" y="-184" width="26" height="184" rx="3" fill="url(#round)"/><rect x="0" y="-184" width="26" height="4" fill="#e9dfc4" opacity="0.8"/><rect x="0" y="-150" width="26" height="3" fill="#000" opacity="0.22"/><rect x="24" y="-184" width="2" height="184" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(212,872)"><ellipse cx="10" cy="3" rx="16" ry="5" fill="#000" opacity="0.3" filter="url(#blur2)"/><rect x="0" y="-196" width="20" height="196" rx="2" fill="#3f5e58" filter="url(#cloth)"/><rect x="0" y="-196" width="20" height="196" rx="2" fill="url(#round)"/><rect x="0" y="-196" width="20" height="4" fill="#e9dfc4" opacity="0.7"/><rect x="18" y="-196" width="2" height="196" fill="#000" opacity="0.22"/></g>
-      <g transform="translate(232,872)"><ellipse cx="13" cy="4" rx="20" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-168" width="26" height="168" rx="2" fill="#c0922f" filter="url(#paper)"/><rect x="0" y="-168" width="26" height="168" rx="2" fill="url(#round)"/><rect x="0" y="-168" width="26" height="4" fill="#efe6d2" opacity="0.8"/><text x="13" y="-156" transform="rotate(90 13 -156)" font-family="var(--display)" font-style="italic" font-size="11" fill="#fff">Letters</text><rect x="24" y="-168" width="2" height="168" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(258,872)"><ellipse cx="11" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-188" width="22" height="188" rx="2" fill="#4a5a7a" filter="url(#cloth)"/><rect x="0" y="-188" width="22" height="188" rx="2" fill="url(#round)"/><rect x="0" y="-188" width="22" height="4" fill="#e9dfc4" opacity="0.7"/><rect x="20" y="-188" width="2" height="188" fill="#000" opacity="0.22"/></g>
-      <g transform="translate(280,872) rotate(8)"><ellipse cx="20" cy="4" rx="30" ry="7" fill="#000" opacity="0.34" filter="url(#blur2)"/><rect x="0" y="-160" width="40" height="160" rx="3" fill="#8a4858" filter="url(#leather)"/><rect x="0" y="-160" width="40" height="160" rx="3" fill="url(#round)"/><rect x="2" y="-164" width="36" height="6" rx="1" fill="#efe6d2"/><rect x="38" y="-160" width="2" height="160" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(340,872)"><ellipse cx="12" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-192" width="24" height="192" rx="2" fill="#2f3a44" filter="url(#paper)"/><rect x="0" y="-192" width="24" height="192" rx="2" fill="url(#round)"/><rect x="0" y="-192" width="24" height="3" fill="#1c120a" opacity="0.4"/><rect x="22" y="-192" width="2" height="192" fill="#000" opacity="0.22"/></g>
-      <g transform="translate(420,872)"><ellipse cx="22" cy="4" rx="29" ry="7" fill="#000" opacity="0.36" filter="url(#blur2)"/><rect x="0" y="-200" width="44" height="200" rx="3" fill="#6b6f4a" filter="url(#leather)"/><rect x="0" y="-200" width="44" height="200" rx="3" fill="url(#round)"/><rect x="0" y="-200" width="44" height="5" fill="#efe6d2" opacity="0.82"/><rect x="0" y="-150" width="44" height="6" fill="#586044"/><rect x="0" y="-151" width="44" height="1.5" fill="#fff" opacity="0.26"/><text x="22" y="-188" transform="rotate(90 22 -188)" font-family="var(--display)" font-weight="600" font-size="14" fill="url(#foil)">Poems</text><rect x="42" y="-200" width="2" height="200" fill="#000" opacity="0.26"/></g>
-      <g transform="translate(486,872)"><ellipse cx="11" cy="3" rx="18" ry="5" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-176" width="22" height="176" rx="2" fill="#9a4a3a" filter="url(#cloth)"/><rect x="0" y="-176" width="22" height="176" rx="2" fill="url(#round)"/><rect x="0" y="-176" width="22" height="4" fill="#e9dfc4" opacity="0.7"/><rect x="20" y="-176" width="2" height="176" fill="#000" opacity="0.22"/></g>
-      <g transform="translate(560,872)"><ellipse cx="18" cy="4" rx="24" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-190" width="36" height="190" rx="3" fill="#5f72a6" filter="url(#paper)"/><rect x="0" y="-190" width="36" height="190" rx="3" fill="url(#round)"/><rect x="0" y="-190" width="36" height="4" fill="#efe6d2" opacity="0.8"/><rect x="34" y="-190" width="2" height="190" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(596,872)"><ellipse cx="14" cy="4" rx="20" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-182" width="28" height="182" rx="3" fill="#c25b73" filter="url(#leather)"/><rect x="0" y="-182" width="28" height="182" rx="3" fill="url(#round)"/><rect x="0" y="-182" width="28" height="4" fill="#e9dfc4" opacity="0.75"/><rect x="0" y="-150" width="28" height="3" fill="#000" opacity="0.2"/><rect x="26" y="-182" width="2" height="182" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(640,872)"><ellipse cx="20" cy="4" rx="26" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-198" width="40" height="198" rx="3" fill="#3f5e58" filter="url(#cloth)"/><rect x="0" y="-198" width="40" height="198" rx="3" fill="url(#round)"/><rect x="0" y="-198" width="40" height="4" fill="#e9dfc4" opacity="0.7"/><rect x="38" y="-198" width="2" height="198" fill="#000" opacity="0.24"/></g>
-      <g transform="translate(700,872)"><ellipse cx="16" cy="4" rx="22" ry="6" fill="#000" opacity="0.32" filter="url(#blur2)"/><rect x="0" y="-172" width="32" height="172" rx="3" fill="#cdbf9f" filter="url(#cloth)"/><rect x="0" y="-172" width="32" height="172" rx="3" fill="url(#round)"/><rect x="0" y="-172" width="32" height="4" fill="#fff" opacity="0.5"/><rect x="30" y="-172" width="2" height="172" fill="#000" opacity="0.2"/></g>
-      <g transform="translate(732,872)"><ellipse cx="12" cy="3" rx="18" ry="5" fill="#000" opacity="0.3" filter="url(#blur2)"/><rect x="0" y="-186" width="24" height="186" rx="2" fill="#b5824a" filter="url(#leather)"/><rect x="0" y="-186" width="24" height="186" rx="2" fill="url(#round)"/><rect x="0" y="-186" width="24" height="4" fill="#e9dfc4" opacity="0.75"/><rect x="22" y="-186" width="2" height="186" fill="#000" opacity="0.22"/></g>
-    </g>
-    <!-- shelf board 2 -->
-    <polygon points="138,872 862,872 826,850 174,850" fill="url(#boardW)"/>
-    <polygon points="138,872 862,872 862,886 138,886" fill="url(#boardW)"/>
-    <rect x="138" y="872" width="724" height="2.5" fill="#edc78f" opacity="0.6"/>
-    <rect x="138" y="886" width="724" height="5" fill="#000" opacity="0.18"/>
-
-    <!-- ============ SHELF 3 (peek) — fades to imply scrolling ============ -->
-    <g filter="url(#softbk)">
-      <g transform="translate(196,1130)"><rect x="0" y="-150" width="26" height="150" rx="3" fill="#7d4a3b" filter="url(#leather)"/><rect x="0" y="-150" width="26" height="150" rx="3" fill="url(#round)"/></g>
-      <g transform="translate(224,1130)"><rect x="0" y="-160" width="22" height="160" rx="2" fill="#3f5e58" filter="url(#cloth)"/><rect x="0" y="-160" width="22" height="160" rx="2" fill="url(#round)"/></g>
-      <g transform="translate(300,1130)"><rect x="0" y="-156" width="44" height="156" rx="3" fill="#5f9072" filter="url(#paper)"/><rect x="0" y="-156" width="44" height="156" rx="3" fill="url(#round)"/></g>
-      <g transform="translate(470,1130)"><rect x="0" y="-150" width="30" height="150" rx="3" fill="#8a4858" filter="url(#leather)"/><rect x="0" y="-150" width="30" height="150" rx="3" fill="url(#round)"/></g>
-      <g transform="translate(620,1130)"><rect x="0" y="-158" width="36" height="158" rx="3" fill="#c0922f" filter="url(#cloth)"/><rect x="0" y="-158" width="36" height="158" rx="3" fill="url(#round)"/></g>
-      <g transform="translate(740,1130)"><rect x="0" y="-150" width="26" height="150" rx="3" fill="#4a5a7a" filter="url(#paper)"/><rect x="0" y="-150" width="26" height="150" rx="3" fill="url(#round)"/></g>
-    </g>
-    <rect x="0" y="1090" width="1000" height="110" fill="url(#wall)" opacity="0.9"/>
-    <text x="500" y="1168" text-anchor="middle" font-family="var(--body)" font-style="italic" font-size="16" fill="#8a7c62">↓ keep scrolling — more shelves below</text>
-  </svg>
-  </div>
+</div>
 </body>
 </html>

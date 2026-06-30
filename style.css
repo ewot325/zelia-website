@@ -91,28 +91,6 @@ a{color:inherit; text-decoration:none;}
 .shot .frame .ph{color:#a99f87; font-size:12px; font-style:italic; padding:0 8px; text-align:center;}
 .shot .cap{display:block; margin-top:10px; font-style:italic; color:var(--muted); font-size:15px;}
 
-/* ---------- reading: bookshelf ---------- */
-.shelf-intro{color:var(--muted); font-size:16px; margin:18px 0 30px; max-width:62ch;}
-.shelf-group{margin:0 0 36px;}
-.shelf-label{font-size:13px; letter-spacing:0.16em; text-transform:uppercase; color:var(--c); margin:0 0 4px; display:flex; align-items:baseline; gap:10px;}
-.shelf-label .count{color:var(--faint); letter-spacing:0; text-transform:none; font-style:italic; font-size:13px;}
-.shelf{position:relative; display:flex; align-items:flex-end; gap:5px; overflow-x:auto; padding:26px 6px 13px;}
-.shelf::after{content:""; position:absolute; left:0; right:0; bottom:0; height:13px; border-radius:3px;
-  background:linear-gradient(180deg,#caa46e,#a9824f 50%,#7f6234); box-shadow:0 9px 16px rgba(80,55,20,.25);}
-.book{position:relative; flex:0 0 auto; width:var(--w,36px); height:var(--h,180px); border-radius:2px 4px 4px 2px;
-  background:var(--bc,#5f9072); display:flex; align-items:center; justify-content:center; gap:2px; text-decoration:none;
-  box-shadow:inset -4px 0 7px rgba(0,0,0,.22), inset 4px 0 5px rgba(255,255,255,.10), 0 5px 9px rgba(0,0,0,.16);
-  transition:transform .16s ease, box-shadow .16s ease;}
-.book::before{content:""; position:absolute; top:7px; bottom:7px; left:4px; width:2px; background:rgba(255,255,255,.18); border-radius:2px;}
-.book:hover{transform:translateY(-10px); box-shadow:inset -4px 0 7px rgba(0,0,0,.22), 0 14px 22px rgba(0,0,0,.22);}
-.book .bt{writing-mode:vertical-rl; text-orientation:mixed; color:#fbf7ee; font-family:var(--display); font-weight:500;
-  font-size:13px; line-height:1; max-height:86%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-shadow:0 1px 1px rgba(0,0,0,.3);}
-.book .ba{writing-mode:vertical-rl; text-orientation:mixed; color:rgba(255,255,255,.7); font-family:var(--body);
-  font-size:9px; line-height:1; max-height:66%; overflow:hidden; white-space:nowrap;}
-.book.lt .bt{color:#2b2620; text-shadow:none;}
-.book.lt .ba{color:rgba(40,35,28,.58);}
-.book.lt::before{background:rgba(0,0,0,.1);}
-
 /* ---------- footer ---------- */
 .site-footer{margin-top:64px; border-top:1px solid var(--rule); padding:26px 0 56px; display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px;}
 .site-footer .links{display:flex; gap:20px;}
