@@ -36,6 +36,8 @@
   <svg class="shelfart" viewBox="0 0 560 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A shelf with a gramophone and records for most-played music, and a shelf of DVDs for recently watched films.">
     <defs>
       <radialGradient id="vinyl" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#3a3940"/><stop offset="1" stop-color="#1c1b20"/></radialGradient>
+      <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0d6a2"/><stop offset="0.5" stop-color="#d9a75a"/><stop offset="1" stop-color="#b07f45"/></linearGradient>
+      <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a5c36"/><stop offset="1" stop-color="#6b4527"/></linearGradient>
     </defs>
 
     <!-- ============ SHELF 1 — LISTENING (plank top y=170) ============ -->
@@ -46,26 +48,39 @@
     <a class="item" href="https://www.last.fm/" target="_blank" rel="noopener">
       <g>
         <!-- horn support rod -->
-        <line x1="116" y1="118" x2="126" y2="130" stroke="#8a6a4a" stroke-width="3"/>
-        <!-- horn neck -->
-        <path d="M104 128 C104 112 108 100 120 92" fill="none" stroke="#c9a15a" stroke-width="8" stroke-linecap="round"/>
-        <path d="M104 128 C104 112 108 100 120 92" fill="none" stroke="#e8c98c" stroke-width="3" stroke-linecap="round"/>
-        <!-- horn bell -->
-        <path d="M120 92 C100 84 74 66 60 46 A30 13 -42 1 1 104 22 C112 44 118 68 120 92 Z" fill="#d9a75a" stroke="#b07f45" stroke-width="1.5"/>
-        <!-- bell mouth interior -->
-        <ellipse cx="82" cy="34" rx="30" ry="13" transform="rotate(-42 82 34)" fill="#8a5f2e"/>
-        <ellipse cx="82" cy="34" rx="23" ry="8.5" transform="rotate(-42 82 34)" fill="#6e4a20"/>
+        <line x1="122" y1="128" x2="116" y2="102" stroke="#6b5136" stroke-width="3" stroke-linecap="round"/>
+        <!-- horn neck: S-curve tube -->
+        <path d="M102 130 C102 112 106 98 122 89" fill="none" stroke="#b07f45" stroke-width="10" stroke-linecap="round"/>
+        <path d="M102 130 C102 112 106 98 122 89" fill="none" stroke="#d9a75a" stroke-width="6.5" stroke-linecap="round"/>
+        <path d="M100.5 129 C101 112 105 99 120 90" fill="none" stroke="#f0d6a2" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- horn bell (morning-glory flare) -->
+        <path d="M126 90 C107 82 88 72 54 51 A33 13 -40 1 1 104 9 C111 42 119 70 126 90 Z" fill="url(#brass)" stroke="#a06f35" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- flute seams -->
+        <path d="M126 90 C102 78 82 60 66 40" fill="none" stroke="#b07f45" stroke-width="1" opacity="0.55"/>
+        <path d="M126 90 C108 72 96 52 86 28" fill="none" stroke="#b07f45" stroke-width="1" opacity="0.55"/>
+        <path d="M126 90 C114 66 108 42 100 18" fill="none" stroke="#b07f45" stroke-width="1" opacity="0.5"/>
+        <!-- highlight along upper edge -->
+        <path d="M122 82 C114 60 108 40 101 20" fill="none" stroke="#f6e4bc" stroke-width="2.2" stroke-linecap="round" opacity="0.9"/>
+        <!-- bell mouth rim + interior -->
+        <ellipse cx="79" cy="30" rx="33" ry="13" transform="rotate(-40 79 30)" fill="#8a5f2e" stroke="#e8c98c" stroke-width="1.6"/>
+        <ellipse cx="80" cy="31.5" rx="25" ry="9" transform="rotate(-40 80 31.5)" fill="#6e4a20"/>
+        <ellipse cx="82" cy="34" rx="13" ry="4.5" transform="rotate(-40 82 34)" fill="#503516"/>
         <!-- cabinet -->
-        <rect x="40" y="128" width="108" height="42" rx="5" fill="#7c5230"/>
-        <rect x="40" y="128" width="108" height="5" rx="2.5" fill="#a5764a"/>
-        <rect x="48" y="151" width="92" height="2.5" rx="1" fill="#5f3d22"/>
+        <rect x="42" y="132" width="104" height="38" rx="4" fill="url(#wood)"/>
+        <rect x="38" y="127" width="112" height="7" rx="3" fill="#a5764a"/>
+        <rect x="38" y="127" width="112" height="2.5" rx="1.2" fill="#c49468"/>
+        <rect x="50" y="140" width="88" height="24" rx="3" fill="none" stroke="#a5764a" stroke-width="1.2" opacity="0.65"/>
+        <circle cx="94" cy="152" r="5.5" fill="#5f3d22"/><circle cx="94" cy="152" r="3" fill="#4a2f1a"/>
         <!-- turntable + record -->
-        <ellipse cx="86" cy="128" rx="30" ry="9" fill="url(#vinyl)"/>
-        <ellipse cx="86" cy="128" rx="10" ry="3.2" fill="#c25b73"/>
-        <circle cx="86" cy="128" r="1.6" fill="#1c1b20"/>
+        <ellipse cx="84" cy="127" rx="28" ry="8" fill="url(#vinyl)"/>
+        <ellipse cx="84" cy="127" rx="27" ry="7.4" fill="none" stroke="#000" stroke-opacity="0.3" stroke-width="0.8"/>
+        <ellipse cx="84" cy="127" rx="19" ry="5.2" fill="none" stroke="#4a4952" stroke-width="0.6"/>
+        <ellipse cx="84" cy="127" rx="9" ry="2.8" fill="#c25b73"/>
+        <circle cx="84" cy="127" r="1.4" fill="#1c1b20"/>
         <!-- crank -->
-        <line x1="148" y1="152" x2="162" y2="143" stroke="#4a4952" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="162" cy="143" r="4" fill="#e2a862" stroke="#b07f45"/>
+        <circle cx="146" cy="150" r="4" fill="#5f3d22"/>
+        <path d="M146 150 L158 150 L158 141" fill="none" stroke="#4a4952" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="158" cy="139" r="3.6" fill="url(#brass)" stroke="#b07f45"/>
       </g>
     </a>
 
