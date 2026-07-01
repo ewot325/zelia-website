@@ -6,8 +6,13 @@
 <title>Reading — Zelia Lerch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
+<style>
+  .shelf-intro{color:var(--muted);font-size:16px;margin:18px 0 6px;max-width:60ch;}
+  .shelf-key{color:var(--faint);font-style:italic;font-size:14px;margin:0 0 6px;}
+  .shelfart{display:block;width:100%;max-width:580px;margin:14px auto 0;}
+</style>
 </head>
 <body class="sec-reading">
 <div class="wrap">
@@ -27,25 +32,198 @@
   <h1 class="page-title">Reading</h1>
   <div class="title-rule"></div>
 
-  <!-- EDIT: what she's reading. Title / author / a one-line note. -->
-  <section>
-    <a class="entry" href="#">
-      <div class="entry-top"><span class="e-title">East of Eden</span><span class="e-meta">John Steinbeck</span></div>
-      <p class="e-desc">Currently underlining about half of it.</p>
-    </a>
-    <a class="entry" href="#">
-      <div class="entry-top"><span class="e-title">The Years</span><span class="e-meta">Annie Ernaux</span></div>
-      <p class="e-desc">A whole life told in the collective "we."</p>
-    </a>
-    <a class="entry" href="#">
-      <div class="entry-top"><span class="e-title">Gilead</span><span class="e-meta">Marilynne Robinson</span></div>
-      <p class="e-desc">A dying father's letter to his young son.</p>
-    </a>
-    <a class="entry" href="#">
-      <div class="entry-top"><span class="e-title">Septology</span><span class="e-meta">Jon Fosse</span></div>
-      <p class="e-desc">One long sentence, seven parts, no regrets.</p>
-    </a>
-  </section>
+  <p class="shelf-intro">A little bookshelf of what I'm reading. Placeholder titles for now — soon it'll fill itself from my Goodreads.</p>
+  <p class="shelf-key">Top shelf: want to read · middle: reading now · bottom: recently finished</p>
+
+  <svg class="shelfart" viewBox="0 0 560 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An illustrated bookshelf of three wooden shelves holding colorful books, a potted plant, a sailboat, and wooden blocks.">
+    <defs>
+      <symbol id="star" viewBox="0 0 10 10"><path d="M5 0 L6.2 3.5 L10 3.6 L6.9 5.8 L8 9.6 L5 7.2 L2 9.6 L3.1 5.8 L0 3.6 L3.8 3.5 Z"/></symbol>
+    </defs>
+
+    <!-- ===================== SHELF 1 — want to read (plank top y=196) ===================== -->
+    <!-- stacked flat books (left) -->
+    <g>
+      <rect x="26" y="178" width="74" height="18" rx="6" fill="#e07a5f"/>
+      <rect x="30" y="182" width="66" height="4" rx="2" fill="#c8624a"/>
+      <rect x="32" y="160" width="70" height="18" rx="6" fill="#efe3c9"/>
+      <circle cx="46" cy="169" r="2.4" fill="#e07a5f"/><circle cx="56" cy="169" r="2.4" fill="#e07a5f"/><circle cx="66" cy="169" r="2.4" fill="#e07a5f"/>
+    </g>
+    <!-- PACHINKO -->
+    <g transform="translate(112,196)">
+      <rect x="0" y="-132" width="34" height="132" rx="4" fill="#cf7d90"/>
+      <rect x="0" y="-132" width="34" height="7" rx="3" fill="#b96a7d"/>
+      <rect x="5" y="-108" width="24" height="82" rx="4" fill="#f6eeda" stroke="#b96a7d" stroke-width="1.5"/>
+      <text x="17" y="-67" transform="rotate(-90 17 -67)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11.5" letter-spacing="1" fill="#a8586a">PACHINKO</text>
+    </g>
+    <!-- teal arched -->
+    <g transform="translate(148,196)">
+      <path d="M0 0 V-96 Q0 -112 14 -112 Q28 -112 28 -96 V0 Z" fill="#5aa89c"/>
+      <use href="#star" x="9" y="-104" width="10" height="10" fill="#eaf3ef"/>
+      <text x="14" y="-52" transform="rotate(-90 14 -52)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="11" fill="#fff">CIRCE</text>
+    </g>
+    <!-- BLUETS navy -->
+    <g transform="translate(178,196)">
+      <rect x="0" y="-138" width="30" height="138" rx="4" fill="#3f5f8a"/>
+      <rect x="0" y="-138" width="30" height="7" rx="3" fill="#324c70"/>
+      <rect x="4" y="-70" width="22" height="3" fill="#e4c15e"/><rect x="4" y="-40" width="22" height="3" fill="#e4c15e"/>
+      <text x="15" y="-92" transform="rotate(-90 15 -92)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="12" fill="#fff">BLUETS</text>
+    </g>
+    <!-- TRUST mustard short -->
+    <g transform="translate(208,196)">
+      <rect x="0" y="-102" width="26" height="102" rx="4" fill="#e4b24e"/>
+      <rect x="0" y="-102" width="26" height="7" rx="3" fill="#cf9a37"/>
+      <text x="13" y="-51" transform="rotate(-90 13 -51)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="12" fill="#7a5716">TRUST</text>
+    </g>
+    <!-- OUTLINE sage -->
+    <g transform="translate(234,196)">
+      <rect x="0" y="-122" width="30" height="122" rx="4" fill="#93b184"/>
+      <rect x="0" y="-122" width="30" height="7" rx="3" fill="#7e9d70"/>
+      <use href="#star" x="10" y="-115" width="9" height="9" fill="#eef4e9"/>
+      <text x="15" y="-61" transform="rotate(-90 15 -61)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11" fill="#3f5236">OUTLINE</text>
+    </g>
+    <!-- plain thin books -->
+    <g transform="translate(266,196)"><rect x="0" y="-108" width="18" height="108" rx="4" fill="#e07a5f"/><rect x="0" y="-108" width="18" height="6" rx="3" fill="#c8624a"/></g>
+    <g transform="translate(285,196)"><rect x="0" y="-118" width="16" height="118" rx="4" fill="#7db2c9"/></g>
+    <!-- leaning book -->
+    <g transform="translate(304,196) rotate(9)"><rect x="0" y="-104" width="26" height="104" rx="4" fill="#c96a7e"/><rect x="0" y="-104" width="26" height="6" rx="3" fill="#b25668"/></g>
+    <!-- potted plant (right) -->
+    <g transform="translate(430,196)">
+      <path d="M-4 -34 Q30 -78 22 -30" fill="#8fb87e"/><path d="M26 -32 Q60 -74 44 -28" fill="#7ba86a"/><path d="M18 -36 Q26 -84 40 -46" fill="#9cc48a"/>
+      <circle cx="10" cy="-60" r="7" fill="#e8a0ab"/><circle cx="34" cy="-58" r="6" fill="#e8a0ab"/>
+      <path d="M2 -30 h44 l-6 30 h-32 Z" fill="#eba6b2"/>
+      <path d="M2 -30 h44 l-2 10 h-40 Z" fill="#f2c0c8"/>
+    </g>
+
+    <!-- filler spines -->
+    <g transform="translate(328,196)"><rect x="0" y="-126" width="20" height="126" rx="4" fill="#3f5f8a"/><rect x="0" y="-126" width="20" height="6" rx="3" fill="#324c70"/></g>
+    <g transform="translate(348,196)"><rect x="0" y="-108" width="18" height="108" rx="4" fill="#e07a5f"/></g>
+    <g transform="translate(366,196)"><rect x="0" y="-134" width="24" height="134" rx="4" fill="#e4b24e"/><rect x="0" y="-134" width="24" height="6" rx="3" fill="#cf9a37"/><text x="12" y="-67" transform="rotate(-90 12 -67)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11" fill="#7a5716">FLORA</text></g>
+    <g transform="translate(390,196)"><rect x="0" y="-114" width="18" height="114" rx="4" fill="#5aa89c"/></g>
+    <g transform="translate(408,196) rotate(-6)"><rect x="0" y="-122" width="22" height="122" rx="4" fill="#c96a7e"/><use href="#star" x="7" y="-114" width="9" height="9" fill="#f6e6ea"/></g>
+    <!-- shelf 1 plank -->
+    <rect x="24" y="196" width="512" height="17" rx="6" fill="#e2a862"/>
+    <rect x="24" y="196" width="512" height="4" rx="3" fill="#efc48a"/>
+    <rect x="24" y="209" width="512" height="4" rx="2" fill="#c68440"/>
+    <path d="M96 213 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
+    <path d="M430 213 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
+
+    <!-- ===================== SHELF 2 — reading now (plank top y=396) ===================== -->
+    <!-- sailboat (left) -->
+    <g transform="translate(40,396)">
+      <path d="M18 -8 L18 -96 L70 -20 Z" fill="#eef2f4" stroke="#cdd6da" stroke-width="1.5"/>
+      <path d="M14 -8 L14 -84 L-24 -14 Z" fill="#dbe6ea" stroke="#c3cfd4" stroke-width="1.5"/>
+      <path d="M-26 -8 H74 L58 12 H-10 Z" fill="#4f86b0"/>
+      <path d="M-26 -8 H74 L70 -2 H-22 Z" fill="#5f9ac4"/>
+    </g>
+    <!-- MIDDLEMARCH plum -->
+    <g transform="translate(150,396)">
+      <rect x="0" y="-144" width="34" height="144" rx="4" fill="#7a5a86"/>
+      <rect x="0" y="-144" width="34" height="7" rx="3" fill="#664a72"/>
+      <rect x="5" y="-120" width="24" height="94" rx="4" fill="#f6eeda" stroke="#664a72" stroke-width="1.5"/>
+      <text x="17" y="-73" transform="rotate(-90 17 -73)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11" letter-spacing="0.5" fill="#6b4f78">MIDDLEMARCH</text>
+    </g>
+    <!-- WOLF HALL sky -->
+    <g transform="translate(186,396)">
+      <rect x="0" y="-124" width="30" height="124" rx="4" fill="#6fa8c0"/>
+      <rect x="0" y="-124" width="30" height="7" rx="3" fill="#5b93ab"/>
+      <use href="#star" x="10" y="-117" width="9" height="9" fill="#eaf3f6"/>
+      <text x="15" y="-62" transform="rotate(-90 15 -62)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11" fill="#fff">WOLF HALL</text>
+    </g>
+    <!-- SEVERANCE mustard -->
+    <g transform="translate(216,396)">
+      <rect x="0" y="-112" width="26" height="112" rx="4" fill="#e4b24e"/>
+      <rect x="0" y="-112" width="26" height="7" rx="3" fill="#cf9a37"/>
+      <text x="13" y="-56" transform="rotate(-90 13 -56)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="10.5" fill="#7a5716">SEVERANCE</text>
+    </g>
+    <!-- plain + leaning -->
+    <g transform="translate(242,396)"><rect x="0" y="-118" width="18" height="118" rx="4" fill="#8aa87a"/></g>
+    <g transform="translate(261,396)"><rect x="0" y="-104" width="16" height="104" rx="4" fill="#b5533f"/></g>
+    <!-- yellow book lying on top / leaning -->
+    <g transform="translate(280,396) rotate(11)"><rect x="0" y="-116" width="24" height="116" rx="4" fill="#e9c15e"/><rect x="0" y="-116" width="24" height="6" rx="3" fill="#d3a940"/><text x="12" y="-58" transform="rotate(-90 12 -58)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11" fill="#7a5716">GILEAD</text></g>
+    <!-- flat books stacked (right) -->
+    <g>
+      <rect x="452" y="378" width="70" height="18" rx="6" fill="#5aa89c"/>
+      <rect x="456" y="382" width="62" height="4" rx="2" fill="#478a80"/>
+      <rect x="446" y="360" width="72" height="18" rx="6" fill="#d98b9e"/>
+    </g>
+
+    <!-- filler spines -->
+    <g transform="translate(308,396)"><rect x="0" y="-120" width="20" height="120" rx="4" fill="#8aa87a"/></g>
+    <g transform="translate(328,396)"><rect x="0" y="-136" width="24" height="136" rx="4" fill="#b5533f"/><rect x="0" y="-136" width="24" height="6" rx="3" fill="#9c4432"/><text x="12" y="-68" transform="rotate(-90 12 -68)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="10.5" fill="#fff">ERNAUX</text></g>
+    <g transform="translate(352,396)"><rect x="0" y="-106" width="18" height="106" rx="4" fill="#e9c15e"/></g>
+    <g transform="translate(370,396)"><rect x="0" y="-126" width="22" height="126" rx="4" fill="#7a5a86"/><use href="#star" x="7" y="-118" width="9" height="9" fill="#efe6f2"/></g>
+    <g transform="translate(392,396)"><rect x="0" y="-114" width="18" height="114" rx="4" fill="#6fa8c0"/></g>
+    <g transform="translate(410,396) rotate(7)"><rect x="0" y="-122" width="22" height="122" rx="4" fill="#93b184"/><rect x="0" y="-122" width="22" height="6" rx="3" fill="#7e9d70"/></g>
+    <!-- shelf 2 plank -->
+    <rect x="24" y="396" width="512" height="17" rx="6" fill="#e2a862"/>
+    <rect x="24" y="396" width="512" height="4" rx="3" fill="#efc48a"/>
+    <rect x="24" y="409" width="512" height="4" rx="2" fill="#c68440"/>
+    <path d="M96 413 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
+    <path d="M430 413 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
+
+    <!-- ===================== SHELF 3 — recently finished (plank top y=596) ===================== -->
+    <!-- stacked flat books (left) -->
+    <g>
+      <rect x="26" y="578" width="72" height="18" rx="6" fill="#93b184"/>
+      <rect x="30" y="582" width="64" height="4" rx="2" fill="#7c9a6d"/>
+      <rect x="30" y="560" width="66" height="18" rx="6" fill="#cf7d90"/>
+    </g>
+    <!-- BELOVED plum -->
+    <g transform="translate(108,596)">
+      <rect x="0" y="-130" width="30" height="130" rx="4" fill="#8a5a86"/>
+      <rect x="0" y="-130" width="30" height="7" rx="3" fill="#744a72"/>
+      <text x="15" y="-65" transform="rotate(-90 15 -65)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="12" fill="#fff">BELOVED</text>
+    </g>
+    <!-- CROSSROADS navy tall -->
+    <g transform="translate(138,596)">
+      <rect x="0" y="-142" width="32" height="142" rx="4" fill="#3f5f8a"/>
+      <rect x="0" y="-142" width="32" height="7" rx="3" fill="#324c70"/>
+      <rect x="5" y="-118" width="22" height="92" rx="4" fill="#f6eeda" stroke="#324c70" stroke-width="1.5"/>
+      <text x="16" y="-72" transform="rotate(-90 16 -72)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="10.5" fill="#3f5f8a">CROSSROADS</text>
+    </g>
+    <!-- SEPTOLOGY teal -->
+    <g transform="translate(172,596)">
+      <rect x="0" y="-116" width="28" height="116" rx="4" fill="#5aa89c"/>
+      <rect x="0" y="-116" width="28" height="7" rx="3" fill="#478a80"/>
+      <use href="#star" x="9" y="-109" width="9" height="9" fill="#eaf3ef"/>
+      <text x="14" y="-58" transform="rotate(-90 14 -58)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="10.5" fill="#fff">SEPTOLOGY</text>
+    </g>
+    <!-- GOLDFINCH cream dark -->
+    <g transform="translate(200,596)">
+      <rect x="0" y="-126" width="28" height="126" rx="4" fill="#efe3c9"/>
+      <rect x="0" y="-126" width="28" height="7" rx="3" fill="#ddceac"/>
+      <text x="14" y="-63" transform="rotate(-90 14 -63)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="10" fill="#8a7444">GOLDFINCH</text>
+    </g>
+    <!-- plain thin -->
+    <g transform="translate(228,596)"><rect x="0" y="-108" width="18" height="108" rx="4" fill="#e07a5f"/><rect x="0" y="-108" width="18" height="6" rx="3" fill="#c8624a"/></g>
+    <g transform="translate(247,596)"><rect x="0" y="-118" width="16" height="118" rx="4" fill="#6fa8c0"/></g>
+    <!-- filler spines -->
+    <g transform="translate(265,596)"><rect x="0" y="-124" width="20" height="124" rx="4" fill="#3f5f8a"/><rect x="0" y="-124" width="20" height="6" rx="3" fill="#324c70"/></g>
+    <g transform="translate(285,596)"><rect x="0" y="-108" width="18" height="108" rx="4" fill="#e07a5f"/></g>
+    <g transform="translate(303,596)"><rect x="0" y="-130" width="24" height="130" rx="4" fill="#5aa89c"/><rect x="0" y="-130" width="24" height="6" rx="3" fill="#478a80"/><use href="#star" x="7" y="-122" width="9" height="9" fill="#eaf3ef"/></g>
+    <g transform="translate(327,596)"><rect x="0" y="-112" width="18" height="112" rx="4" fill="#e4b24e"/></g>
+    <g transform="translate(345,596) rotate(-6)"><rect x="0" y="-120" width="20" height="120" rx="4" fill="#c96a7e"/></g>
+    <!-- JOURNAL flat book (right, like a diary) -->
+    <g transform="translate(380,596)">
+      <rect x="0" y="-18" width="120" height="18" rx="6" fill="#efe3c9"/>
+      <rect x="0" y="-18" width="10" height="18" rx="4" fill="#d98b9e"/>
+      <text x="70" y="-6" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="600" font-size="11" fill="#9a7f5a">Journal</text>
+    </g>
+    <!-- wooden blocks (right) -->
+    <g transform="translate(486,596)">
+      <rect x="0" y="-30" width="30" height="30" rx="4" fill="#e07a5f"/>
+      <path d="M0 -30 h30 l-15 -22 Z" fill="#6fa8c0"/>
+      <rect x="30" y="-26" width="26" height="26" rx="4" fill="#e9c15e"/>
+      <path d="M30 0 v-26 a13 13 0 0 1 26 0 v26" fill="none" stroke="#c9a23f" stroke-width="3"/>
+    </g>
+
+    <!-- shelf 3 plank -->
+    <rect x="24" y="596" width="512" height="17" rx="6" fill="#e2a862"/>
+    <rect x="24" y="596" width="512" height="4" rx="3" fill="#efc48a"/>
+    <rect x="24" y="609" width="512" height="4" rx="2" fill="#c68440"/>
+    <path d="M96 613 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
+    <path d="M430 613 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
+  </svg>
 
   <footer class="site-footer">
     <span>© 2026 Zelia Lerch</span>
