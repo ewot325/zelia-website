@@ -1,0 +1,30 @@
+name: Update Letterboxd shelf
+
+on:
+  schedule:
+    - cron: "0 11 * * *" # every day ~7am New York time
+  workflow_dispatch: {} # allows running it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh the DVD shelf from Letterboxd
+        run: python3 update_letterboxd.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "letterboxd-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add other-things.html
+          git diff --cached --quiet || git commit -m "Auto-update Letterboxd shelf"
+          git push

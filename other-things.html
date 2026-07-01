@@ -33,100 +33,113 @@
   <h1 class="page-title">Other things I like</h1>
   <div class="title-rule"></div>
 
-  <svg class="shelfart" viewBox="0 0 560 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A shelf with a record player and records for most-played music, and a shelf of DVDs for recently watched films.">
+  <svg class="shelfart" viewBox="0 0 560 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A shelf with a gramophone and records for most-played music, and a shelf of DVDs for recently watched films.">
     <defs>
       <radialGradient id="vinyl" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#3a3940"/><stop offset="1" stop-color="#1c1b20"/></radialGradient>
     </defs>
 
-    <!-- ============ SHELF 1 — LISTENING (plank top y=330) ============ -->
+    <!-- ============ SHELF 1 — LISTENING (plank top y=170) ============ -->
     <text x="280" y="34" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="14" letter-spacing="3" fill="#9a8a6e">MOST PLAYED</text>
     <text x="280" y="52" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="12" fill="#b0a488">from Last.fm</text>
 
-    <!-- record player -->
+    <!-- gramophone -->
     <a class="item" href="https://www.last.fm/" target="_blank" rel="noopener">
       <g>
-        <rect x="26" y="238" width="150" height="92" rx="8" fill="#7c5230"/>
-        <rect x="26" y="238" width="150" height="92" rx="8" fill="#000" opacity="0.06"/>
-        <rect x="26" y="238" width="150" height="4" rx="2" fill="#a5764a"/>
-        <circle cx="92" cy="286" r="34" fill="url(#vinyl)"/>
-        <circle cx="92" cy="286" r="33" fill="none" stroke="#000" stroke-opacity="0.25"/>
-        <circle cx="92" cy="286" r="24" fill="none" stroke="#4a4952" stroke-width="0.6"/>
-        <circle cx="92" cy="286" r="11" fill="#c25b73"/>
-        <circle cx="92" cy="286" r="2" fill="#1c1b20"/>
-        <!-- tonearm -->
-        <circle cx="156" cy="256" r="6" fill="#d8cbb0"/>
-        <line x1="156" y1="256" x2="100" y2="272" stroke="#cbbfa4" stroke-width="4" stroke-linecap="round"/>
-        <rect x="96" y="268" width="9" height="7" rx="1.5" fill="#4a4952" transform="rotate(-16 100 272)"/>
-        <!-- knob -->
-        <circle cx="150" cy="312" r="7" fill="#e2a862"/><circle cx="150" cy="312" r="7" fill="none" stroke="#b07f45"/>
+        <!-- horn support rod -->
+        <line x1="116" y1="118" x2="126" y2="130" stroke="#8a6a4a" stroke-width="3"/>
+        <!-- horn neck -->
+        <path d="M104 128 C104 112 108 100 120 92" fill="none" stroke="#c9a15a" stroke-width="8" stroke-linecap="round"/>
+        <path d="M104 128 C104 112 108 100 120 92" fill="none" stroke="#e8c98c" stroke-width="3" stroke-linecap="round"/>
+        <!-- horn bell -->
+        <path d="M120 92 C100 84 74 66 60 46 A30 13 -42 1 1 104 22 C112 44 118 68 120 92 Z" fill="#d9a75a" stroke="#b07f45" stroke-width="1.5"/>
+        <!-- bell mouth interior -->
+        <ellipse cx="82" cy="34" rx="30" ry="13" transform="rotate(-42 82 34)" fill="#8a5f2e"/>
+        <ellipse cx="82" cy="34" rx="23" ry="8.5" transform="rotate(-42 82 34)" fill="#6e4a20"/>
+        <!-- cabinet -->
+        <rect x="40" y="128" width="108" height="42" rx="5" fill="#7c5230"/>
+        <rect x="40" y="128" width="108" height="5" rx="2.5" fill="#a5764a"/>
+        <rect x="48" y="151" width="92" height="2.5" rx="1" fill="#5f3d22"/>
+        <!-- turntable + record -->
+        <ellipse cx="86" cy="128" rx="30" ry="9" fill="url(#vinyl)"/>
+        <ellipse cx="86" cy="128" rx="10" ry="3.2" fill="#c25b73"/>
+        <circle cx="86" cy="128" r="1.6" fill="#1c1b20"/>
+        <!-- crank -->
+        <line x1="148" y1="152" x2="162" y2="143" stroke="#4a4952" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="162" cy="143" r="4" fill="#e2a862" stroke="#b07f45"/>
       </g>
     </a>
 
-    <!-- records: TODAY / WEEK / MONTH / YEAR -->
+    <!-- records: TODAY / WEEK / MONTH / YEAR — real album covers -->
     <a class="item" href="https://www.last.fm/" target="_blank" rel="noopener">
       <g>
-        <text x="222" y="244" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">TODAY</text>
-        <circle cx="256" cy="292" r="34" fill="url(#vinyl)"/><circle cx="256" cy="292" r="11" fill="#c25b73"/><circle cx="256" cy="292" r="2" fill="#1c1b20"/>
-        <rect x="184" y="254" width="76" height="76" rx="3" fill="#c25b73"/>
-        <circle cx="203" cy="275" r="11" fill="#f2c0c8"/><path d="M184 306 h76 v24 h-76 Z" fill="#000" opacity="0.18"/>
-        <text x="222" y="318" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Scott Street</text>
-        <text x="222" y="327" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Phoebe Bridgers</text>
+        <text x="222" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">TODAY</text>
+        <circle cx="256" cy="132" r="34" fill="url(#vinyl)"/><circle cx="256" cy="132" r="11" fill="#c25b73"/><circle cx="256" cy="132" r="2" fill="#1c1b20"/>
+        <image href="covers/album-today.jpg" x="184" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/>
+        <path d="M184 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/>
+        <rect x="184" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/>
+        <text x="222" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Scott Street</text>
+        <text x="222" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Phoebe Bridgers</text>
       </g>
     </a>
     <a class="item" href="https://www.last.fm/" target="_blank" rel="noopener">
       <g>
-        <text x="300" y="244" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">WEEK</text>
-        <circle cx="334" cy="292" r="34" fill="url(#vinyl)"/><circle cx="334" cy="292" r="11" fill="#5f9072"/><circle cx="334" cy="292" r="2" fill="#1c1b20"/>
-        <rect x="262" y="254" width="76" height="76" rx="3" fill="#5f9072"/>
-        <path d="M262 254 h76 v36 l-76 18 Z" fill="#78a98a"/><path d="M262 306 h76 v24 h-76 Z" fill="#000" opacity="0.18"/>
-        <text x="300" y="318" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Dreams</text>
-        <text x="300" y="327" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Fleetwood Mac</text>
+        <text x="300" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">WEEK</text>
+        <circle cx="334" cy="132" r="34" fill="url(#vinyl)"/><circle cx="334" cy="132" r="11" fill="#5f9072"/><circle cx="334" cy="132" r="2" fill="#1c1b20"/>
+        <image href="covers/album-week.jpg" x="262" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/>
+        <path d="M262 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/>
+        <rect x="262" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/>
+        <text x="300" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Dreams</text>
+        <text x="300" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Fleetwood Mac</text>
       </g>
     </a>
     <a class="item" href="https://www.last.fm/" target="_blank" rel="noopener">
       <g>
-        <text x="378" y="244" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">MONTH</text>
-        <circle cx="412" cy="292" r="34" fill="url(#vinyl)"/><circle cx="412" cy="292" r="11" fill="#c0922f"/><circle cx="412" cy="292" r="2" fill="#1c1b20"/>
-        <rect x="340" y="254" width="76" height="76" rx="3" fill="#c0922f"/>
-        <circle cx="378" cy="280" r="14" fill="none" stroke="#efe3c9" stroke-width="4"/><path d="M340 306 h76 v24 h-76 Z" fill="#000" opacity="0.18"/>
-        <text x="378" y="318" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Heroes</text>
-        <text x="378" y="327" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">David Bowie</text>
+        <text x="378" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">MONTH</text>
+        <circle cx="412" cy="132" r="34" fill="url(#vinyl)"/><circle cx="412" cy="132" r="11" fill="#c0922f"/><circle cx="412" cy="132" r="2" fill="#1c1b20"/>
+        <image href="covers/album-month.jpg" x="340" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/>
+        <path d="M340 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/>
+        <rect x="340" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/>
+        <text x="378" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Heroes</text>
+        <text x="378" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">David Bowie</text>
       </g>
     </a>
     <a class="item" href="https://www.last.fm/" target="_blank" rel="noopener">
       <g>
-        <text x="456" y="244" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">YEAR</text>
-        <circle cx="490" cy="292" r="34" fill="url(#vinyl)"/><circle cx="490" cy="292" r="11" fill="#5f72a6"/><circle cx="490" cy="292" r="2" fill="#1c1b20"/>
-        <rect x="418" y="254" width="76" height="76" rx="3" fill="#5f72a6"/>
-        <path d="M456 262 l22 40 h-44 Z" fill="#8fa0c4"/><path d="M418 306 h76 v24 h-76 Z" fill="#000" opacity="0.18"/>
-        <text x="456" y="318" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Linger</text>
-        <text x="456" y="327" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">The Cranberries</text>
+        <text x="456" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">YEAR</text>
+        <circle cx="490" cy="132" r="34" fill="url(#vinyl)"/><circle cx="490" cy="132" r="11" fill="#5f72a6"/><circle cx="490" cy="132" r="2" fill="#1c1b20"/>
+        <image href="covers/album-year.jpg" x="418" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/>
+        <path d="M418 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/>
+        <rect x="418" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/>
+        <text x="456" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Linger</text>
+        <text x="456" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">The Cranberries</text>
       </g>
     </a>
 
     <!-- shelf 1 plank -->
-    <rect x="24" y="330" width="512" height="17" rx="6" fill="#e2a862"/><rect x="24" y="330" width="512" height="4" rx="3" fill="#efc48a"/><rect x="24" y="343" width="512" height="4" rx="2" fill="#c68440"/>
-    <path d="M96 347 h34 l-6 30 h-22 Z" fill="#b06f2c"/><path d="M430 347 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
+    <rect x="24" y="170" width="512" height="17" rx="6" fill="#e2a862"/><rect x="24" y="170" width="512" height="4" rx="3" fill="#efc48a"/><rect x="24" y="183" width="512" height="4" rx="2" fill="#c68440"/>
+    <path d="M96 187 h34 l-6 30 h-22 Z" fill="#b06f2c"/><path d="M430 187 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
 
-    <!-- ============ SHELF 2 — WATCHING (plank top y=660) ============ -->
-    <text x="280" y="404" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="14" letter-spacing="3" fill="#9a8a6e">RECENTLY WATCHED</text>
-    <text x="280" y="422" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="12" fill="#b0a488">from Letterboxd</text>
+    <!-- ============ SHELF 2 — WATCHING (plank top y=445) ============ -->
+    <text x="280" y="252" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="14" letter-spacing="3" fill="#9a8a6e">RECENTLY WATCHED</text>
+    <text x="280" y="270" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="12" fill="#b0a488">from Letterboxd</text>
 
-    <!-- DVD spines -->
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(150,660)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#2f3a44"/><rect x="0" y="-150" width="20" height="16" fill="#c25b73"/><text x="10" y="-90" transform="rotate(90 10 -90)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">LADY BIRD</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(172,660)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#7c5230"/><rect x="0" y="-150" width="18" height="16" fill="#e2a862"/><text x="9" y="-88" transform="rotate(90 9 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9.5" fill="#fff">PAST LIVES</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(192,660)"><rect x="0" y="-150" width="22" height="150" rx="2" fill="#c0922f"/><rect x="0" y="-150" width="22" height="16" fill="#7a5716"/><text x="11" y="-92" transform="rotate(90 11 -92)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">AFTERSUN</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(216,660)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#3f5f8a"/><rect x="0" y="-150" width="18" height="16" fill="#7db2c9"/><text x="9" y="-88" transform="rotate(90 9 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9.5" fill="#fff">MOONLIGHT</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(236,660)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#b5533f"/><rect x="0" y="-150" width="20" height="16" fill="#e07a5f"/><text x="10" y="-90" transform="rotate(90 10 -90)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">PARASITE</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(258,660)"><rect x="0" y="-150" width="16" height="150" rx="2" fill="#5f9072"/><text x="8" y="-86" transform="rotate(90 8 -86)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9.5" fill="#fff">CAROL</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(276,660)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#8a5a86"/><rect x="0" y="-150" width="20" height="16" fill="#c58fbf"/><text x="10" y="-88" transform="rotate(90 10 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">AMÉLIE</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(298,660)"><rect x="0" y="-150" width="16" height="150" rx="2" fill="#efe3c9"/><text x="8" y="-86" transform="rotate(90 8 -86)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9.5" fill="#8a7444">ROMA</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(316,660)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#4a4952"/><rect x="0" y="-150" width="18" height="16" fill="#b5533f"/><text x="9" y="-90" transform="rotate(90 9 -90)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">TÁR</text></g></a>
-    <a class="item" href="https://letterboxd.com/" target="_blank" rel="noopener"><g transform="translate(334,660)"><rect x="0" y="-150" width="22" height="150" rx="2" fill="#6fa8c0"/><rect x="0" y="-150" width="22" height="16" fill="#3f5f8a"/><text x="11" y="-92" transform="rotate(90 11 -92)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9.5" fill="#fff">FRANCES HA</text></g></a>
+    <!-- DVD spines — auto-filled from Zelia's Letterboxd by update_letterboxd.py; edit the script, not these lines -->
+    <!-- LETTERBOXD:START -->
+    <a class="item" href="https://letterboxd.com/zelialerch/film/backrooms-2026/" target="_blank" rel="noopener"><g transform="translate(150,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#2f3a44"/><rect x="0" y="-150" width="20" height="16" fill="#c25b73"/><text x="10" y="-88" transform="rotate(90 10 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">BACKROOMS</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/obsession-2025/" target="_blank" rel="noopener"><g transform="translate(172,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#7c5230"/><rect x="0" y="-150" width="18" height="16" fill="#e2a862"/><text x="9" y="-88" transform="rotate(90 9 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">OBSESSION</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/bugonia/" target="_blank" rel="noopener"><g transform="translate(192,445)"><rect x="0" y="-150" width="22" height="150" rx="2" fill="#c0922f"/><rect x="0" y="-150" width="22" height="16" fill="#7a5716"/><text x="11" y="-88" transform="rotate(90 11 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">BUGONIA</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/shiva-baby-2020/1/" target="_blank" rel="noopener"><g transform="translate(216,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#3f5f8a"/><rect x="0" y="-150" width="18" height="16" fill="#7db2c9"/><text x="9" y="-88" transform="rotate(90 9 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">SHIVA BABY</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/a-serious-man/" target="_blank" rel="noopener"><g transform="translate(236,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#b5533f"/><rect x="0" y="-150" width="20" height="16" fill="#e07a5f"/><text x="10" y="-88" transform="rotate(90 10 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">A SERIOUS MAN</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/the-housemaid-2025/" target="_blank" rel="noopener"><g transform="translate(258,445)"><rect x="0" y="-150" width="16" height="150" rx="2" fill="#5f9072"/><text x="8" y="-88" transform="rotate(90 8 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">THE HOUSEMAID</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/thelma-louise/" target="_blank" rel="noopener"><g transform="translate(276,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#8a5a86"/><rect x="0" y="-150" width="20" height="16" fill="#c58fbf"/><text x="10" y="-88" transform="rotate(90 10 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">THELMA &amp; LOUISE</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/the-royal-tenenbaums/2/" target="_blank" rel="noopener"><g transform="translate(298,445)"><rect x="0" y="-150" width="16" height="150" rx="2" fill="#efe3c9"/><text x="8" y="-88" transform="rotate(90 8 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="8" fill="#8a7444">THE ROYAL TENENBAUMS</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/regretting-you/" target="_blank" rel="noopener"><g transform="translate(316,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#4a4952"/><rect x="0" y="-150" width="18" height="16" fill="#b5533f"/><text x="9" y="-88" transform="rotate(90 9 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">REGRETTING YOU</text></g></a>
+    <a class="item" href="https://letterboxd.com/zelialerch/film/sweet-home-alabama/" target="_blank" rel="noopener"><g transform="translate(334,445)"><rect x="0" y="-150" width="22" height="150" rx="2" fill="#6fa8c0"/><rect x="0" y="-150" width="22" height="16" fill="#3f5f8a"/><text x="11" y="-88" transform="rotate(90 11 -88)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="8" fill="#fff">SWEET HOME ALABAMA</text></g></a>
+    <!-- LETTERBOXD:END -->
     <!-- a couple of DVDs lying flat -->
-    <g transform="translate(372,660)"><rect x="0" y="-16" width="92" height="16" rx="2" fill="#2f3a44"/><rect x="0" y="-16" width="92" height="4" rx="2" fill="#c25b73"/><rect x="4" y="-32" width="92" height="16" rx="2" fill="#7c5230"/><rect x="4" y="-32" width="92" height="4" rx="2" fill="#e2a862"/></g>
+    <g transform="translate(372,445)"><rect x="0" y="-16" width="92" height="16" rx="2" fill="#2f3a44"/><rect x="0" y="-16" width="92" height="4" rx="2" fill="#c25b73"/><rect x="4" y="-32" width="92" height="16" rx="2" fill="#7c5230"/><rect x="4" y="-32" width="92" height="4" rx="2" fill="#e2a862"/></g>
     <!-- small retro TV -->
-    <g transform="translate(474,660)">
+    <g transform="translate(474,445)">
       <rect x="0" y="-62" width="62" height="52" rx="6" fill="#7c5230"/>
       <rect x="6" y="-56" width="42" height="40" rx="3" fill="#3a4a52"/><rect x="9" y="-53" width="20" height="16" fill="#54646c" opacity="0.6"/>
       <circle cx="55" cy="-46" r="3.5" fill="#e2a862"/><circle cx="55" cy="-34" r="3.5" fill="#e2a862"/>
@@ -134,8 +147,8 @@
     </g>
 
     <!-- shelf 2 plank -->
-    <rect x="24" y="660" width="512" height="17" rx="6" fill="#e2a862"/><rect x="24" y="660" width="512" height="4" rx="3" fill="#efc48a"/><rect x="24" y="673" width="512" height="4" rx="2" fill="#c68440"/>
-    <path d="M96 677 h34 l-6 30 h-22 Z" fill="#b06f2c"/><path d="M430 677 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
+    <rect x="24" y="445" width="512" height="17" rx="6" fill="#e2a862"/><rect x="24" y="445" width="512" height="4" rx="3" fill="#efc48a"/><rect x="24" y="458" width="512" height="4" rx="2" fill="#c68440"/>
+    <path d="M96 462 h34 l-6 30 h-22 Z" fill="#b06f2c"/><path d="M430 462 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
   </svg>
 
   <footer class="site-footer">
