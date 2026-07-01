@@ -9,9 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
 <style>
-  .shelf-intro{color:var(--muted);font-size:16px;margin:18px 0 6px;max-width:60ch;}
-  .shelf-key{color:var(--faint);font-style:italic;font-size:14px;margin:0 0 6px;}
-  .shelfart{display:block;width:100%;max-width:580px;margin:14px auto 0;}
+  .shelfart{display:block;width:100%;max-width:none;margin:20px auto 0;}
 </style>
 </head>
 <body class="sec-reading">
@@ -32,13 +30,15 @@
   <h1 class="page-title">Reading</h1>
   <div class="title-rule"></div>
 
-  <p class="shelf-intro">A little bookshelf of what I'm reading. Placeholder titles for now — soon it'll fill itself from my Goodreads.</p>
-  <p class="shelf-key">Top shelf: want to read · middle: reading now · bottom: recently finished</p>
-
   <svg class="shelfart" viewBox="0 0 560 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An illustrated bookshelf of three wooden shelves holding colorful books, a potted plant, a sailboat, and wooden blocks.">
     <defs>
       <symbol id="star" viewBox="0 0 10 10"><path d="M5 0 L6.2 3.5 L10 3.6 L6.9 5.8 L8 9.6 L5 7.2 L2 9.6 L3.1 5.8 L0 3.6 L3.8 3.5 Z"/></symbol>
     </defs>
+
+    <!-- shelf labels -->
+    <text x="280" y="30" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="14" letter-spacing="3" fill="#9a8a6e">WANT TO READ</text>
+    <text x="280" y="238" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="14" letter-spacing="3" fill="#9a8a6e">READING NOW</text>
+    <text x="280" y="440" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="14" letter-spacing="3" fill="#9a8a6e">RECENTLY FINISHED</text>
 
     <!-- ===================== SHELF 1 — want to read (plank top y=196) ===================== -->
     <!-- stacked flat books (left) -->
@@ -52,8 +52,7 @@
     <g transform="translate(112,196)">
       <rect x="0" y="-132" width="34" height="132" rx="4" fill="#cf7d90"/>
       <rect x="0" y="-132" width="34" height="7" rx="3" fill="#b96a7d"/>
-      <rect x="5" y="-108" width="24" height="82" rx="4" fill="#f6eeda" stroke="#b96a7d" stroke-width="1.5"/>
-      <text x="17" y="-67" transform="rotate(-90 17 -67)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11.5" letter-spacing="1" fill="#a8586a">PACHINKO</text>
+      <text x="17" y="-66" transform="rotate(-90 17 -66)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="12.5" letter-spacing="1" fill="#fff">PACHINKO</text>
     </g>
     <!-- teal arched -->
     <g transform="translate(148,196)">
@@ -65,8 +64,7 @@
     <g transform="translate(178,196)">
       <rect x="0" y="-138" width="30" height="138" rx="4" fill="#3f5f8a"/>
       <rect x="0" y="-138" width="30" height="7" rx="3" fill="#324c70"/>
-      <rect x="4" y="-70" width="22" height="3" fill="#e4c15e"/><rect x="4" y="-40" width="22" height="3" fill="#e4c15e"/>
-      <text x="15" y="-92" transform="rotate(-90 15 -92)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="12" fill="#fff">BLUETS</text>
+      <text x="15" y="-69" transform="rotate(-90 15 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="12.5" fill="#fff">BLUETS</text>
     </g>
     <!-- TRUST mustard short -->
     <g transform="translate(208,196)">
@@ -119,8 +117,7 @@
     <g transform="translate(150,396)">
       <rect x="0" y="-144" width="34" height="144" rx="4" fill="#7a5a86"/>
       <rect x="0" y="-144" width="34" height="7" rx="3" fill="#664a72"/>
-      <rect x="5" y="-120" width="24" height="94" rx="4" fill="#f6eeda" stroke="#664a72" stroke-width="1.5"/>
-      <text x="17" y="-73" transform="rotate(-90 17 -73)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11" letter-spacing="0.5" fill="#6b4f78">MIDDLEMARCH</text>
+      <text x="17" y="-72" transform="rotate(-90 17 -72)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11.5" letter-spacing="0.5" fill="#fff">MIDDLEMARCH</text>
     </g>
     <!-- WOLF HALL sky -->
     <g transform="translate(186,396)">
@@ -178,8 +175,7 @@
     <g transform="translate(138,596)">
       <rect x="0" y="-142" width="32" height="142" rx="4" fill="#3f5f8a"/>
       <rect x="0" y="-142" width="32" height="7" rx="3" fill="#324c70"/>
-      <rect x="5" y="-118" width="22" height="92" rx="4" fill="#f6eeda" stroke="#324c70" stroke-width="1.5"/>
-      <text x="16" y="-72" transform="rotate(-90 16 -72)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="10.5" fill="#3f5f8a">CROSSROADS</text>
+      <text x="16" y="-71" transform="rotate(-90 16 -71)" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="11" fill="#fff">CROSSROADS</text>
     </g>
     <!-- SEPTOLOGY teal -->
     <g transform="translate(172,596)">
