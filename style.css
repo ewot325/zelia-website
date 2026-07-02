@@ -90,6 +90,7 @@ a{color:inherit; text-decoration:none;}
 .shot .frame img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
 .shot .frame .ph{color:#a99f87; font-size:12px; font-style:italic; padding:0 8px; text-align:center;}
 .shot .cap{display:block; margin-top:10px; font-style:italic; color:var(--muted); font-size:15px;}
+.empty-note{margin-top:40px; text-align:center; font-style:italic; color:var(--faint); font-size:17px;}
 
 /* ---------- footer ---------- */
 .site-footer{margin-top:64px; border-top:1px solid var(--rule); padding:26px 0 56px; display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px;}

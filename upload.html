@@ -33,6 +33,18 @@
   .hint{color:#8a8475;font-size:14px;margin-top:14px;line-height:1.5;}
   .keylink{margin-top:26px;font-size:13px;color:#a09988;}
   .keylink a{color:#8a8475;text-decoration:underline;cursor:pointer;}
+  .manage h2{font-family:var(--display);font-weight:600;font-size:19px;margin:0 0 4px;color:var(--ink);}
+  .manage .hint{margin-top:0;}
+  .mlist{margin-top:14px;}
+  .mrow{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #eee4d0;}
+  .mrow:first-child{border-top:none;}
+  .mrow img{width:52px;height:52px;object-fit:cover;border-radius:6px;flex:0 0 auto;background:#ece5d6;}
+  .mrow .mcap{flex:1;font-style:italic;color:#6f695d;font-size:15px;line-height:1.3;}
+  .mrow .mdel{background:transparent;border:1.5px solid #c9a6a0;color:#a33f2e;border-radius:999px;
+    padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;flex:0 0 auto;}
+  .mrow .mdel:hover{background:#a33f2e;color:#fff;border-color:#a33f2e;}
+  .mrow .mdel:disabled{opacity:.5;cursor:default;}
+  .mempty{color:#a99f87;font-style:italic;font-size:15px;margin-top:12px;}
 </style>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -76,6 +88,13 @@
     <div class="keylink"><a id="changekey">change upload key</a></div>
   </div>
 
+  <!-- step 3: manage existing photos -->
+  <div class="card manage" id="managecard" style="display:none;">
+    <h2>Photos on the page</h2>
+    <p class="hint">Newest first. Removing one takes it off the site right away.</p>
+    <div class="mlist" id="mlist"></div>
+  </div>
+
 </div>
 
 <script>
@@ -90,8 +109,14 @@
   var statusEl=document.getElementById('status');
   var chosen=null; // {blob, dataUrl}
 
+  var managecard=document.getElementById('managecard');
   function token(){ return localStorage.getItem(KEY_STORE)||''; }
-  function show(which){ keycard.style.display = which==='key'?'':'none'; upcard.style.display = which==='up'?'':'none'; }
+  function show(which){
+    keycard.style.display = which==='key'?'':'none';
+    upcard.style.display = which==='up'?'':'none';
+    managecard.style.display = which==='up'?'':'none';
+    if(which==='up') loadManage();
+  }
   show(token()?'up':'key');
 
   document.getElementById('savekey').addEventListener('click', function(){
@@ -216,6 +241,72 @@
   }
   window.__zeliaAddPhoto=addPhoto; // used by automated tests
 
+  // ---------- manage / delete existing photos ----------
+  function parsePhotos(html){
+    var m=html.match(/<!-- PHOTOS:START -->([\s\S]*?)<!-- PHOTOS:END -->/);
+    var region=m?m[1]:'';
+    var figs=region.match(/<figure class="shot"[\s\S]*?<\/figure>/g)||[];
+    return figs.map(function(f){
+      return {
+        src:(f.match(/src="([^"]+)"/)||[])[1]||'',
+        cap:(f.match(/<span class="cap">([\s\S]*?)<\/span>/)||[])[1]||''
+      };
+    });
+  }
+  function decode(s){ var t=document.createElement('textarea'); t.innerHTML=s; return t.value; }
+  function removeFigure(html, src){
+    return html.replace(/\n?\s*<figure class="shot"[\s\S]*?<\/figure>/g, function(m){
+      return m.indexOf('src="'+src+'"')!==-1 ? '' : m;
+    });
+  }
+  function removePhoto(src){
+    return api('/contents/'+PAGE+'?ref='+BRANCH).then(function(pg){
+      var out=removeFigure(b64ToUtf8(pg.content), src);
+      return api('/contents/'+PAGE, {method:'PUT', body:JSON.stringify({
+        message:'Remove photo from Things I saw', content:utf8ToB64(out), sha:pg.sha, branch:BRANCH })});
+    }).then(function(){
+      // best-effort: also delete the image file so it doesn't linger
+      return api('/contents/'+src+'?ref='+BRANCH).then(function(f){
+        return api('/contents/'+src, {method:'DELETE', body:JSON.stringify({
+          message:'Delete '+src, sha:f.sha, branch:BRANCH })});
+      }).catch(function(){});
+    });
+  }
+  window.__zeliaRemovePhoto=removePhoto; // used by automated tests
+
+  var mlist=document.getElementById('mlist');
+  function loadManage(){
+    if(!token()) return;
+    mlist.innerHTML='<div class="mempty">Loading…</div>';
+    api('/contents/'+PAGE+'?ref='+BRANCH).then(function(pg){
+      var photos=parsePhotos(b64ToUtf8(pg.content));
+      if(!photos.length){ mlist.innerHTML='<div class="mempty">No photos yet — add your first above.</div>'; return; }
+      mlist.innerHTML='';
+      photos.forEach(function(p){
+        var row=document.createElement('div'); row.className='mrow';
+        var img=document.createElement('img'); img.src=p.src; img.alt='';
+        img.onerror=function(){ img.style.visibility='hidden'; };
+        var cap=document.createElement('div'); cap.className='mcap'; cap.textContent=decode(p.cap);
+        var btn=document.createElement('button'); btn.className='mdel'; btn.type='button'; btn.textContent='Remove';
+        btn.addEventListener('click', function(){
+          if(!confirm('Remove this photo from the site?\n\n“'+decode(p.cap)+'”')) return;
+          btn.disabled=true; btn.textContent='Removing…';
+          removePhoto(p.src).then(function(){
+            row.remove();
+            if(!mlist.querySelector('.mrow')) mlist.innerHTML='<div class="mempty">No photos yet — add your first above.</div>';
+          }).catch(function(err){
+            btn.disabled=false; btn.textContent='Remove';
+            alert(err.message==='KEY' ? 'The upload key wasn’t accepted — try “change upload key”.' : 'Couldn’t remove it. Check your internet and try again.');
+          });
+        });
+        row.appendChild(img); row.appendChild(cap); row.appendChild(btn);
+        mlist.appendChild(row);
+      });
+    }).catch(function(err){
+      mlist.innerHTML='<div class="mempty">'+(err.message==='KEY'?'Upload key not accepted.':'Couldn’t load the photo list.')+'</div>';
+    });
+  }
+
   goBtn.addEventListener('click', function(){
     var caption=captionEl.value.trim();
     if(!chosen||!caption) return;
@@ -227,6 +318,7 @@
       preview.style.display='none';
       document.getElementById('droplabel').innerHTML='Tap to choose a photo<br><span style="font-size:13.5px;color:#a99f87;">(or drag one here)</span>';
       fileInput.value='';
+      loadManage(); // show it in the manage list right away
     }).catch(function(err){
       if(err.message==='KEY'){ setStatus('The upload key wasn’t accepted. Tap “change upload key” below and paste it again.', 'err'); }
       else if(err.message==='MARKER'){ setStatus('The page is missing its photo markers — tell Elliot.', 'err'); }

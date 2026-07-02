@@ -32,18 +32,19 @@
   <h1 class="page-title">Things I saw</h1>
   <div class="title-rule"></div>
 
-  <!-- Real photos are added between the PHOTOS markers by upload.html (newest first).
-       The placeholder shots below the markers can be deleted once real photos exist. -->
+  <!-- Photos are added/removed between the PHOTOS markers by upload.html (newest first). -->
   <section class="photo-grid">
     <!-- PHOTOS:START -->
     <!-- PHOTOS:END -->
-    <figure class="shot" style="margin:0;"><span class="frame"><img src="shot-1.jpg" alt="" onerror="this.style.display='none'"><span class="ph">shot-1.jpg</span></span><span class="cap">a door in the Marigny</span></figure>
-    <figure class="shot" style="margin:0;"><span class="frame"><img src="shot-2.jpg" alt="" onerror="this.style.display='none'"><span class="ph">shot-2.jpg</span></span><span class="cap">Berlin, 6am, nobody awake</span></figure>
-    <figure class="shot" style="margin:0;"><span class="frame"><img src="shot-3.jpg" alt="" onerror="this.style.display='none'"><span class="ph">shot-3.jpg</span></span><span class="cap">someone's excellent dog</span></figure>
-    <figure class="shot" style="margin:0;"><span class="frame"><img src="shot-4.jpg" alt="" onerror="this.style.display='none'"><span class="ph">shot-4.jpg</span></span><span class="cap">the good tomatoes</span></figure>
-    <figure class="shot" style="margin:0;"><span class="frame"><img src="shot-5.jpg" alt="" onerror="this.style.display='none'"><span class="ph">shot-5.jpg</span></span><span class="cap">fog on the Elbe</span></figure>
-    <figure class="shot" style="margin:0;"><span class="frame"><img src="shot-6.jpg" alt="" onerror="this.style.display='none'"><span class="ph">shot-6.jpg</span></span><span class="cap">a cat that runs a bakery</span></figure>
   </section>
+  <p class="empty-note" id="emptynote" style="display:none;">No pictures here yet — soon.</p>
+  <script>
+    (function(){
+      var grid=document.querySelector('.photo-grid');
+      var note=document.getElementById('emptynote');
+      if(grid && note && !grid.querySelector('figure.shot')) note.style.display='';
+    })();
+  </script>
 
   <footer class="site-footer">
     <span>© 2026 Zelia Lerch</span>
