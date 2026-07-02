@@ -33,3 +33,5 @@ jobs:
           path: "."
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000 # wait up to 30 min for GitHub's Pages backend (it can be slow)
