@@ -29,7 +29,7 @@ COVERS_DIR = os.path.join(DIR, "covers")
 # Fixed spine slots per shelf, matching the original hand-drawn composition.
 # shape "round" = rounded-top spine (no cap). fg = title/author text color.
 SHELVES = [
-    dict(shelf="to-read", marker="S1", y=196, sort="added", slots=[
+    dict(shelf="currently-reading", marker="S1", y=196, sort="added", slots=[
         dict(x=112, w=34, h=132, spine="#cf7d90", cap="#b96a7d", fg="#fff"),
         dict(x=148, w=28, h=112, spine="#5aa89c", cap=None, fg="#fff", shape="round"),
         dict(x=178, w=30, h=138, spine="#3f5f8a", cap="#324c70", fg="#fff"),
@@ -37,14 +37,14 @@ SHELVES = [
         dict(x=234, w=30, h=122, spine="#93b184", cap="#7e9d70", fg="#3f5236"),
         dict(x=328, w=24, h=134, spine="#e4b24e", cap="#cf9a37", fg="#7a5716"),
     ]),
-    dict(shelf="currently-reading", marker="S2", y=396, sort="added", slots=[
+    dict(shelf="read", marker="S2", y=396, sort="read", slots=[
         dict(x=150, w=34, h=144, spine="#7a5a86", cap="#664a72", fg="#fff"),
         dict(x=186, w=30, h=124, spine="#6fa8c0", cap="#5b93ab", fg="#fff"),
         dict(x=216, w=26, h=112, spine="#e4b24e", cap="#cf9a37", fg="#7a5716"),
         dict(x=280, w=24, h=116, spine="#e9c15e", cap="#d3a940", fg="#7a5716", tilt=11),
         dict(x=328, w=24, h=136, spine="#b5533f", cap="#9c4432", fg="#fff"),
     ]),
-    dict(shelf="read", marker="S3", y=596, sort="read", slots=[
+    dict(shelf="to-read", marker="S3", y=596, sort="added", slots=[
         dict(x=108, w=30, h=130, spine="#8a5a86", cap="#744a72", fg="#fff"),
         dict(x=138, w=32, h=142, spine="#3f5f8a", cap="#324c70", fg="#fff"),
         dict(x=172, w=28, h=116, spine="#5aa89c", cap="#478a80", fg="#fff"),
@@ -98,9 +98,7 @@ CHAR_W = 0.62  # approx width of one uppercase Fraunces-bold char, in font-size 
 
 def slot_capacity(slot, book):
     """How much vertical room this slot offers this book's title."""
-    top_pad = 8 if slot.get("shape") == "round" else 11
-    a_top = 5 * len(surname(book["author"])) + 12
-    return slot["h"] - top_pad - max(34, a_top) - 6
+    return slot["h"] - 22
 
 
 def assign_books(slots, books):
@@ -162,48 +160,34 @@ def spine_svg(slot, book, y):
     title = spine_title(book["title"])
     author = surname(book["author"])
 
-    # author sits near the bottom; its centered y depends on its length
-    a_len = len(author)
-    a_y = -(2.5 * a_len + 7.5)
-    a_top = 5 * a_len + 12  # room the author text needs, measured from the bottom
+    # title and author run bottom-to-top, side by side, centered on the spine
+    space = h - 22
+    fs = None
+    for candidate in (10.5, 9.5, 8.5, 7.5, 6.5):
+        if len(title) * candidate * CHAR_W <= space:
+            fs = candidate
+            break
+    if fs is None:  # won't fit even small: truncate at a still-readable size
+        fs = 7.5
+        max_chars = int(space / (fs * CHAR_W))
+        title = title[: max(1, max_chars - 1)].rstrip() + "…"
+    a_max = int(space / (7 * CHAR_W))
+    if len(author) > a_max:
+        author = author[: max(1, a_max - 1)].rstrip() + "…"
 
-    # pick a title font size that fits between the top cap and the author
-    # (minus a small gap so title and author never touch)
-    def fits(n, room):
-        for candidate in (10.5, 9.5, 8.5, 7.5, 6.5):
-            if n * candidate * CHAR_W <= room:
-                return candidate
-        return None
-
-    show_author = True
-    bottom = max(34, a_top)
-    space = h - top_pad - bottom - 6
-    fs = fits(len(title), space)
-    if fs is None:
-        # title won't fit above the author: try a title-only spine instead
-        space_wo = h - top_pad - 16 - 6
-        fs = fits(len(title), space_wo)
-        if fs is not None:
-            show_author, bottom, space = False, 16, space_wo
-        else:  # even alone it won't fit: truncate at a still-readable size
-            fs = 7.5
-            max_chars = int(space / (fs * CHAR_W))
-            title = title[: max(1, max_chars - 1)].rstrip() + "…"
-    t_y = -(bottom + (space - len(title) * fs * CHAR_W) / 2 + len(title) * fs * CHAR_W / 2)
-
+    cy = -h / 2
+    tx = cx - 5   # title line sits left of the author line
+    ax = cx + 6
     label = html.escape(title)
     a_label = html.escape(author)
     fg = slot["fg"]
     text = (
-        f'<text x="{cx:g}" y="{t_y:.0f}" transform="rotate(90 {cx:g} {t_y:.0f})" text-anchor="middle" '
+        f'<text x="{tx:g}" y="{cy:g}" transform="rotate(-90 {tx:g} {cy:g})" text-anchor="middle" '
         f'font-family="Fraunces,serif" font-weight="700" font-size="{fs:g}" fill="{fg}">{label}</text>'
+        f'<text x="{ax:g}" y="{cy:g}" transform="rotate(-90 {ax:g} {cy:g})" text-anchor="middle" '
+        f'font-family="Fraunces,serif" font-weight="600" font-size="7" letter-spacing="1" '
+        f'fill="{fg}" fill-opacity="0.75">{a_label}</text>'
     )
-    if show_author:
-        text += (
-            f'<text x="{cx:g}" y="{a_y:g}" transform="rotate(90 {cx:g} {a_y:g})" text-anchor="middle" '
-            f'font-family="Fraunces,serif" font-weight="600" font-size="7" letter-spacing="1" '
-            f'fill="{fg}" fill-opacity="0.75">{a_label}</text>'
-        )
     href = html.escape(f"https://www.goodreads.com/book/show/{book['book_id']}", quote=True)
     cover = html.escape(download_cover(book), quote=True)
     data_t = html.escape(re.split(r"\(", book["title"])[0].strip(), quote=True)
