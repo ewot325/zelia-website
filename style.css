@@ -94,9 +94,13 @@ a{color:inherit; text-decoration:none;}
 
 /* ---------- footer ---------- */
 .site-footer{margin-top:64px; border-top:1px solid var(--rule); padding:26px 0 56px; display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px;}
-.site-footer .links{display:flex; gap:20px;}
+.site-footer .links{display:flex; gap:12px; align-items:center;}
 .site-footer a{transition:color .18s ease;}
 .site-footer a:hover{color:var(--ink);}
+.site-footer .links a{display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1px solid var(--rule); color:var(--muted);
+  transition:color .18s ease, background .18s ease, border-color .18s ease, transform .18s ease;}
+.site-footer .links a:hover{color:#fff; background:var(--c); border-color:var(--c); transform:translateY(-2px);}
+.site-footer .links svg{width:18px; height:18px; display:block;}
 
 /* ---------- responsive ---------- */
 @media (max-width:640px){
