@@ -88,7 +88,9 @@ def enrich(track):
         # e.g. "Beast Of Burden - Remastered 1994" has no art, "Beast Of Burden" does
         url2, art = lookup(clean_name(track["name"]))
         url = url2 or url
-    track["url"] = url or f"https://www.last.fm/user/{USERNAME}"
+    # clicks go to the song on Spotify (search deep-link; no account involved)
+    q = urllib.parse.quote(f"{clean_name(track['name'])} {track['artist']}")
+    track["url"] = f"https://open.spotify.com/search/{q}"
     track["art"] = art
     return track
 

@@ -181,10 +181,15 @@ def spine_svg(slot, book, y):
     label = html.escape(title)
     a_label = html.escape(author)
     fg = slot["fg"]
+    # textLength pins the rendered width so no font can push text past the spine
+    t_len = min(len(title) * fs * CHAR_W, space)
+    a_len_px = min(len(author) * 7 * (CHAR_W + 0.15), space)  # +letter-spacing
     text = (
         f'<text x="{tx:g}" y="{cy:g}" transform="rotate(90 {tx:g} {cy:g})" text-anchor="middle" '
+        f'textLength="{t_len:.0f}" lengthAdjust="spacingAndGlyphs" '
         f'font-family="Fraunces,serif" font-weight="700" font-size="{fs:g}" fill="{fg}">{label}</text>'
         f'<text x="{ax:g}" y="{cy:g}" transform="rotate(90 {ax:g} {cy:g})" text-anchor="middle" '
+        f'textLength="{a_len_px:.0f}" lengthAdjust="spacingAndGlyphs" '
         f'font-family="Fraunces,serif" font-weight="600" font-size="7" letter-spacing="1" '
         f'fill="{fg}" fill-opacity="0.75">{a_label}</text>'
     )

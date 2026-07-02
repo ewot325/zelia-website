@@ -12,6 +12,14 @@
   .sec-other{--c:#8a5a86;}
   .shelfart{display:block;width:100%;max-width:none;margin:20px auto 0;}
   .shelfart a.item{cursor:pointer;}
+  .moviepop{position:fixed;z-index:50;pointer-events:none;opacity:0;transition:opacity .12s ease;
+    background:#fffdf8;border:1px solid #e6dcc6;border-radius:10px;box-shadow:0 12px 34px rgba(40,28,12,.28);
+    padding:12px;display:flex;gap:12px;width:280px;}
+  .moviepop.show{opacity:1;}
+  .moviepop img{width:80px;height:auto;border-radius:3px;box-shadow:0 3px 8px rgba(0,0,0,.22);background:#ece5d6;flex:0 0 auto;}
+  .moviepop .mp-t{font-family:var(--display);font-weight:600;font-size:16px;line-height:1.2;color:#221f1a;}
+  .moviepop .mp-d{font-family:var(--body);font-style:italic;color:#6f695d;font-size:14px;margin-top:3px;}
+  .moviepop .mp-r{font-size:15px;color:#c0922f;letter-spacing:2px;margin-top:6px;}
 </style>
 </head>
 <body class="sec-other">
@@ -85,10 +93,10 @@
 
     <!-- records: TODAY / WEEK / MONTH / YEAR — auto-filled from Zelia's Last.fm by update_lastfm.py -->
     <!-- LASTFM:START -->
-    <a class="item" href="https://www.last.fm/music/The+Rolling+Stones/_/Beast+of+Burden" target="_blank" rel="noopener"><g><text x="222" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">TODAY</text><circle cx="256" cy="132" r="34" fill="url(#vinyl)"/><circle cx="256" cy="132" r="11" fill="#c25b73"/><circle cx="256" cy="132" r="2" fill="#1c1b20"/><image href="covers/lastfm-today.jpg?v=737de575" x="184" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/><path d="M184 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/><rect x="184" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/><text x="222" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Beast Of Burden</text><text x="222" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">The Rolling Stones</text></g></a>
-    <a class="item" href="https://www.last.fm/music/Neil+Young/_/Razor+Love" target="_blank" rel="noopener"><g><text x="300" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">WEEK</text><circle cx="334" cy="132" r="34" fill="url(#vinyl)"/><circle cx="334" cy="132" r="11" fill="#5f9072"/><circle cx="334" cy="132" r="2" fill="#1c1b20"/><image href="covers/lastfm-week.jpg?v=447a4089" x="262" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/><path d="M262 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/><rect x="262" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/><text x="300" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Razor Love</text><text x="300" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Neil Young</text></g></a>
-    <a class="item" href="https://www.last.fm/music/Neil+Young/_/Razor+Love" target="_blank" rel="noopener"><g><text x="378" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">MONTH</text><circle cx="412" cy="132" r="34" fill="url(#vinyl)"/><circle cx="412" cy="132" r="11" fill="#c0922f"/><circle cx="412" cy="132" r="2" fill="#1c1b20"/><image href="covers/lastfm-month.jpg?v=447a4089" x="340" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/><path d="M340 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/><rect x="340" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/><text x="378" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Razor Love</text><text x="378" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Neil Young</text></g></a>
-    <a class="item" href="https://www.last.fm/music/Neil+Young/_/Razor+Love" target="_blank" rel="noopener"><g><text x="456" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">YEAR</text><circle cx="490" cy="132" r="34" fill="url(#vinyl)"/><circle cx="490" cy="132" r="11" fill="#5f72a6"/><circle cx="490" cy="132" r="2" fill="#1c1b20"/><image href="covers/lastfm-year.jpg?v=447a4089" x="418" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/><path d="M418 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/><rect x="418" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/><text x="456" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Razor Love</text><text x="456" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Neil Young</text></g></a>
+    <a class="item" href="https://open.spotify.com/search/Beast%20Of%20Burden%20The%20Rolling%20Stones" target="_blank" rel="noopener"><g><text x="222" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">TODAY</text><circle cx="256" cy="132" r="34" fill="url(#vinyl)"/><circle cx="256" cy="132" r="11" fill="#c25b73"/><circle cx="256" cy="132" r="2" fill="#1c1b20"/><image href="covers/lastfm-today.jpg?v=737de575" x="184" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/><path d="M184 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/><rect x="184" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/><text x="222" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Beast Of Burden</text><text x="222" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">The Rolling Stones</text></g></a>
+    <a class="item" href="https://open.spotify.com/search/Razor%20Love%20Neil%20Young" target="_blank" rel="noopener"><g><text x="300" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">WEEK</text><circle cx="334" cy="132" r="34" fill="url(#vinyl)"/><circle cx="334" cy="132" r="11" fill="#5f9072"/><circle cx="334" cy="132" r="2" fill="#1c1b20"/><image href="covers/lastfm-week.jpg?v=447a4089" x="262" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/><path d="M262 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/><rect x="262" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/><text x="300" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Razor Love</text><text x="300" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Neil Young</text></g></a>
+    <a class="item" href="https://open.spotify.com/search/Razor%20Love%20Neil%20Young" target="_blank" rel="noopener"><g><text x="378" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">MONTH</text><circle cx="412" cy="132" r="34" fill="url(#vinyl)"/><circle cx="412" cy="132" r="11" fill="#c0922f"/><circle cx="412" cy="132" r="2" fill="#1c1b20"/><image href="covers/lastfm-month.jpg?v=447a4089" x="340" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/><path d="M340 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/><rect x="340" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/><text x="378" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Razor Love</text><text x="378" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Neil Young</text></g></a>
+    <a class="item" href="https://open.spotify.com/search/Razor%20Love%20Neil%20Young" target="_blank" rel="noopener"><g><text x="456" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10.5" letter-spacing="2" fill="#9a8a6e">YEAR</text><circle cx="490" cy="132" r="34" fill="url(#vinyl)"/><circle cx="490" cy="132" r="11" fill="#5f72a6"/><circle cx="490" cy="132" r="2" fill="#1c1b20"/><image href="covers/lastfm-year.jpg?v=447a4089" x="418" y="94" width="76" height="76" preserveAspectRatio="xMidYMid slice"/><path d="M418 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/><rect x="418" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/><text x="456" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#fff">Razor Love</text><text x="456" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="7.5" fill="#fff" fill-opacity="0.85">Neil Young</text></g></a>
     <!-- LASTFM:END -->
 
     <!-- shelf 1 plank -->
@@ -100,25 +108,31 @@
 
     <!-- DVD spines — auto-filled from Zelia's Letterboxd by update_letterboxd.py; edit the script, not these lines -->
     <!-- LETTERBOXD:START -->
-    <a class="item" href="https://letterboxd.com/film/backrooms-2026/" target="_blank" rel="noopener"><g transform="translate(150,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#2f3a44"/><rect x="0" y="-150" width="20" height="16" fill="#c25b73"/><text x="10" y="-69" transform="rotate(-90 10 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">BACKROOMS</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/obsession-2025/" target="_blank" rel="noopener"><g transform="translate(172,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#7c5230"/><rect x="0" y="-150" width="18" height="16" fill="#e2a862"/><text x="9" y="-69" transform="rotate(-90 9 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">OBSESSION</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/bugonia/" target="_blank" rel="noopener"><g transform="translate(192,445)"><rect x="0" y="-150" width="22" height="150" rx="2" fill="#c0922f"/><rect x="0" y="-150" width="22" height="16" fill="#7a5716"/><text x="11" y="-69" transform="rotate(-90 11 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">BUGONIA</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/shiva-baby-2020/" target="_blank" rel="noopener"><g transform="translate(216,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#3f5f8a"/><rect x="0" y="-150" width="18" height="16" fill="#7db2c9"/><text x="9" y="-69" transform="rotate(-90 9 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">SHIVA BABY</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/a-serious-man/" target="_blank" rel="noopener"><g transform="translate(236,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#b5533f"/><rect x="0" y="-150" width="20" height="16" fill="#e07a5f"/><text x="10" y="-69" transform="rotate(-90 10 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">A SERIOUS MAN</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/the-housemaid-2025/" target="_blank" rel="noopener"><g transform="translate(258,445)"><rect x="0" y="-150" width="16" height="150" rx="2" fill="#5f9072"/><text x="8" y="-69" transform="rotate(-90 8 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">THE HOUSEMAID</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/thelma-louise/" target="_blank" rel="noopener"><g transform="translate(276,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#8a5a86"/><rect x="0" y="-150" width="20" height="16" fill="#c58fbf"/><text x="10" y="-69" transform="rotate(-90 10 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">THELMA &amp; LOUISE</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/the-royal-tenenbaums/" target="_blank" rel="noopener"><g transform="translate(298,445)"><rect x="0" y="-150" width="16" height="150" rx="2" fill="#efe3c9"/><text x="8" y="-69" transform="rotate(-90 8 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#8a7444">THE ROYAL TENENBAUMS</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/regretting-you/" target="_blank" rel="noopener"><g transform="translate(316,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#4a4952"/><rect x="0" y="-150" width="18" height="16" fill="#b5533f"/><text x="9" y="-69" transform="rotate(-90 9 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">REGRETTING YOU</text></g></a>
-    <a class="item" href="https://letterboxd.com/film/sweet-home-alabama/" target="_blank" rel="noopener"><g transform="translate(334,445)"><rect x="0" y="-150" width="22" height="150" rx="2" fill="#6fa8c0"/><rect x="0" y="-150" width="22" height="16" fill="#3f5f8a"/><text x="11" y="-69" transform="rotate(-90 11 -69)" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">SWEET HOME ALABAMA</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/backrooms-2026/" target="_blank" rel="noopener" data-t="Backrooms" data-d="Kane Parsons" data-r="★★" data-c="covers/lb-backrooms-2026.jpg" tabindex="0"><g transform="translate(150,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#2f3a44"/><rect x="0" y="-150" width="20" height="16" fill="#c25b73"/><text x="10" y="-69" transform="rotate(-90 10 -69)" text-anchor="middle" textLength="56" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">BACKROOMS</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/obsession-2025/" target="_blank" rel="noopener" data-t="Obsession" data-d="Curry Barker" data-r="★★★★½" data-c="covers/lb-obsession-2025.jpg" tabindex="0"><g transform="translate(172,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#7c5230"/><rect x="0" y="-150" width="18" height="16" fill="#e2a862"/><text x="9" y="-69" transform="rotate(-90 9 -69)" text-anchor="middle" textLength="56" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">OBSESSION</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/bugonia/" target="_blank" rel="noopener" data-t="Bugonia" data-d="Yorgos Lanthimos" data-r="★★★½" data-c="covers/lb-bugonia.jpg" tabindex="0"><g transform="translate(192,445)"><rect x="0" y="-150" width="22" height="150" rx="2" fill="#c0922f"/><rect x="0" y="-150" width="22" height="16" fill="#7a5716"/><text x="11" y="-69" transform="rotate(-90 11 -69)" text-anchor="middle" textLength="43" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">BUGONIA</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/shiva-baby-2020/" target="_blank" rel="noopener" data-t="Shiva Baby" data-d="Emma Seligman" data-r="★★★★" data-c="covers/lb-shiva-baby-2020.jpg" tabindex="0"><g transform="translate(216,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#3f5f8a"/><rect x="0" y="-150" width="18" height="16" fill="#7db2c9"/><text x="9" y="-69" transform="rotate(-90 9 -69)" text-anchor="middle" textLength="62" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">SHIVA BABY</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/a-serious-man/" target="_blank" rel="noopener" data-t="A Serious Man" data-d="Joel Coen, Ethan Coen" data-r="★★★★" data-c="covers/lb-a-serious-man.jpg" tabindex="0"><g transform="translate(236,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#b5533f"/><rect x="0" y="-150" width="20" height="16" fill="#e07a5f"/><text x="10" y="-69" transform="rotate(-90 10 -69)" text-anchor="middle" textLength="81" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">A SERIOUS MAN</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/the-housemaid-2025/" target="_blank" rel="noopener" data-t="The Housemaid" data-d="Paul Feig" data-r="★½" data-c="covers/lb-the-housemaid-2025.jpg" tabindex="0"><g transform="translate(258,445)"><rect x="0" y="-150" width="16" height="150" rx="2" fill="#5f9072"/><text x="8" y="-69" transform="rotate(-90 8 -69)" text-anchor="middle" textLength="81" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">THE HOUSEMAID</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/thelma-louise/" target="_blank" rel="noopener" data-t="Thelma &amp; Louise" data-d="Ridley Scott" data-r="★★★★" data-c="covers/lb-thelma-louise.jpg" tabindex="0"><g transform="translate(276,445)"><rect x="0" y="-150" width="20" height="150" rx="2" fill="#8a5a86"/><rect x="0" y="-150" width="20" height="16" fill="#c58fbf"/><text x="10" y="-69" transform="rotate(-90 10 -69)" text-anchor="middle" textLength="93" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">THELMA &amp; LOUISE</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/the-royal-tenenbaums/" target="_blank" rel="noopener" data-t="The Royal Tenenbaums" data-d="Wes Anderson" data-r="★★★★½" data-c="covers/lb-the-royal-tenenbaums.jpg" tabindex="0"><g transform="translate(298,445)"><rect x="0" y="-150" width="16" height="150" rx="2" fill="#efe3c9"/><text x="8" y="-69" transform="rotate(-90 8 -69)" text-anchor="middle" textLength="112" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="9" fill="#8a7444">THE ROYAL TENENBAUMS</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/regretting-you/" target="_blank" rel="noopener" data-t="Regretting You" data-d="Josh Boone" data-r="★" data-c="covers/lb-regretting-you.jpg" tabindex="0"><g transform="translate(316,445)"><rect x="0" y="-150" width="18" height="150" rx="2" fill="#4a4952"/><rect x="0" y="-150" width="18" height="16" fill="#b5533f"/><text x="9" y="-69" transform="rotate(-90 9 -69)" text-anchor="middle" textLength="87" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">REGRETTING YOU</text></g></a>
+    <a class="item" href="https://letterboxd.com/film/sweet-home-alabama/" target="_blank" rel="noopener" data-t="Sweet Home Alabama" data-d="Andy Tennant" data-r="★½" data-c="covers/lb-sweet-home-alabama.jpg" tabindex="0"><g transform="translate(334,445)"><rect x="0" y="-150" width="22" height="150" rx="2" fill="#6fa8c0"/><rect x="0" y="-150" width="22" height="16" fill="#3f5f8a"/><text x="11" y="-69" transform="rotate(-90 11 -69)" text-anchor="middle" textLength="112" lengthAdjust="spacingAndGlyphs" font-family="Fraunces,serif" font-weight="600" font-size="10" fill="#fff">SWEET HOME ALABAMA</text></g></a>
     <!-- LETTERBOXD:END -->
-    <!-- a couple of DVDs lying flat -->
-    <g transform="translate(372,445)"><rect x="0" y="-16" width="92" height="16" rx="2" fill="#2f3a44"/><rect x="0" y="-16" width="92" height="4" rx="2" fill="#c25b73"/><rect x="4" y="-32" width="92" height="16" rx="2" fill="#7c5230"/><rect x="4" y="-32" width="92" height="4" rx="2" fill="#e2a862"/></g>
-    <!-- small retro TV -->
-    <g transform="translate(474,445)">
-      <rect x="0" y="-62" width="62" height="52" rx="6" fill="#7c5230"/>
-      <rect x="6" y="-56" width="42" height="40" rx="3" fill="#3a4a52"/><rect x="9" y="-53" width="20" height="16" fill="#54646c" opacity="0.6"/>
-      <circle cx="55" cy="-46" r="3.5" fill="#e2a862"/><circle cx="55" cy="-34" r="3.5" fill="#e2a862"/>
-      <line x1="20" y1="-62" x2="12" y2="-78" stroke="#8a6a4a" stroke-width="2.5"/><line x1="34" y1="-62" x2="44" y2="-78" stroke="#8a6a4a" stroke-width="2.5"/>
+    <!-- DVD player with a disc leaning against it -->
+    <g transform="translate(380,445)">
+      <!-- disc -->
+      <circle cx="129" cy="-14" r="14" fill="#dfe6ea" stroke="#b9c4cb" stroke-width="1.2"/>
+      <circle cx="129" cy="-14" r="9" fill="none" stroke="#cdd6da" stroke-width="0.8"/>
+      <circle cx="129" cy="-14" r="4.2" fill="#f7f3ea" stroke="#b9c4cb"/>
+      <!-- deck -->
+      <rect x="0" y="-24" width="112" height="24" rx="4" fill="#4a4952"/>
+      <rect x="0" y="-24" width="112" height="4" rx="2" fill="#5c5b66"/>
+      <rect x="8" y="-15" width="48" height="5" rx="2.5" fill="#2f2e35"/>
+      <rect x="64" y="-16" width="22" height="8" rx="2" fill="#7db2c9"/>
+      <rect x="66.5" y="-13.5" width="9" height="3" rx="1" fill="#eaf3f6" opacity="0.8"/>
+      <circle cx="94" cy="-12" r="3.2" fill="#e2a862"/>
+      <circle cx="103" cy="-12" r="3.2" fill="#b5533f"/>
     </g>
 
     <!-- shelf 2 plank -->
@@ -126,11 +140,48 @@
     <path d="M96 462 h34 l-6 30 h-22 Z" fill="#b06f2c"/><path d="M430 462 h34 l-6 30 h-22 Z" fill="#b06f2c"/>
   </svg>
 
+  <div id="moviepop" class="moviepop" aria-hidden="true">
+    <img alt="">
+    <div><div class="mp-t"></div><div class="mp-d"></div><div class="mp-r"></div></div>
+  </div>
+
   <footer class="site-footer">
     <span>© 2026 Zelia Lerch</span>
     <span class="links"><a href="mailto:xcl2112@barnard.edu">Email</a><a href="https://instagram.com/zelialerch" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/zelialerch/" target="_blank" rel="noopener">LinkedIn</a></span>
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var pop=document.getElementById('moviepop');
+  if(!pop) return;
+  var img=pop.querySelector('img'), t=pop.querySelector('.mp-t'), d=pop.querySelector('.mp-d'), r=pop.querySelector('.mp-r');
+  function fill(el){
+    t.textContent=el.getAttribute('data-t');
+    var dir=el.getAttribute('data-d')||'';
+    d.textContent=dir?('dir. '+dir):''; d.style.display=dir?'':'none';
+    var stars=el.getAttribute('data-r')||'';
+    r.textContent=stars; r.style.display=stars?'':'none';
+    img.src=el.getAttribute('data-c');
+  }
+  function place(x,y){
+    var pad=14, w=pop.offsetWidth, h=pop.offsetHeight;
+    var nx=x+20, ny=y-h/2;
+    if(nx+w+pad>window.innerWidth) nx=x-w-20;
+    if(nx<pad) nx=pad;
+    if(ny<pad) ny=pad;
+    if(ny+h+pad>window.innerHeight) ny=window.innerHeight-h-pad;
+    pop.style.left=nx+'px'; pop.style.top=ny+'px';
+  }
+  document.querySelectorAll('.shelfart a.item[data-t]').forEach(function(el){
+    el.addEventListener('mouseenter', function(e){ fill(el); place(e.clientX,e.clientY); pop.classList.add('show'); });
+    el.addEventListener('mousemove', function(e){ place(e.clientX,e.clientY); });
+    el.addEventListener('mouseleave', function(){ pop.classList.remove('show'); });
+    el.addEventListener('focus', function(){ fill(el); var rct=el.getBoundingClientRect(); place(rct.right, rct.top+rct.height/2); pop.classList.add('show'); });
+    el.addEventListener('blur', function(){ pop.classList.remove('show'); });
+  });
+})();
+</script>
 </body>
 </html>

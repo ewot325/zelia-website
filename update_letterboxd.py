@@ -2,20 +2,28 @@
 """Refresh the DVD shelf on other-things.html from Zelia's Letterboxd.
 
 Reads her public "recently watched" RSS feed and rewrites the row of DVD
-spines so it always shows her latest films. Each spine links to that film
-on her Letterboxd profile.
+spines so it always shows her latest films. Each spine links to the film's
+general Letterboxd page (never her profile) and carries data attributes for
+the hover popup: poster (saved to covers/lb-<slug>.jpg), title, director
+(looked up on the keyless iTunes Search API; omitted if not found), and her
+star rating from the feed.
 
 Run it any time to refresh:   python3 update_letterboxd.py
 (A GitHub Action can run this on a schedule so the site updates itself.)
 """
+import glob
 import html
+import json
 import os
 import re
+import urllib.parse
 import urllib.request
 
 USERNAME = "zelialerch"
 RSS_URL = f"https://letterboxd.com/{USERNAME}/rss/"
-HTML_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "other-things.html")
+DIR = os.path.dirname(os.path.abspath(__file__))
+HTML_FILE = os.path.join(DIR, "other-things.html")
+COVERS_DIR = os.path.join(DIR, "covers")
 N = 10  # number of DVD spines on the shelf
 SHELF_Y = 445  # y of the shelf-2 plank top the spines sit on
 
@@ -42,7 +50,7 @@ def fetch_feed():
 
 
 def parse_films(xml):
-    """Return the most recent films as [{'title':..., 'link':...}, ...]."""
+    """Return the most recent films with title/link/year/rating/poster/slug."""
     films = []
     for item in re.findall(r"<item>(.*?)</item>", xml, re.S):
         title = re.search(r"<letterboxd:filmTitle>(.*?)</letterboxd:filmTitle>", item, re.S)
@@ -53,13 +61,59 @@ def parse_films(xml):
         url = html.unescape(link.group(1)).strip()
         url = re.sub(r"letterboxd\.com/[^/]+/film/", "letterboxd.com/film/", url)
         url = re.sub(r"/\d+/$", "/", url)
+        year = re.search(r"<letterboxd:filmYear>(\d+)</letterboxd:filmYear>", item)
+        rating = re.search(r"<letterboxd:memberRating>([\d.]+)</letterboxd:memberRating>", item)
+        poster = re.search(r'<img src="([^"]+)"', item)
+        slug = re.search(r"/film/([^/]+)/", url)
         films.append({
             "title": html.unescape(title.group(1)).strip(),
             "link": url,
+            "year": int(year.group(1)) if year else None,
+            "rating": float(rating.group(1)) if rating else None,
+            "poster": html.unescape(poster.group(1)) if poster else None,
+            "slug": slug.group(1) if slug else None,
         })
         if len(films) >= N:
             break
     return films
+
+
+def stars(rating):
+    """4.5 -> '★★★★½'"""
+    if not rating:
+        return ""
+    full = int(rating)
+    return "★" * full + ("½" if rating - full >= 0.5 else "")
+
+
+def find_director(film):
+    """Read the director from the film's own Letterboxd page metadata."""
+    try:
+        req = urllib.request.Request(film["link"], headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            page = resp.read().decode("utf-8", "replace")
+        m = re.search(r'twitter:data1"\s+content="([^"]*)"', page)
+        return html.unescape(m.group(1)).strip() if m else ""
+    except Exception:
+        return ""
+
+
+def fetch_poster(film):
+    """Save the poster locally; return the local path ('' if unavailable)."""
+    if not film["poster"] or not film["slug"]:
+        return ""
+    local = f"covers/lb-{film['slug']}.jpg"
+    path = os.path.join(DIR, local)
+    if not os.path.exists(path):
+        try:
+            req = urllib.request.Request(film["poster"], headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = resp.read()
+            with open(path, "wb") as f:
+                f.write(data)
+        except Exception:
+            return ""
+    return local
 
 
 def spine(slot, film):
@@ -77,19 +131,28 @@ def spine(slot, film):
         fs = 8
         max_chars = int(space / (8 * 0.62))
         title = title[: max_chars - 1].rstrip() + "…"
+    # textLength pins the rendered width so no font can push text past the spine
+    t_len = min(len(title) * fs * 0.62, space)
     cy = -69  # centre of that region
     band = ""
     if slot["band"]:
         band = f'<rect x="0" y="-150" width="{w}" height="16" fill="{slot["band"]}"/>'
     href = html.escape(film["link"], quote=True)
     label = html.escape(title)
+    data = (
+        f' data-t="{html.escape(film["title"], quote=True)}"'
+        f' data-d="{html.escape(film.get("director", ""), quote=True)}"'
+        f' data-r="{stars(film["rating"])}"'
+        f' data-c="{html.escape(film.get("poster_local", ""), quote=True)}"'
+    ) if film.get("poster_local") else ""
     cx_s = f"{cx:g}"
     return (
-        f'<a class="item" href="{href}" target="_blank" rel="noopener">'
+        f'<a class="item" href="{href}" target="_blank" rel="noopener"{data} tabindex="0">'
         f'<g transform="translate({slot["x"]},{SHELF_Y})">'
         f'<rect x="0" y="-150" width="{w}" height="150" rx="2" fill="{slot["spine"]}"/>'
         f'{band}'
         f'<text x="{cx_s}" y="{cy}" transform="rotate(-90 {cx_s} {cy})" text-anchor="middle" '
+        f'textLength="{t_len:.0f}" lengthAdjust="spacingAndGlyphs" '
         f'font-family="Fraunces,serif" font-weight="600" font-size="{fs}" fill="{slot["text"]}">{label}</text>'
         f'</g></a>'
     )
@@ -99,6 +162,16 @@ def main():
     films = parse_films(fetch_feed())
     if not films:
         raise SystemExit("No films found in the Letterboxd feed — is the profile still public?")
+
+    for film in films:
+        film["poster_local"] = fetch_poster(film)
+        film["director"] = find_director(film)
+
+    # tidy up posters of films that fell off the shelf
+    keep = {f"lb-{f['slug']}.jpg" for f in films if f["slug"]}
+    for path in glob.glob(os.path.join(COVERS_DIR, "lb-*.jpg")):
+        if os.path.basename(path) not in keep:
+            os.remove(path)
 
     spines = [spine(SLOTS[i], films[i]) for i in range(min(N, len(films)))]
     block = "\n    " + "\n    ".join(spines) + "\n    "
