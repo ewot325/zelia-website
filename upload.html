@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Add a photo — Zelia Lerch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<style>
+  body{--c:#5f72a6;}
+  .card{background:#fffdf8;border:1px solid #e6dcc6;border-radius:14px;box-shadow:0 10px 30px rgba(40,28,12,.08);
+    padding:26px;margin-top:30px;max-width:560px;}
+  .drop{border:2px dashed #cfc5ae;border-radius:12px;padding:34px 20px;text-align:center;color:#8a8475;
+    cursor:pointer;transition:border-color .15s ease,background .15s ease;font-size:16px;}
+  .drop.over,.drop:hover{border-color:var(--c);background:#f3f0e7;}
+  .drop input{display:none;}
+  .preview{display:none;margin-top:16px;}
+  .preview img{max-width:100%;max-height:340px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.15);display:block;}
+  label.fld{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8a8475;margin:20px 0 6px;}
+  input[type=text],input[type=password]{width:100%;padding:12px 14px;font:inherit;font-size:17px;border:1px solid #d8cfb9;
+    border-radius:8px;background:#fff;color:var(--ink);}
+  input[type=text]:focus,input[type=password]:focus{outline:2px solid var(--c);border-color:var(--c);}
+  .btn{display:inline-block;margin-top:20px;padding:13px 26px;font-family:var(--display);font-weight:600;font-size:17px;
+    color:#fff;background:var(--c);border:none;border-radius:999px;cursor:pointer;}
+  .btn:disabled{opacity:.45;cursor:default;}
+  .btn.secondary{background:transparent;color:var(--c);border:1.5px solid var(--c);}
+  .status{margin-top:16px;font-size:16px;line-height:1.45;display:none;}
+  .status.err{color:#a33f2e;}
+  .status.ok{color:#3f6b4f;}
+  .hint{color:#8a8475;font-size:14px;margin-top:14px;line-height:1.5;}
+  .keylink{margin-top:26px;font-size:13px;color:#a09988;}
+  .keylink a{color:#8a8475;text-decoration:underline;cursor:pointer;}
+</style>
+</head>
+<body class="sec-saw">
+<div class="wrap">
+
+  <header class="site-header">
+    <div class="headrow">
+      <a class="brand" href="index.html">Zelia Lerch</a>
+    </div>
+  </header>
+
+  <h1 class="page-title">Add a photo</h1>
+  <div class="title-rule"></div>
+
+  <!-- step 1: key setup (shown when no key saved) -->
+  <div class="card" id="keycard" style="display:none;">
+    <p style="margin:0 0 6px;font-size:17px;">This page needs the upload key to work.</p>
+    <p class="hint" style="margin-top:0;">Paste it once and this browser will remember it.</p>
+    <label class="fld" for="keyinput">Upload key</label>
+    <input type="password" id="keyinput" autocomplete="off" placeholder="github_pat_…">
+    <button class="btn" id="savekey">Save key</button>
+    <div class="status" id="keystatus"></div>
+  </div>
+
+  <!-- step 2: uploader -->
+  <div class="card" id="upcard" style="display:none;">
+    <div class="drop" id="drop">
+      <span id="droplabel">Tap to choose a photo<br><span style="font-size:13.5px;color:#a99f87;">(or drag one here)</span></span>
+      <input type="file" id="file" accept="image/*">
+    </div>
+    <div class="preview" id="preview"><img id="previewimg" alt="preview"></div>
+    <label class="fld" for="caption">Caption</label>
+    <input type="text" id="caption" maxlength="90" placeholder="e.g. fog on the Hudson">
+    <button class="btn" id="go" disabled>Add to the page</button>
+    <div class="status" id="status"></div>
+    <div class="hint">Photos are resized for the web and any hidden location info is removed automatically.</div>
+    <div class="keylink"><a id="changekey">change upload key</a></div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var OWNER='ewot325', REPO='zelia-website', BRANCH='main', PAGE='things-i-saw.html';
+  var KEY_STORE='zelia-upload-key';
+
+  var keycard=document.getElementById('keycard'), upcard=document.getElementById('upcard');
+  var drop=document.getElementById('drop'), fileInput=document.getElementById('file');
+  var preview=document.getElementById('preview'), previewImg=document.getElementById('previewimg');
+  var captionEl=document.getElementById('caption'), goBtn=document.getElementById('go');
+  var statusEl=document.getElementById('status');
+  var chosen=null; // {blob, dataUrl}
+
+  function token(){ return localStorage.getItem(KEY_STORE)||''; }
+  function show(which){ keycard.style.display = which==='key'?'':'none'; upcard.style.display = which==='up'?'':'none'; }
+  show(token()?'up':'key');
+
+  document.getElementById('savekey').addEventListener('click', function(){
+    var v=document.getElementById('keyinput').value.trim();
+    var ks=document.getElementById('keystatus');
+    if(!v){ ks.textContent='Paste the key first.'; ks.className='status err'; ks.style.display='block'; return; }
+    localStorage.setItem(KEY_STORE, v); show('up');
+  });
+  document.getElementById('changekey').addEventListener('click', function(){
+    localStorage.removeItem(KEY_STORE); document.getElementById('keyinput').value=''; show('key');
+  });
+
+  // ---------- picking + shrinking the photo ----------
+  function pick(file){
+    if(!file || !/^image\//.test(file.type)){ setStatus('That file doesn’t look like a photo — try a JPG or PNG.', 'err'); return; }
+    setStatus('', '');
+    shrink(file).then(function(out){
+      chosen=out;
+      previewImg.src=out.dataUrl;
+      preview.style.display='block';
+      document.getElementById('droplabel').innerHTML='Photo ready — tap to pick a different one';
+      update();
+    }).catch(function(){
+      setStatus('Couldn’t read that photo. If it’s a HEIC file from an iPhone, try AirDropping or exporting it as JPEG first.', 'err');
+    });
+  }
+  // canvas re-encode = resized + all EXIF (incl. GPS) stripped
+  function shrink(file){
+    return new Promise(function(resolve,reject){
+      var url=URL.createObjectURL(file);
+      var img=new Image();
+      img.onload=function(){
+        var MAX=1600, w=img.naturalWidth, h=img.naturalHeight;
+        if(!w||!h){ reject(new Error('bad image')); return; }
+        var scale=Math.min(1, MAX/Math.max(w,h));
+        var cw=Math.round(w*scale), ch=Math.round(h*scale);
+        var c=document.createElement('canvas'); c.width=cw; c.height=ch;
+        c.getContext('2d').drawImage(img,0,0,cw,ch);
+        URL.revokeObjectURL(url);
+        c.toBlob(function(blob){
+          if(!blob){ reject(new Error('encode failed')); return; }
+          var r=new FileReader();
+          r.onload=function(){ resolve({blob:blob, dataUrl:r.result}); };
+          r.onerror=reject;
+          r.readAsDataURL(blob);
+        }, 'image/jpeg', 0.85);
+      };
+      img.onerror=function(){ URL.revokeObjectURL(url); reject(new Error('decode failed')); };
+      img.src=url;
+    });
+  }
+
+  drop.addEventListener('click', function(){ fileInput.click(); });
+  fileInput.addEventListener('change', function(){ pick(fileInput.files[0]); });
+  ['dragover','dragenter'].forEach(function(ev){ drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.add('over'); }); });
+  ['dragleave','drop'].forEach(function(ev){ drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.remove('over'); }); });
+  drop.addEventListener('drop', function(e){ pick(e.dataTransfer.files[0]); });
+  captionEl.addEventListener('input', update);
+
+  function update(){ goBtn.disabled = !(chosen && captionEl.value.trim()); }
+  function setStatus(msg, kind){ statusEl.textContent=msg; statusEl.className='status '+(kind||''); statusEl.style.display=msg?'block':'none'; }
+
+  // ---------- GitHub plumbing ----------
+  function api(path, opts){
+    opts=opts||{};
+    opts.headers=Object.assign({
+      'Authorization':'Bearer '+token(),
+      'Accept':'application/vnd.github+json',
+      'X-GitHub-Api-Version':'2022-11-28'
+    }, opts.headers||{});
+    return fetch('https://api.github.com/repos/'+OWNER+'/'+REPO+path, opts).then(function(res){
+      if(res.status===401 || res.status===403){ throw new Error('KEY'); }
+      if(!res.ok){ throw new Error('HTTP '+res.status); }
+      return res.json();
+    });
+  }
+  function b64FromBlob(blob){
+    return new Promise(function(resolve,reject){
+      var r=new FileReader();
+      r.onload=function(){ resolve(String(r.result).split(',')[1]); };
+      r.onerror=reject;
+      r.readAsDataURL(blob);
+    });
+  }
+  function utf8ToB64(str){
+    var bytes=new TextEncoder().encode(str), bin='', CH=0x8000;
+    for(var i=0;i<bytes.length;i+=CH){ bin+=String.fromCharCode.apply(null, bytes.subarray(i,i+CH)); }
+    return btoa(bin);
+  }
+  function b64ToUtf8(b64){
+    var bin=atob(b64.replace(/\s/g,'')), bytes=new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++){ bytes[i]=bin.charCodeAt(i); }
+    return new TextDecoder().decode(bytes);
+  }
+  function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function slug(s){
+    var t=s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40);
+    return t||'photo';
+  }
+
+  // The whole upload as one testable function.
+  function addPhoto(blob, caption){
+    var d=new Date();
+    var day=d.toISOString().slice(0,10);
+    var name='photos/'+day+'-'+slug(caption)+'-'+Math.random().toString(36).slice(2,6)+'.jpg';
+    return b64FromBlob(blob).then(function(b64){
+      return api('/contents/'+name, {method:'PUT', body:JSON.stringify({
+        message:'Add photo: '+caption, content:b64, branch:BRANCH })});
+    }).then(function(){
+      return api('/contents/'+PAGE+'?ref='+BRANCH);
+    }).then(function(pg){
+      var html=b64ToUtf8(pg.content);
+      var MARK='<!-- PHOTOS:START -->';
+      if(html.indexOf(MARK)===-1){ throw new Error('MARKER'); }
+      var fig='\n    <figure class="shot" style="margin:0;"><span class="frame">'
+        +'<img src="'+name+'" alt="'+esc(caption)+'" loading="lazy"></span>'
+        +'<span class="cap">'+esc(caption)+'</span></figure>';
+      html=html.replace(MARK, MARK+fig);
+      return api('/contents/'+PAGE, {method:'PUT', body:JSON.stringify({
+        message:'Add "'+caption+'" to Things I saw', content:utf8ToB64(html), sha:pg.sha, branch:BRANCH })});
+    });
+  }
+  window.__zeliaAddPhoto=addPhoto; // used by automated tests
+
+  goBtn.addEventListener('click', function(){
+    var caption=captionEl.value.trim();
+    if(!chosen||!caption) return;
+    goBtn.disabled=true;
+    setStatus('Uploading…', '');
+    addPhoto(chosen.blob, caption).then(function(){
+      setStatus('Done! Your photo will appear on the page in a minute or two. ✨', 'ok');
+      chosen=null; captionEl.value='';
+      preview.style.display='none';
+      document.getElementById('droplabel').innerHTML='Tap to choose a photo<br><span style="font-size:13.5px;color:#a99f87;">(or drag one here)</span>';
+      fileInput.value='';
+    }).catch(function(err){
+      if(err.message==='KEY'){ setStatus('The upload key wasn’t accepted. Tap “change upload key” below and paste it again.', 'err'); }
+      else if(err.message==='MARKER'){ setStatus('The page is missing its photo markers — tell Elliot.', 'err'); }
+      else{ setStatus('Something went wrong ('+err.message+'). Check your internet and try again.', 'err'); }
+      goBtn.disabled=false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
