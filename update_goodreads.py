@@ -98,7 +98,7 @@ CHAR_W = 0.62  # approx width of one uppercase Fraunces-bold char, in font-size 
 
 def slot_capacity(slot, book):
     """How much vertical room this slot offers this book's title."""
-    return slot["h"] - 22
+    return slot["h"] - 34
 
 
 def assign_books(slots, books):
@@ -160,8 +160,9 @@ def spine_svg(slot, book, y):
     title = spine_title(book["title"])
     author = surname(book["author"])
 
-    # title and author run top-to-bottom, side by side, centered on the spine
-    space = h - 22
+    # title and author run top-to-bottom, side by side, centered on the spine;
+    # generous 17px end margins keep tall letters clear of the caps
+    space = h - 34
     fs = None
     for candidate in (10.5, 9.5, 8.5, 7.5, 6.5):
         if len(title) * candidate * CHAR_W <= space:

@@ -120,8 +120,8 @@ def spine(slot, film):
     title = film["title"].upper()
     w = slot["w"]
     cx = w / 2
-    # text reads bottom-to-top and stays below the top band (y=-150..-134)
-    space = 120  # region from y=-129 down to y=-9
+    # text reads top-to-bottom and stays well below the top band (y=-150..-134)
+    space = 110  # region from y=-122 down to y=-12
     fs = None
     for candidate in (10, 9, 8):
         if len(title) * candidate * 0.62 <= space:
@@ -133,7 +133,7 @@ def spine(slot, film):
         title = title[: max_chars - 1].rstrip() + "…"
     # textLength pins the rendered width so no font can push text past the spine
     t_len = min(len(title) * fs * 0.62, space)
-    cy = -69  # centre of that region
+    cy = -67  # centre of that region
     band = ""
     if slot["band"]:
         band = f'<rect x="0" y="-150" width="{w}" height="16" fill="{slot["band"]}"/>'
@@ -151,7 +151,7 @@ def spine(slot, film):
         f'<g transform="translate({slot["x"]},{SHELF_Y})">'
         f'<rect x="0" y="-150" width="{w}" height="150" rx="2" fill="{slot["spine"]}"/>'
         f'{band}'
-        f'<text x="{cx_s}" y="{cy}" transform="rotate(-90 {cx_s} {cy})" text-anchor="middle" '
+        f'<text x="{cx_s}" y="{cy}" transform="rotate(90 {cx_s} {cy})" text-anchor="middle" '
         f'textLength="{t_len:.0f}" lengthAdjust="spacingAndGlyphs" '
         f'font-family="Fraunces,serif" font-weight="600" font-size="{fs}" fill="{slot["text"]}">{label}</text>'
         f'</g></a>'
