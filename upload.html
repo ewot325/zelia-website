@@ -182,6 +182,7 @@
   // ---------- GitHub plumbing ----------
   function api(path, opts){
     opts=opts||{};
+    opts.cache='no-store'; // always read the live repo, never a cached copy
     opts.headers=Object.assign({
       'Authorization':'Bearer '+token(),
       'Accept':'application/vnd.github+json',
@@ -274,9 +275,9 @@
   }
   window.__zeliaRemovePhoto=removePhoto; // used by automated tests
 
-  var mlist=document.getElementById('mlist');
   function loadManage(){
-    if(!token()) return;
+    var mlist=document.getElementById('mlist');
+    if(!mlist || !token()) return;
     mlist.innerHTML='<div class="mempty">Loading…</div>';
     api('/contents/'+PAGE+'?ref='+BRANCH).then(function(pg){
       var photos=parsePhotos(b64ToUtf8(pg.content));
