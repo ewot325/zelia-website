@@ -160,7 +160,7 @@ def spine_svg(slot, book, y):
     title = spine_title(book["title"])
     author = surname(book["author"])
 
-    # title and author run bottom-to-top, side by side, centered on the spine
+    # title and author run top-to-bottom, side by side, centered on the spine
     space = h - 22
     fs = None
     for candidate in (10.5, 9.5, 8.5, 7.5, 6.5):
@@ -176,15 +176,15 @@ def spine_svg(slot, book, y):
         author = author[: max(1, a_max - 1)].rstrip() + "…"
 
     cy = -h / 2
-    tx = cx - 5   # title line sits left of the author line
-    ax = cx + 6
+    tx = cx + 5   # reading top-to-bottom, the title line sits right of the author line
+    ax = cx - 6
     label = html.escape(title)
     a_label = html.escape(author)
     fg = slot["fg"]
     text = (
-        f'<text x="{tx:g}" y="{cy:g}" transform="rotate(-90 {tx:g} {cy:g})" text-anchor="middle" '
+        f'<text x="{tx:g}" y="{cy:g}" transform="rotate(90 {tx:g} {cy:g})" text-anchor="middle" '
         f'font-family="Fraunces,serif" font-weight="700" font-size="{fs:g}" fill="{fg}">{label}</text>'
-        f'<text x="{ax:g}" y="{cy:g}" transform="rotate(-90 {ax:g} {cy:g})" text-anchor="middle" '
+        f'<text x="{ax:g}" y="{cy:g}" transform="rotate(90 {ax:g} {cy:g})" text-anchor="middle" '
         f'font-family="Fraunces,serif" font-weight="600" font-size="7" letter-spacing="1" '
         f'fill="{fg}" fill-opacity="0.75">{a_label}</text>'
     )

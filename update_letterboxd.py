@@ -49,38 +49,35 @@ def parse_films(xml):
         link = re.search(r"<link>(.*?)</link>", item, re.S)
         if not title or not link:
             continue  # skip list/diary items that aren't a single film
+        # general film page, not Zelia's log of it — keeps her profile off the site
+        url = html.unescape(link.group(1)).strip()
+        url = re.sub(r"letterboxd\.com/[^/]+/film/", "letterboxd.com/film/", url)
+        url = re.sub(r"/\d+/$", "/", url)
         films.append({
             "title": html.unescape(title.group(1)).strip(),
-            "link": html.unescape(link.group(1)).strip(),
+            "link": url,
         })
         if len(films) >= N:
             break
     return films
 
 
-def font_size(title):
-    """Shrink the font so longer titles still fit down the spine."""
-    length = len(title)
-    if length <= 13:
-        return 10
-    if length <= 17:
-        return 9
-    return 8
-
-
-def fit_title(title, max_len=22):
-    title = title.upper()
-    if len(title) > max_len:
-        title = title[: max_len - 1].rstrip() + "…"  # ellipsis
-    return title
-
-
 def spine(slot, film):
-    title = fit_title(film["title"])
-    fs = font_size(title)
+    title = film["title"].upper()
     w = slot["w"]
     cx = w / 2
-    cy = -88
+    # text reads bottom-to-top and stays below the top band (y=-150..-134)
+    space = 120  # region from y=-129 down to y=-9
+    fs = None
+    for candidate in (10, 9, 8):
+        if len(title) * candidate * 0.62 <= space:
+            fs = candidate
+            break
+    if fs is None:
+        fs = 8
+        max_chars = int(space / (8 * 0.62))
+        title = title[: max_chars - 1].rstrip() + "…"
+    cy = -69  # centre of that region
     band = ""
     if slot["band"]:
         band = f'<rect x="0" y="-150" width="{w}" height="16" fill="{slot["band"]}"/>'
@@ -92,7 +89,7 @@ def spine(slot, film):
         f'<g transform="translate({slot["x"]},{SHELF_Y})">'
         f'<rect x="0" y="-150" width="{w}" height="150" rx="2" fill="{slot["spine"]}"/>'
         f'{band}'
-        f'<text x="{cx_s}" y="{cy}" transform="rotate(90 {cx_s} {cy})" text-anchor="middle" '
+        f'<text x="{cx_s}" y="{cy}" transform="rotate(-90 {cx_s} {cy})" text-anchor="middle" '
         f'font-family="Fraunces,serif" font-weight="600" font-size="{fs}" fill="{slot["text"]}">{label}</text>'
         f'</g></a>'
     )
