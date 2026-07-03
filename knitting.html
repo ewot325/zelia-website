@@ -8,6 +8,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
+<style>
+  .closetart{display:block;width:100%;max-width:460px;margin:26px auto 0;}
+  .closet-cap{text-align:center;font-style:italic;color:var(--muted);font-size:16px;margin:18px 0 0;}
+</style>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
@@ -32,25 +36,117 @@
   <h1 class="page-title">Knitting</h1>
   <div class="title-rule"></div>
 
-  <!-- EDIT: her projects. Link each to a photo or pattern if she likes. -->
-  <section>
-    <a class="entry" href="#">
-      <div class="entry-top"><span class="e-title">Fisherman's Pullover</span><span class="e-meta">Aran wool · 2026</span></div>
-      <p class="e-desc">Cabled within an inch of its life.</p>
-    </a>
-    <a class="entry" href="#">
-      <div class="entry-top"><span class="e-title">Striped Socks</span><span class="e-meta">Sock yarn · 2025</span></div>
-      <p class="e-desc">Second-sock syndrome, narrowly defeated.</p>
-    </a>
-    <a class="entry" href="#">
-      <div class="entry-top"><span class="e-title">Cabled Scarf</span><span class="e-meta">Merino · 2025</span></div>
-      <p class="e-desc">Warm enough for a Berlin January.</p>
-    </a>
-    <a class="entry" href="#">
-      <div class="entry-top"><span class="e-title">Patchwork Blanket</span><span class="e-meta">Leftover yarn · 2024</span></div>
-      <p class="e-desc">Made entirely of remnants and good intentions.</p>
-    </a>
-  </section>
+  <!-- Illustrated closet of Zelia's knits (decorative for now; real pieces + links to come). -->
+  <svg class="closetart" viewBox="0 0 560 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An illustrated wardrobe of hand-knit pieces: sweaters and a cardigan on hangers, a draped scarf, folded knits, a bobble hat, mittens, and a woven tapestry.">
+    <defs>
+      <linearGradient id="kwood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a5c36"/><stop offset="1" stop-color="#6b4527"/></linearGradient>
+    </defs>
+
+    <!-- ===== wardrobe ===== -->
+    <rect x="36" y="16" width="488" height="688" rx="14" fill="url(#kwood)"/>
+    <rect x="36" y="16" width="488" height="20" rx="10" fill="#9a6b3e"/>
+    <rect x="58" y="52" width="444" height="612" rx="6" fill="#e8d1a6"/>
+    <rect x="58" y="52" width="444" height="28" fill="#000" opacity="0.06"/>
+    <rect x="58" y="52" width="444" height="612" rx="6" fill="none" stroke="#000" stroke-opacity="0.10" stroke-width="2"/>
+
+    <!-- ===== hanging rail ===== -->
+    <rect x="84" y="92" width="392" height="7" rx="3.5" fill="#b98f52"/>
+    <rect x="84" y="92" width="392" height="2.4" rx="1.2" fill="#d9b676"/>
+    <circle cx="88" cy="95.5" r="6" fill="#9a6b3e"/><circle cx="472" cy="95.5" r="6" fill="#9a6b3e"/>
+
+    <!-- ===== hung: sweater (rust) cx=150 ===== -->
+    <path d="M150 92 q0 -7 5 -7 q5 0 5 5" fill="none" stroke="#8f8a7e" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="M112 116 L150 96 L188 116" fill="none" stroke="#8f8a7e" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M120 110 Q150 118 180 110 L185 118 L203 170 Q205 179 196 179 L183 175 L180 132 L180 250 Q150 260 120 250 L120 132 L117 175 L104 179 Q95 179 97 170 L115 118 Z" fill="#b5533f"/>
+    <path d="M131 110 Q150 121 169 110 Q150 104 131 110 Z" fill="#9c4432"/>
+    <g stroke="#9c4432" stroke-width="1.6" opacity="0.55"><line x1="134" y1="140" x2="134" y2="240"/><line x1="146" y1="140" x2="146" y2="244"/><line x1="158" y1="140" x2="158" y2="244"/><line x1="170" y1="140" x2="170" y2="240"/></g>
+    <path d="M121 243 Q150 252 179 243" fill="none" stroke="#9c4432" stroke-width="2.4"/>
+    <g stroke="#9c4432" stroke-width="2"><line x1="100" y1="172" x2="112" y2="169"/><line x1="188" y1="169" x2="200" y2="172"/></g>
+
+    <!-- ===== hung: cardigan (sage) cx=250 ===== -->
+    <path d="M250 92 q0 -7 5 -7 q5 0 5 5" fill="none" stroke="#8f8a7e" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="M212 116 L250 96 L288 116" fill="none" stroke="#8f8a7e" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M220 110 Q250 118 280 110 L285 118 L303 170 Q305 179 296 179 L283 175 L280 132 L280 250 Q250 260 220 250 L220 132 L217 175 L204 179 Q195 179 197 170 L215 118 Z" fill="#5f9072"/>
+    <path d="M231 110 Q250 121 269 110 Q250 104 231 110 Z" fill="#4e7a5f"/>
+    <line x1="250" y1="118" x2="250" y2="255" stroke="#4e7a5f" stroke-width="2.4"/>
+    <g fill="#efe3c9"><circle cx="250" cy="140" r="3.4"/><circle cx="250" cy="166" r="3.4"/><circle cx="250" cy="192" r="3.4"/><circle cx="250" cy="218" r="3.4"/></g>
+    <path d="M221 243 Q250 252 279 243" fill="none" stroke="#4e7a5f" stroke-width="2.4"/>
+    <g stroke="#4e7a5f" stroke-width="2"><line x1="200" y1="172" x2="212" y2="169"/><line x1="288" y1="169" x2="300" y2="172"/></g>
+
+    <!-- ===== hung: sweater (dusty blue) cx=350 ===== -->
+    <path d="M350 92 q0 -7 5 -7 q5 0 5 5" fill="none" stroke="#8f8a7e" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="M312 116 L350 96 L388 116" fill="none" stroke="#8f8a7e" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M320 110 Q350 118 380 110 L385 118 L403 170 Q405 179 396 179 L383 175 L380 132 L380 250 Q350 260 320 250 L320 132 L317 175 L304 179 Q295 179 297 170 L315 118 Z" fill="#6fa8c0"/>
+    <path d="M331 110 Q350 121 369 110 Q350 104 331 110 Z" fill="#5b93ab"/>
+    <path d="M350 132 q-7 10 0 20 q7 10 0 20 q-7 10 0 20 q7 10 0 20 q-7 10 0 20" fill="none" stroke="#eaf3f6" stroke-width="3" opacity="0.7"/>
+    <g stroke="#5b93ab" stroke-width="1.6" opacity="0.5"><line x1="332" y1="150" x2="332" y2="240"/><line x1="368" y1="150" x2="368" y2="240"/></g>
+    <path d="M321 243 Q350 252 379 243" fill="none" stroke="#5b93ab" stroke-width="2.4"/>
+    <g stroke="#5b93ab" stroke-width="2"><line x1="300" y1="172" x2="312" y2="169"/><line x1="388" y1="169" x2="400" y2="172"/></g>
+
+    <!-- ===== draped scarf (mustard) over rail near x=440 ===== -->
+    <path d="M424 90 Q424 82 438 82 L452 82 Q466 82 466 90 L466 96 L424 96 Z" fill="#c0922f"/>
+    <rect x="440" y="94" width="24" height="150" rx="3" fill="#c0922f"/>
+    <rect x="424" y="94" width="24" height="170" rx="3" fill="#cf9a37"/>
+    <g stroke="#efe3c9" stroke-width="4" opacity="0.85"><line x1="424" y1="122" x2="448" y2="122"/><line x1="424" y1="154" x2="448" y2="154"/><line x1="424" y1="186" x2="448" y2="186"/><line x1="424" y1="218" x2="448" y2="218"/><line x1="440" y1="132" x2="464" y2="132"/><line x1="440" y1="168" x2="464" y2="168"/><line x1="440" y1="204" x2="464" y2="204"/></g>
+    <g stroke="#b5831f" stroke-width="2" stroke-linecap="round"><line x1="427" y1="264" x2="427" y2="276"/><line x1="433" y1="264" x2="433" y2="277"/><line x1="439" y1="264" x2="439" y2="276"/><line x1="445" y1="264" x2="445" y2="277"/></g>
+    <g stroke="#a97e2c" stroke-width="2" stroke-linecap="round"><line x1="444" y1="244" x2="444" y2="255"/><line x1="450" y1="244" x2="450" y2="256"/><line x1="456" y1="244" x2="456" y2="255"/><line x1="462" y1="244" x2="462" y2="256"/></g>
+
+    <!-- ===== shelf ===== -->
+    <rect x="58" y="372" width="444" height="14" fill="#9a6b3e"/>
+    <rect x="58" y="372" width="444" height="4" fill="#b98f52"/>
+    <rect x="58" y="384" width="444" height="4" fill="#5f3d22"/>
+
+    <!-- folded stack (left) -->
+    <rect x="84" y="342" width="104" height="30" rx="4" fill="#8a5a86"/><rect x="84" y="342" width="104" height="9" rx="4" fill="#744a72"/>
+    <rect x="90" y="314" width="96" height="30" rx="4" fill="#efe3c9"/><rect x="90" y="314" width="96" height="9" rx="4" fill="#ddceac"/>
+    <rect x="86" y="288" width="100" height="28" rx="4" fill="#c96a7e"/><rect x="86" y="288" width="100" height="9" rx="4" fill="#b25668"/>
+    <g stroke="#000" stroke-opacity="0.07" stroke-width="1.4"><line x1="136" y1="345" x2="136" y2="370"/><line x1="138" y1="317" x2="138" y2="342"/><line x1="136" y1="291" x2="136" y2="314"/></g>
+
+    <!-- bobble hat (mustard) middle -->
+    <circle cx="250" cy="296" r="9" fill="#efe3c9"/>
+    <path d="M216 372 Q214 302 250 302 Q286 302 284 372 Z" fill="#e4b24e"/>
+    <g stroke="#cf9a37" stroke-width="1.8" opacity="0.6"><line x1="230" y1="316" x2="230" y2="372"/><line x1="242" y1="312" x2="242" y2="372"/><line x1="258" y1="312" x2="258" y2="372"/><line x1="270" y1="316" x2="270" y2="372"/></g>
+    <rect x="214" y="356" width="72" height="16" rx="6" fill="#cf9a37"/>
+    <g stroke="#a97e2c" stroke-width="1.8"><line x1="226" y1="358" x2="226" y2="370"/><line x1="238" y1="358" x2="238" y2="370"/><line x1="250" y1="358" x2="250" y2="370"/><line x1="262" y1="358" x2="262" y2="370"/><line x1="274" y1="358" x2="274" y2="370"/></g>
+
+    <!-- mittens (rust) right -->
+    <g transform="rotate(-10 356 340)">
+      <path d="M338 372 L338 328 Q338 308 358 308 Q378 308 378 328 L378 372 Z" fill="#b5533f"/>
+      <path d="M336 344 Q325 340 328 328 Q331 319 340 324 Z" fill="#b5533f"/>
+      <rect x="336" y="358" width="44" height="16" rx="5" fill="#9c4432"/>
+      <g stroke="#7f3626" stroke-width="1.6"><line x1="346" y1="360" x2="346" y2="372"/><line x1="358" y1="360" x2="358" y2="372"/><line x1="370" y1="360" x2="370" y2="372"/></g>
+    </g>
+    <g transform="rotate(10 410 340)">
+      <path d="M392 372 L392 328 Q392 308 412 308 Q432 308 432 328 L432 372 Z" fill="#c96a54"/>
+      <path d="M434 344 Q445 340 442 328 Q439 319 430 324 Z" fill="#c96a54"/>
+      <rect x="390" y="358" width="44" height="16" rx="5" fill="#9c4432"/>
+      <g stroke="#7f3626" stroke-width="1.6"><line x1="400" y1="360" x2="400" y2="372"/><line x1="412" y1="360" x2="412" y2="372"/><line x1="424" y1="360" x2="424" y2="372"/></g>
+    </g>
+
+    <!-- ===== lower: woven tapestry ===== -->
+    <rect x="196" y="410" width="168" height="8" rx="3" fill="#8a5c36"/>
+    <circle cx="194" cy="414" r="5" fill="#6b4527"/><circle cx="366" cy="414" r="5" fill="#6b4527"/>
+    <path d="M214 410 Q210 400 220 398 L340 398 Q350 400 346 410" fill="none" stroke="#9a8a6e" stroke-width="2"/>
+    <rect x="206" y="418" width="148" height="158" fill="#efe3c9"/>
+    <rect x="206" y="418" width="148" height="26" fill="#c96a7e"/>
+    <rect x="206" y="470" width="148" height="8" fill="#5f9072"/>
+    <rect x="206" y="518" width="148" height="8" fill="#5f9072"/>
+    <g fill="#c0922f"><path d="M243 486 l14 14 -14 14 -14 -14 Z"/><path d="M280 486 l14 14 -14 14 -14 -14 Z"/><path d="M317 486 l14 14 -14 14 -14 -14 Z"/></g>
+    <g fill="#6fa8c0"><path d="M224 486 l9 14 -9 14 -9 -14 Z" opacity="0.9"/><path d="M336 486 l9 14 -9 14 -9 -14 Z" opacity="0.9"/></g>
+    <rect x="206" y="540" width="148" height="20" fill="#b5533f"/>
+    <rect x="206" y="418" width="148" height="158" fill="none" stroke="#000" stroke-opacity="0.08" stroke-width="1.5"/>
+    <g stroke="#d8c39a" stroke-width="2.2" stroke-linecap="round"><line x1="212" y1="576" x2="212" y2="592"/><line x1="222" y1="576" x2="222" y2="590"/><line x1="232" y1="576" x2="232" y2="592"/><line x1="242" y1="576" x2="242" y2="590"/><line x1="252" y1="576" x2="252" y2="592"/><line x1="262" y1="576" x2="262" y2="590"/><line x1="272" y1="576" x2="272" y2="592"/><line x1="282" y1="576" x2="282" y2="592"/><line x1="292" y1="576" x2="292" y2="590"/><line x1="302" y1="576" x2="302" y2="592"/><line x1="312" y1="576" x2="312" y2="592"/><line x1="322" y1="576" x2="322" y2="590"/><line x1="332" y1="576" x2="332" y2="592"/><line x1="342" y1="576" x2="342" y2="590"/><line x1="348" y1="576" x2="348" y2="592"/></g>
+
+    <!-- yarn balls in a little basket (lower right) -->
+    <path d="M396 600 Q392 636 402 636 L470 636 Q480 636 476 600 Z" fill="#c8905a"/>
+    <path d="M396 600 Q392 636 402 636 L470 636 Q480 636 476 600 Z" fill="none" stroke="#a5764a" stroke-width="2"/>
+    <g stroke="#a5764a" stroke-width="1.4" opacity="0.6"><line x1="406" y1="602" x2="410" y2="634"/><line x1="420" y1="601" x2="422" y2="635"/><line x1="436" y1="601" x2="436" y2="635"/><line x1="452" y1="601" x2="450" y2="635"/><line x1="466" y1="602" x2="462" y2="634"/></g>
+    <circle cx="418" cy="594" r="18" fill="#8a5a86"/>
+    <g stroke="#744a72" stroke-width="1.6" fill="none" opacity="0.7"><path d="M404 590 Q418 582 432 592"/><path d="M402 598 Q418 592 434 600"/><path d="M418 578 Q426 594 414 610"/></g>
+    <circle cx="452" cy="596" r="16" fill="#5f9072"/>
+    <g stroke="#4e7a5f" stroke-width="1.6" fill="none" opacity="0.7"><path d="M440 592 Q452 586 464 594"/><path d="M441 600 Q452 596 465 602"/><path d="M452 582 Q459 596 448 610"/></g>
+  </svg>
+  <p class="closet-cap">Hand-knit, mostly for surviving Berlin winters.</p>
 
   <footer class="site-footer">
     <span>© 2026 Zelia Lerch</span>
