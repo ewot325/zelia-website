@@ -106,8 +106,6 @@ def fit(text, widths):  # widths: list of (max_chars, font_size)
 def record_svg(slot, track):
     x, cx = slot["cover_x"], slot["label_x"]
     href = html.escape(track["url"], quote=True)
-    song, song_fs = fit(clean_name(track["name"]), [(15, 9), (18, 8), (22, 7)])
-    artist, artist_fs = fit(track["artist"], [(18, 7.5), (24, 6.5)])
 
     # album cover if we have one, otherwise a colored sleeve in the slot accent
     cover_path = None
@@ -129,20 +127,21 @@ def record_svg(slot, track):
     else:
         sleeve = f'<rect x="{x}" y="94" width="76" height="76" rx="3" fill="{slot["accent"]}"/>'
 
+    # song + artist live in the hover popup now (data-* attrs), not as labels
+    data = (
+        f' data-t="{html.escape(clean_name(track["name"]), quote=True)}"'
+        f' data-a="{html.escape(track["artist"], quote=True)}"'
+        f' data-c="{html.escape(cover_path or "", quote=True)}"'
+    )
     return (
-        f'<a class="item" href="{href}" target="_blank" rel="noopener"><g>'
+        f'<a class="item" href="{href}" target="_blank" rel="noopener"{data} tabindex="0"><g>'
         f'<text x="{cx}" y="84" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" '
         f'font-size="10.5" letter-spacing="2" fill="#9a8a6e">{slot["label"]}</text>'
         f'<circle cx="{slot["vinyl_cx"]}" cy="132" r="34" fill="url(#vinyl)"/>'
         f'<circle cx="{slot["vinyl_cx"]}" cy="132" r="11" fill="{slot["accent"]}"/>'
         f'<circle cx="{slot["vinyl_cx"]}" cy="132" r="2" fill="#1c1b20"/>'
         f'{sleeve}'
-        f'<path d="M{x} 146 h76 v24 h-76 Z" fill="#000" opacity="0.45"/>'
         f'<rect x="{x}" y="94" width="76" height="76" fill="none" stroke="#000" stroke-opacity="0.2"/>'
-        f'<text x="{cx}" y="158" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" '
-        f'font-size="{song_fs}" fill="#fff">{song}</text>'
-        f'<text x="{cx}" y="167" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" '
-        f'font-size="{artist_fs}" fill="#fff" fill-opacity="0.85">{artist}</text>'
         f'</g></a>'
     )
 

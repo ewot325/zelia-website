@@ -133,6 +133,18 @@ a{color:inherit; text-decoration:none;}
   background:radial-gradient(circle at 35% 30%, #ff9a9a, #d23b3b 58%, #9e1b1b);
   box-shadow:0 3px 4px rgba(0,0,0,.4);
 }
+/* click a polaroid to bring it to the front, enlarged */
+.shot{cursor:zoom-in;}
+.lightbox{position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
+  background:rgba(28,18,6,.62); opacity:0; pointer-events:none; transition:opacity .22s ease; padding:24px; cursor:zoom-out;}
+.lightbox.show{opacity:1; pointer-events:auto;}
+.lightbox figure{margin:0; background:#fffdf7; padding:16px 16px 0; border-radius:3px;
+  box-shadow:0 24px 70px rgba(0,0,0,.55); transform:scale(.9) rotate(-1.5deg); transition:transform .22s ease;
+  max-width:min(90vw,560px);}
+.lightbox.show figure{transform:scale(1) rotate(-1.5deg);}
+.lightbox img{display:block; width:100%; max-height:70vh; object-fit:contain; background:#ece5d6;}
+.lightbox figcaption{font-family:'Caveat',var(--body); font-weight:600; font-size:30px; line-height:1.15;
+  text-align:center; color:#3a332a; padding:12px 10px 18px;}
 
 /* ---------- footer ---------- */
 .site-footer{margin-top:64px; border-top:1px solid var(--rule); padding:26px 0 56px; display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px;}
