@@ -88,11 +88,47 @@ def enrich(track):
         # e.g. "Beast Of Burden - Remastered 1994" has no art, "Beast Of Burden" does
         url2, art = lookup(clean_name(track["name"]))
         url = url2 or url
+    # Last.fm sometimes has no art for a track (e.g. soundtrack cuts) — fall back
+    # to iTunes, then Deezer, so a cover always shows.
+    if art is None:
+        art = itunes_art(clean_name(track["name"]), track["artist"]) or \
+              deezer_art(clean_name(track["name"]), track["artist"])
     # clicks go to the song on Spotify (search deep-link; no account involved)
     q = urllib.parse.quote(f"{clean_name(track['name'])} {track['artist']}")
     track["url"] = f"https://open.spotify.com/search/{q}"
     track["art"] = art
     return track
+
+
+def _get_json(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        return json.load(resp)
+
+
+def itunes_art(name, artist):
+    """Album art from the keyless iTunes Search API (600px)."""
+    try:
+        q = urllib.parse.urlencode({"term": f"{name} {artist}", "entity": "song", "limit": 3})
+        for r in _get_json(f"https://itunes.apple.com/search?{q}").get("results", []):
+            if r.get("artworkUrl100"):
+                return r["artworkUrl100"].replace("100x100", "600x600")
+    except Exception:
+        pass
+    return None
+
+
+def deezer_art(name, artist):
+    """Album art from the keyless Deezer API."""
+    try:
+        q = urllib.parse.quote(f"{name} {artist}")
+        for r in _get_json(f"https://api.deezer.com/search?q={q}&limit=3").get("data", []):
+            cover = (r.get("album") or {}).get("cover_big") or (r.get("album") or {}).get("cover_medium")
+            if cover:
+                return cover
+    except Exception:
+        pass
+    return None
 
 
 def fit(text, widths):  # widths: list of (max_chars, font_size)
